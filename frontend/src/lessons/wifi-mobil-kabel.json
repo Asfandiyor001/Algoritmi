@@ -1,0 +1,250 @@
+{
+  "id": "wifi-mobil-kabel",
+  "modul": "internet",
+  "daraja": "m7",
+  "daqiqa": 12,
+  "sarlavha": "Wi-Fi, mobil tarmoq va okean tubidagi kabel",
+  "vaziyat": "Uyda Wi-Fi, ko'chada mobil internet — ikkalasida ham sim yo'qdek. Unda nega internet kompaniyalari okean tubiga minglab kilometr kabel yotqizadi?",
+  "taxmin": {
+    "savol": "Mobil internetda ma'lumot asosan qanday yo'l bosadi?",
+    "variantlar": [
+      "Butun yo'l havo orqali: minoradan minoraga",
+      "Minoragacha havo orqali, keyin yer osti va okean kabellari orqali",
+      "Har doim sun'iy yo'ldosh orqali"
+    ]
+  },
+  "metrikalar": [
+    { "id": "masofa", "nom": "Masofa", "birlik": "km" },
+    { "id": "kechikish", "nom": "Kechikish", "birlik": "ms" },
+    { "id": "muhit", "nom": "Signal" }
+  ],
+  "obyektlar": {
+    "uy-tel": { "tur": "telefon", "x": 0, "y": 0, "m": [0, 0], "yorliq": "Uyda", "izoh": "Wi-Fi" },
+    "router": { "tur": "router", "x": 2, "y": 0, "m": [0, 2.0], "yorliq": "Router", "izoh": "10–30 metr" },
+    "kocha-tel": { "tur": "telefon", "x": 0, "y": 2.2, "m": [2.6, 0], "yorliq": "Ko'chada", "izoh": "4G / 5G" },
+    "minora": { "tur": "minora", "x": 2, "y": 2.2, "m": [2.6, 2.0], "yorliq": "Minora", "izoh": "bir necha km" },
+    "provayder": { "tur": "provayder", "x": 4, "y": 1.1, "m": [1.3, 3.7], "yorliq": "Provayder", "izoh": "Toshkent" },
+    "yevropa": { "tur": "server", "x": 6.3, "y": 1.1, "m": [0, 5.5], "yorliq": "Marsel", "izoh": "kabellar markazi" },
+    "nyuyork": { "tur": "server", "x": 9, "y": 1.1, "m": [2.6, 5.5], "yorliq": "Nyu-York", "izoh": "sayt serveri" },
+    "yoldosh": { "tur": "yoldosh", "x": 6.5, "y": -1.2, "m": [3.3, 3.7], "yorliq": "Sun'iy yo'ldosh", "izoh": "36 000 km" }
+  },
+  "aloqalar": {
+    "wifi": { "dan": "uy-tel", "ga": "router", "tur": "wifi", "yorliq": "radio" },
+    "radio": { "dan": "kocha-tel", "ga": "minora", "tur": "wifi", "yorliq": "radio" },
+    "router-kabel": { "dan": "router", "ga": "provayder", "tur": "kabel" },
+    "minora-kabel": { "dan": "minora", "ga": "provayder", "tur": "kabel", "yorliq": "optik tola" },
+    "quruqlik": { "dan": "provayder", "ga": "yevropa", "tur": "kabel", "yorliq": "yer osti tolasi" },
+    "okean": { "dan": "yevropa", "ga": "nyuyork", "tur": "okean", "yorliq": "Atlantika kabeli" },
+    "yuqoriga": { "dan": "provayder", "ga": "yoldosh", "tur": "havo" },
+    "pastga": { "dan": "yoldosh", "ga": "nyuyork", "tur": "havo" }
+  },
+  "qadamlar": [
+    {
+      "bob": "muammo",
+      "sarlavha": "Simsiz signal qanday uchadi?",
+      "matn": [
+        "Telefon va router o'rtasida sim yo'q. Ma'lumot radio to'lqin ko'rinishida uchadi — radiopriyomnikdagi kabi, faqat ancha yuqori chastotada.",
+        "Telefon bitlarni to'lqinga «yozadi», router esa ularni qayta bitlarga aylantiradi."
+      ],
+      "metrika": { "masofa": 0.01, "kechikish": 3, "muhit": "radio" },
+      "sahna": {
+        "obyektlar": ["uy-tel", "router"],
+        "aloqalar": ["wifi"],
+        "oqimlar": [{ "yol": ["wifi"], "tezlik": 2, "tur": "bit" }]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Wi-Fi chegarasi",
+      "matn": [
+        "Wi-Fi bir necha o'n metrga yetadi. Devor, metall eshik va hatto akvarium ham signalni susaytiradi.",
+        "Router ikki chastotada ishlaydi: 2,4 GHz — uzoqroqqa, 5 GHz — tezroq, lekin yaqinroqqa."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Router uyning o'rtasida va balandroqda tursa, signal hamma xonaga tekisroq tarqaladi."
+      },
+      "sahna": {
+        "obyektlar": ["uy-tel", "router"],
+        "aloqalar": ["wifi"],
+        "oqimlar": [{ "yol": ["wifi"], "tezlik": 1.4 }],
+        "urgu": ["router"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Mobil tarmoq: minoralar",
+      "matn": [
+        "Ko'chada telefon eng yaqin minora bilan radio orqali gaplashadi. Har bir minora atrofidagi hududga — «yacheyka»ga xizmat qiladi.",
+        "Siz yurganingizda telefon sezdirmasdan bir minoradan keyingisiga o'tadi. Shuning uchun aloqa uzilmaydi."
+      ],
+      "metrika": { "masofa": 2, "kechikish": 30 },
+      "sahna": {
+        "obyektlar": ["kocha-tel", "minora"],
+        "aloqalar": ["radio"],
+        "oqimlar": [{ "yol": ["radio"], "tezlik": 1.6 }],
+        "urgu": ["minora"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "4G va 5G farqi",
+      "matn": [
+        "5G yangi avlod: bir vaqtning o'zida ko'proq qurilmaga xizmat qiladi va javob tezroq keladi.",
+        "Lekin uning eng tez chastotalari uzoqqa yetmaydi, shuning uchun 5G uchun minoralar zichroq quriladi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "«G» — «generation», ya'ni avlod. 1G faqat ovozni uzatgan, 2G SMS ni olib kelgan, 3G — internetni, 4G — videoni."
+      },
+      "metrika": { "kechikish": 12 },
+      "sahna": {
+        "obyektlar": ["kocha-tel", "minora"],
+        "aloqalar": ["radio"],
+        "oqimlar": [{ "yol": ["radio"], "tezlik": 3, "tur": "bit" }],
+        "urgu": ["minora"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Hammasi kabelga ulanadi",
+      "matn": [
+        "Simsiz yo'l juda qisqa: router ham, minora ham darhol kabelga ulanadi va ma'lumotni provayderga uzatadi.",
+        "Mobil internet ham «simsiz» faqat birinchi bir necha kilometrda. Qolgan yo'l — kabel."
+      ],
+      "metrika": { "masofa": 5, "kechikish": 20 },
+      "sahna": {
+        "obyektlar": ["uy-tel", "router", "kocha-tel", "minora", "provayder"],
+        "aloqalar": ["wifi", "radio", "router-kabel", "minora-kabel"],
+        "oqimlar": [
+          { "yol": ["wifi", "router-kabel"], "tezlik": 1.3 },
+          { "yol": ["radio", "minora-kabel"], "tezlik": 1.3 }
+        ],
+        "urgu": ["provayder"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Optik tola: yorug'lik bilan",
+      "matn": [
+        "Uzoq masofada ma'lumot soch tolasidek ingichka shisha tola ichida yorug'lik impulslari bo'lib yuradi.",
+        "Yorug'lik — yonadi, o'chadi: 1 va 0. Bitta tola soniyasiga terabitlab ma'lumot tashiy oladi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Tolada yorug'lik soniyasiga ~200 000 km yuradi. O'zbekistonning dengizga chiqish yo'li yo'q, shuning uchun internet qo'shni davlatlar orqali o'tgan quruqlik kabellari bilan keladi."
+      },
+      "metrika": { "masofa": 5000, "kechikish": 60, "muhit": "yorug'lik" },
+      "sahna": {
+        "obyektlar": ["uy-tel", "router", "kocha-tel", "minora", "provayder", "yevropa"],
+        "aloqalar": ["wifi", "radio", "router-kabel", "minora-kabel", "quruqlik"],
+        "oqimlar": [
+          { "yol": ["wifi", "router-kabel", "quruqlik"], "tezlik": 1.2 },
+          { "yol": ["radio", "minora-kabel", "quruqlik"], "tezlik": 1.2 }
+        ],
+        "urgu": ["yevropa"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Okean tubidagi kabel",
+      "matn": [
+        "Okeandan o'tish uchun tubiga maxsus kabel yotqiziladi. Chuqurlikda u bog' shlangidek ingichka, qirg'oq yaqinida esa po'lat zirh bilan qalinlashtiriladi.",
+        "Har bir necha o'n kilometrda kuchaytirgich bor: u so'nib borayotgan yorug'likni qayta kuchaytiradi."
+      ],
+      "metrika": { "masofa": 11000, "kechikish": 130 },
+      "sahna": {
+        "obyektlar": ["uy-tel", "router", "kocha-tel", "minora", "provayder", "yevropa", "nyuyork"],
+        "aloqalar": ["wifi", "radio", "router-kabel", "minora-kabel", "quruqlik", "okean"],
+        "oqimlar": [
+          { "yol": ["wifi", "router-kabel", "quruqlik", "okean"], "tezlik": 1.2 },
+          { "yol": ["radio", "minora-kabel", "quruqlik", "okean"], "tezlik": 1.2 }
+        ],
+        "urgu": ["nyuyork"]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Nega hammasi sun'iy yo'ldosh orqali emas?",
+      "matn": [
+        "Geostatsionar yo'ldosh 36 000 km balandlikda turadi. Signal unga borib, pastga qaytishi kerak — 72 000 km dan ortiq.",
+        "Natijada javob ~600 ms kechikadi: videoqo'ng'iroqda gapingiz bir lahza kechikib eshitiladi. Yo'ldoshning sig'imi ham kabelnikidan ancha kam."
+      ],
+      "metrika": { "masofa": 72000, "kechikish": 600, "muhit": "radio" },
+      "sahna": {
+        "obyektlar": ["kocha-tel", "minora", "provayder", "yoldosh", "nyuyork"],
+        "aloqalar": ["radio", "minora-kabel", "yuqoriga", "pastga"],
+        "oqimlar": [{ "yol": ["radio", "minora-kabel", "yuqoriga", "pastga"], "tezlik": 0.9 }],
+        "urgu": ["yoldosh"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "Past orbitali yo'ldoshlar",
+      "matn": [
+        "Yangi yo'ldosh tarmoqlari (masalan, Starlink) atigi ~550 km balandlikda ishlaydi, shuning uchun kechikish 30–50 ms gacha qisqaradi.",
+        "Ular kabel yo'q joylar — tog'lar, dengiz, olis qishloqlar uchun foydali. Lekin dunyo trafikining asosiy qismini baribir kabellar tashiydi."
+      ],
+      "metrika": { "masofa": 1100, "kechikish": 40 },
+      "sahna": {
+        "obyektlar": ["kocha-tel", "minora", "provayder", "yoldosh", "nyuyork"],
+        "aloqalar": ["radio", "minora-kabel", "yuqoriga", "pastga"],
+        "oqimlar": [{ "yol": ["radio", "minora-kabel", "yuqoriga", "pastga"], "tezlik": 1.6 }]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Simsiz boshlanib, kabel bilan davom etadi",
+      "matn": [
+        "Wi-Fi va mobil tarmoq — faqat «oxirgi metrlar». Asosiy yo'l yer osti va okean tubidagi optik tolalar orqali o'tadi.",
+        "Xalqaro trafikning 95% dan ortig'i aynan okean kabellaridan o'tadi."
+      ],
+      "metrika": { "masofa": 11000, "kechikish": 130, "muhit": "yorug'lik" },
+      "sahna": {
+        "obyektlar": ["uy-tel", "router", "kocha-tel", "minora", "provayder", "yevropa", "nyuyork"],
+        "aloqalar": ["wifi", "radio", "router-kabel", "minora-kabel", "quruqlik", "okean"],
+        "oqimlar": [
+          { "yol": ["wifi", "router-kabel", "quruqlik", "okean"], "tezlik": 1 },
+          { "yol": ["radio", "minora-kabel", "quruqlik", "okean"], "tezlik": 1 },
+          { "yol": ["okean"], "tezlik": 0.6, "tur": "tasdiq", "teskari": true }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    { "id": "xona", "matn": "Uyingizda Wi-Fi signali qaysi xonada eng kuchsiz? Sababini toping: devor, masofa yoki boshqa narsa?" },
+    { "id": "xarita", "matn": "submarinecablemap.com saytida Yevropa va Amerikani bog'lovchi kabellardan birini toping. Uning uzunligi qancha?" },
+    { "id": "hisob", "matn": "Toshkentdan Nyu-Yorkgacha ~10 000 km. Yorug'lik tolada soniyasiga 200 000 km yursa, signal eng kamida necha millisekundda yetadi?" }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "Wi-Fi signali nima?",
+      "variantlar": ["Radio to'lqin", "Yorug'lik nuri", "Tovush to'lqini"]
+    },
+    {
+      "id": "q2",
+      "savol": "Mobil internetda minoradan keyin ma'lumot odatda qayerga ketadi?",
+      "variantlar": ["Yana havo orqali sun'iy yo'ldoshga", "Kabel orqali provayder tarmog'iga", "To'g'ridan-to'g'ri do'stingiz telefoniga"]
+    },
+    {
+      "id": "q3",
+      "savol": "Okean kabelida so'nayotgan signalni nima tiklaydi?",
+      "variantlar": ["Hech narsa, signal so'nmaydi", "Suv bosimi", "Har bir necha o'n km dagi kuchaytirgichlar"]
+    },
+    {
+      "id": "q4",
+      "savol": "Geostatsionar yo'ldosh orqali aloqa nega sekin?",
+      "variantlar": ["Signal 36 000 km balandlikka borib qaytadi", "Kosmosda internet yo'q", "Yo'ldosh kechasi o'chadi"]
+    }
+  ],
+  "faktlar": [
+    "Okean tubidagi kabellar dunyodagi xalqaro internet trafikining 95% dan ortig'ini tashiydi.",
+    "Okean kabellari ko'pincha kemalarning langari va baliq ovlash to'rlaridan shikastlanadi. Ularni maxsus ta'mir kemalari tuzatadi.",
+    "Shisha tolada yorug'lik vakuumdagidan taxminan 1,5 marta sekin yuradi: soniyasiga ~200 000 km."
+  ],
+  "ai": {
+    "javob": "Mobil internet butunlay simsiz: telefon signali minoradan minoraga havo orqali butun dunyo bo'ylab uchib boradi.",
+    "savol": "Bu to'g'rimi? Darsga ko'ra signal minoradan keyin qanday yo'l bosadi?"
+  }
+}

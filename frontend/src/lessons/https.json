@@ -1,0 +1,233 @@
+{
+  "id": "https",
+  "modul": "internet",
+  "daraja": "m7",
+  "daqiqa": 12,
+  "sarlavha": "HTTPS va qulfcha belgisi",
+  "vaziyat": "Aziz kafedagi bepul Wi-Fi ga ulanib, o'quvchi kabinetiga parolini kiritdi. Shu Wi-Fi ga ulangan begona odam bu parolni ko'ra oladimi?",
+  "taxmin": {
+    "savol": "Brauzerdagi qulfcha belgisi nimani bildiradi?",
+    "variantlar": [
+      "Sayt egasi halol va saytda virus yo'q",
+      "Ulanish shifrlangan va sayt haqiqatan o'sha sayt",
+      "Sayt davlat tomonidan tekshirilgan"
+    ]
+  },
+  "metrikalar": [
+    { "id": "himoya", "nom": "Himoya" },
+    { "id": "begona", "nom": "Begona ko'radi" },
+    { "id": "kalit", "nom": "Kalit", "birlik": "bit" }
+  ],
+  "obyektlar": {
+    "brauzer": { "tur": "noutbuk", "x": 0, "y": 0, "m": [0, 0], "yorliq": "Aziz", "izoh": "brauzer" },
+    "wifi": { "tur": "router", "x": 2.5, "y": 0, "m": [0, 2.0], "yorliq": "Kafe Wi-Fi", "izoh": "parolsiz" },
+    "begona": { "tur": "kuzatuvchi", "x": 2.5, "y": 1.9, "m": [2.3, 2.0], "yorliq": "Begona odam", "izoh": "shu Wi-Fi da" },
+    "sayt": { "tur": "server", "x": 5, "y": 0, "m": [0, 4.0], "yorliq": "Sayt serveri", "izoh": "o'quvchi kabineti" },
+    "sertifikat": { "tur": "sertifikat", "x": 5, "y": -1.9, "m": [2.3, 4.0], "yorliq": "Sertifikat", "izoh": "ishonchli markaz imzosi" }
+  },
+  "aloqalar": {
+    "radio": { "dan": "brauzer", "ga": "wifi", "tur": "wifi", "yorliq": "Wi-Fi" },
+    "internet": { "dan": "wifi", "ga": "sayt", "tur": "kabel", "yorliq": "internet" },
+    "tinglash": { "dan": "wifi", "ga": "begona", "tur": "havo", "yorliq": "tinglaydi" },
+    "imzo": { "dan": "sayt", "ga": "sertifikat", "tur": "havo" }
+  },
+  "qadamlar": [
+    {
+      "bob": "muammo",
+      "sarlavha": "Ochiq Wi-Fi — ochiq xona",
+      "matn": [
+        "Kafedagi parolsiz Wi-Fi da hamma bitta «xona»da o'tiradi. Radio to'lqinni shu yerdagi har kim qabul qila oladi.",
+        "Agar sayt oddiy HTTP orqali ishlasa, paketlar ochiq matn bo'lib boradi: login, parol, xabarlar."
+      ],
+      "metrika": { "himoya": "yo'q", "begona": "parolni", "kalit": 0 },
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "begona"],
+        "aloqalar": ["radio", "internet", "tinglash"],
+        "oqimlar": [
+          { "yol": ["radio", "internet"], "tezlik": 1.2 },
+          { "yol": ["radio", "tinglash"], "tezlik": 1.2 }
+        ],
+        "urgu": ["begona"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "HTTP — ochiq otkritka",
+      "matn": [
+        "HTTP orqali yuborilgan ma'lumot — konvertsiz otkritka: pochtachi ham, qo'shni ham o'qiy oladi.",
+        "Begona odam paketni o'zgartirishi ham mumkin: masalan, sahifaga soxta havola qo'shib qo'yadi."
+      ],
+      "eslatma": {
+        "tur": "warn",
+        "matn": "Brauzer manzil qatorida «Xavfsiz emas» deb yozsa, bu sahifaga parol va karta ma'lumotlarini kiritmang."
+      },
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "begona"],
+        "aloqalar": ["radio", "internet", "tinglash"],
+        "oqimlar": [{ "yol": ["radio", "tinglash"], "tezlik": 2 }],
+        "urgu": ["begona"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "HTTPS: S — «secure»",
+      "matn": [
+        "HTTPS da brauzer va sayt ma'lumotni shifrlaydi. Paket yo'lda ham, Wi-Fi da ham yopiq qutidek boradi.",
+        "Begona odam paketlarni ushlay oladi, lekin ichida faqat ma'nosiz belgilarni ko'radi."
+      ],
+      "metrika": { "himoya": "shifrlangan", "begona": "hech nimani", "kalit": 256 },
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "begona"],
+        "aloqalar": ["radio", "internet", "tinglash"],
+        "oqimlar": [
+          { "yol": ["radio", "internet"], "tezlik": 1.2, "tur": "qulf" },
+          { "yol": ["radio", "tinglash"], "tezlik": 0.8, "tur": "qulf" }
+        ]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Kalitni qanday kelishish kerak?",
+      "matn": [
+        "Shifrlash uchun ikkala tomonda bir xil maxfiy kalit bo'lishi kerak. Lekin Aziz va sayt avval hech qachon uchrashmagan.",
+        "Kalitni ochiq yuborsak, begona odam uni ham ushlab oladi va hamma narsani ocha oladi."
+      ],
+      "metrika": { "himoya": "?", "kalit": 0 },
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "begona"],
+        "aloqalar": ["radio", "internet", "tinglash"],
+        "oqimlar": [
+          { "yol": ["radio", "internet"], "tezlik": 0.8, "tur": "sorov" },
+          { "yol": ["radio", "tinglash"], "tezlik": 0.8, "tur": "sorov" }
+        ],
+        "urgu": ["begona"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Ochiq qulf va yopiq kalit",
+      "matn": [
+        "Sayt hammaga «ochiq qulf» tarqatadi. Uni istalgan odam yopa oladi, lekin ochish uchun faqat saytdagi maxfiy kalit kerak.",
+        "Brauzer yangi maxfiy kalitni shu qulf bilan yopib yuboradi. Begona odam qutini ushlasa ham ocha olmaydi. Endi ikkala tomonda umumiy kalit bor."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Bu «ochiq kalitli shifrlash» deyiladi. Kelishuv bir necha millisekund davom etadi va har bir yangi ulanishda takrorlanadi."
+      },
+      "metrika": { "himoya": "kalit bor", "kalit": 256 },
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "begona"],
+        "aloqalar": ["radio", "internet", "tinglash"],
+        "oqimlar": [
+          { "yol": ["radio", "internet"], "tezlik": 0.8, "tur": "tasdiq", "teskari": true },
+          { "yol": ["radio", "internet"], "tezlik": 0.8, "tur": "qulf" }
+        ],
+        "urgu": ["sayt"]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Soxta sayt",
+      "matn": [
+        "Ayyor begona odam o'zini sayt qilib ko'rsatishi mumkin: «Mana mening ochiq qulfim». Brauzer unga kalit yuborsa, hammasi barbod.",
+        "Shifrlash bor, lekin suhbatdosh kim — noma'lum. Haqiqiy sayt ekanini qanday tekshiramiz?"
+      ],
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "begona"],
+        "aloqalar": ["radio", "internet", "tinglash"],
+        "oqimlar": [{ "yol": ["tinglash", "radio"], "tezlik": 0.9, "tur": "xato", "yoqolish": 0.8 }],
+        "urgu": ["begona"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Sertifikat — saytning pasporti",
+      "matn": [
+        "Haqiqiy sayt sertifikat ko'rsatadi: unda sayt nomi va ochiq qulfi yozilgan, ishonchli markaz uni raqamli imzo bilan tasdiqlagan.",
+        "Brauzer imzoni tekshiradi. Nomi mos kelmasa yoki imzo soxta bo'lsa, katta qizil ogohlantirish chiqaradi."
+      ],
+      "metrika": { "himoya": "shifr + imzo" },
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "begona", "sertifikat"],
+        "aloqalar": ["radio", "internet", "tinglash", "imzo"],
+        "oqimlar": [
+          { "yol": ["imzo"], "tezlik": 0.8, "tur": "tasdiq", "teskari": true },
+          { "yol": ["internet", "radio"], "tezlik": 0.9, "tur": "tasdiq" }
+        ],
+        "urgu": ["sertifikat"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "Qulfcha nimani kafolatlaydi — va nimani emas",
+      "matn": [
+        "Qulfcha ikki narsani bildiradi: ulanish shifrlangan va siz manzil qatoridagi saytning o'zi bilan gaplashyapsiz.",
+        "Lekin u sayt halol ekanini bildirmaydi! Firibgarlar ham o'z soxta saytlariga sertifikat oladi. Shuning uchun manzilni harfma-harf tekshiring."
+      ],
+      "eslatma": {
+        "tur": "warn",
+        "matn": "«uzum-bonus-yutuq.top» kabi saytda ham qulfcha bo'lishi mumkin. Qulfcha — xavfsiz yo'l, lekin manzil to'g'ri ekanini o'zingiz tekshirasiz."
+      },
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "sertifikat"],
+        "aloqalar": ["radio", "internet", "imzo"],
+        "oqimlar": [{ "yol": ["radio", "internet"], "tezlik": 1.2, "tur": "qulf" }],
+        "urgu": ["brauzer"]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Xavfsiz ulanish uch qadamda",
+      "matn": [
+        "1) Sertifikat: sayt kimligini isbotlaydi. 2) Kalit kelishuvi: begona ko'rmaydigan umumiy kalit. 3) Shifrlash: barcha paketlar yopiq.",
+        "Bugun saytlarning aksariyati HTTPS da ishlaydi. Ochiq Wi-Fi da ham begona odam faqat «qutilar» ni ko'radi."
+      ],
+      "metrika": { "himoya": "HTTPS", "begona": "hech nimani", "kalit": 256 },
+      "sahna": {
+        "obyektlar": ["brauzer", "wifi", "sayt", "begona", "sertifikat"],
+        "aloqalar": ["radio", "internet", "tinglash", "imzo"],
+        "oqimlar": [
+          { "yol": ["radio", "internet"], "tezlik": 1.2, "tur": "qulf" },
+          { "yol": ["radio", "internet"], "tezlik": 0.7, "tur": "qulf", "teskari": true },
+          { "yol": ["radio", "tinglash"], "tezlik": 0.5, "tur": "qulf" }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    { "id": "sertifikat", "matn": "Brauzerda sevimli saytingizni oching va qulfcha belgisini bosing. Sertifikatni kim bergan va qachongacha amal qiladi?" },
+    { "id": "fishing", "matn": "Qulfchasi bor, lekin manzili «uzum-bonus-yutuq.top» bo'lgan saytga ishonish mumkinmi? Darsdagi dalil bilan tushuntiring." },
+    { "id": "qoidalar", "matn": "Ochiq Wi-Fi da nimalarni qilmaslik kerak? O'zingiz uchun 3 ta qoida yozing." }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "Ochiq Wi-Fi da HTTP orqali yuborilgan parolni kim ko'ra oladi?",
+      "variantlar": ["Hech kim", "Faqat sayt egasi", "Shu tarmoqdagi istalgan odam"]
+    },
+    {
+      "id": "q2",
+      "savol": "Brauzerdagi qulfcha belgisi nimani kafolatlaydi?",
+      "variantlar": ["Ulanish shifrlangan va sayt nomi sertifikatga mos", "Sayt egasi halol odam", "Saytda virus yo'q"]
+    },
+    {
+      "id": "q3",
+      "savol": "Sertifikat nima uchun kerak?",
+      "variantlar": ["Saytni tezlashtirish uchun", "Sayt haqiqatan o'zi ekanini tasdiqlash uchun", "Reklamani o'chirish uchun"]
+    },
+    {
+      "id": "q4",
+      "savol": "Brauzer «Ulanish xavfsiz emas» desa nima qilish kerak?",
+      "variantlar": ["Parol kiritmasdan saytdan chiqish", "Sahifani yangilab, parolni kiritish", "Ogohlantirishga e'tibor bermaslik"]
+    }
+  ],
+  "faktlar": [
+    "Bugun brauzerda ochiladigan sahifalarning 90% dan ortig'i HTTPS orqali yuklanadi.",
+    "HTTPS dagi shifr kalitini tanlab topish uchun eng kuchli kompyuterlarga ham milliardlab yil kerak bo'ladi.",
+    "Fishing saytlarning katta qismida ham qulfcha bor: u halollikni emas, faqat ulanish himoyasini ko'rsatadi."
+  ],
+  "ai": {
+    "javob": "Qulfcha belgisi bor sayt to'liq xavfsiz: unga bemalol karta raqami va parolni kiritish mumkin.",
+    "savol": "Bu to'g'rimi? Darsga ko'ra qulfcha aslida nimani kafolatlaydi va nimani kafolatlamaydi?"
+  }
+}

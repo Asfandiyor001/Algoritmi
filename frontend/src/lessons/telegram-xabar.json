@@ -1,0 +1,289 @@
+{
+  "id": "telegram-xabar",
+  "modul": "internet",
+  "daraja": "m7",
+  "daqiqa": 12,
+  "sarlavha": "Telegram xabarining sayohati",
+  "vaziyat": "Toshkentdagi Aziz Nyu-Yorkdagi akasiga \"Salom!\" deb yozdi. Xabar 0,2 soniyada yetib bordi. Qanday qilib?",
+  "taxmin": {
+    "savol": "Xabar qanday yo'l bilan boradi?",
+    "variantlar": ["Sun'iy yo'ldosh orqali", "Okean tubidagi kabel orqali", "Radio to'lqin orqali"]
+  },
+  "metrikalar": [
+    { "id": "masofa", "nom": "Masofa", "birlik": "km" },
+    { "id": "kechikish", "nom": "Kechikish", "birlik": "ms" },
+    { "id": "paketlar", "nom": "Paketlar" },
+    { "id": "yoqolgan", "nom": "Yo'qolgan" }
+  ],
+  "obyektlar": {
+    "telefon": { "tur": "telefon", "x": 0, "y": 0, "m": [0, 0], "yorliq": "Aziz", "izoh": "Toshkent" },
+    "bitlar": { "tur": "bitlar", "x": 2, "y": 0, "m": [2, 0], "yorliq": "\"Salom!\"", "izoh": "48 bit" },
+    "paket": { "tur": "paket", "x": 2, "y": 0, "m": [2, 0], "yorliq": "Paket", "izoh": "kimdan · kimga" },
+    "router": { "tur": "router", "x": 2, "y": 0, "m": [2, 0], "yorliq": "Uy routeri" },
+    "provayder": { "tur": "provayder", "x": 4, "y": 0, "m": [4, 0], "yorliq": "Provayder", "izoh": "internet beruvchi" },
+    "dns": { "tur": "dns", "x": 4, "y": -1.8, "m": [4, -1.8], "yorliq": "DNS serveri" },
+    "savol": { "tur": "savol", "x": 6, "y": 0, "m": [4, 2], "yorliq": "Server qayerda?" },
+    "server": { "tur": "server", "x": 6, "y": 0, "m": [4, 2], "yorliq": "Telegram serveri", "izoh": "Yevropa" },
+    "aka": { "tur": "telefon", "x": 9, "y": 0, "m": [0, 2], "yorliq": "Akasi", "izoh": "Nyu-York" },
+    "kuzatuvchi": { "tur": "kuzatuvchi", "x": 7.5, "y": 1.8, "m": [2, 3.4], "yorliq": "Begona odam", "izoh": "yo'lni kuzatadi" }
+  },
+  "aloqalar": {
+    "kodlash": { "dan": "telefon", "ga": "bitlar", "tur": "havo" },
+    "konvert": { "dan": "telefon", "ga": "paket", "tur": "havo" },
+    "wifi": { "dan": "telefon", "ga": "router", "tur": "wifi", "yorliq": "Wi-Fi" },
+    "uy-kabel": { "dan": "router", "ga": "provayder", "tur": "kabel", "yorliq": "kabel" },
+    "dns-sorov": { "dan": "provayder", "ga": "dns", "tur": "kabel", "yorliq": "so'rov" },
+    "savol-yol": { "dan": "provayder", "ga": "savol", "tur": "havo" },
+    "magistral": { "dan": "provayder", "ga": "server", "tur": "kabel", "yorliq": "quruqlik kabeli" },
+    "okean": { "dan": "server", "ga": "aka", "tur": "okean", "yorliq": "Atlantika kabeli" }
+  },
+  "qadamlar": [
+    {
+      "bob": "muammo",
+      "sarlavha": "Xabar — bu bitlar",
+      "matn": [
+        "Aziz \"Salom!\" deb yozdi. Lekin telefon harflarni tushunmaydi: u faqat 0 va 1 bilan ishlaydi.",
+        "Har bir harf raqamli kodga, kod esa bitlarga aylanadi. Masalan, \"S\" harfi — 01010011."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "\"Salom!\" — 6 ta belgi. Lotin harflari va tinish belgilari UTF-8 da 1 baytdan, ya'ni 8 bitdan iborat: 6 × 8 = 48 bit."
+      },
+      "metrika": { "masofa": 0, "kechikish": 0, "paketlar": 0, "yoqolgan": 0 },
+      "sahna": {
+        "obyektlar": ["telefon", "bitlar"],
+        "aloqalar": ["kodlash"],
+        "oqimlar": [{ "yol": ["kodlash"], "tezlik": 4, "tur": "bit" }]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Paket — raqamli konvert",
+      "matn": [
+        "Bitlar shunchaki jo'natilmaydi. Ular \"konvert\"ga solinadi: unga kimdan, kimga va nechanchi bo'lak ekani yoziladi.",
+        "Bunday konvert paket deyiladi. Internetda hamma narsa — xabar, rasm, video — paketlar bilan yuboriladi."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Konvertdagi manzil va xizmat ma'lumotlari ham joy egallaydi: odatda bir necha o'n bayt."
+      },
+      "metrika": { "paketlar": 1 },
+      "sahna": {
+        "obyektlar": ["telefon", "paket"],
+        "aloqalar": ["konvert"],
+        "oqimlar": [{ "yol": ["konvert"], "tezlik": 1.2 }]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Wi-Fi orqali routerga",
+      "matn": [
+        "Paket telefondan radio to'lqin ko'rinishida uydagi routerga uchadi. Bu — Wi-Fi.",
+        "Router uydagi barcha qurilmalarni internetga ulaydigan \"darvoza\"."
+      ],
+      "metrika": { "masofa": 0.01, "kechikish": 5 },
+      "sahna": {
+        "obyektlar": ["telefon", "router"],
+        "aloqalar": ["wifi"],
+        "oqimlar": [{ "yol": ["wifi"], "tezlik": 1.5 }]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Provayder va IP manzil",
+      "matn": [
+        "Router paketni kabel orqali internet provayderiga uzatadi.",
+        "Internetdagi har bir qurilmaning manzili bor — IP manzil. Paket konvertiga aynan shu raqamlar yoziladi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "IP manzil nuqta bilan ajratilgan to'rtta sondan iborat, masalan 203.0.113.25. Bu — internetdagi \"uy manzili\"."
+      },
+      "metrika": { "masofa": 5, "kechikish": 15 },
+      "sahna": {
+        "obyektlar": ["telefon", "router", "provayder"],
+        "aloqalar": ["wifi", "uy-kabel"],
+        "oqimlar": [{ "yol": ["wifi", "uy-kabel"], "tezlik": 1.5 }]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Telegram serveri qayerda?",
+      "matn": [
+        "Paketni yuborish uchun serverning IP manzili kerak. Lekin biz serverlarni nomi bilan bilamiz, masalan web.telegram.org.",
+        "Kompyuter esa nomni emas, faqat raqamni tushunadi. Nomni raqamga kim aylantiradi?"
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Telegram ilovasi o'z serverlarining manzillarini oldindan biladi. Ammo brauzer va ko'pchilik ilovalar nom bo'yicha so'raydi, shuning uchun keyingi qadam deyarli har bir sayt uchun bajariladi."
+      },
+      "sahna": {
+        "obyektlar": ["telefon", "router", "provayder", "savol"],
+        "aloqalar": ["wifi", "uy-kabel", "savol-yol"],
+        "urgu": ["savol"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "DNS — internetning telefon kitobchasi",
+      "matn": [
+        "DNS serveri nomni IP manzilga aylantiradi: \"web.telegram.org\" → raqamli manzil.",
+        "Telefon DNS'dan so'raydi, javobni oladi va endi paketni qayerga yuborishni biladi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Javob telefonda bir muddat saqlanadi (kesh), shuning uchun keyingi safar qayta so'rash shart emas."
+      },
+      "metrika": { "kechikish": 35 },
+      "sahna": {
+        "obyektlar": ["telefon", "router", "provayder", "dns"],
+        "aloqalar": ["wifi", "uy-kabel", "dns-sorov"],
+        "oqimlar": [
+          { "yol": ["wifi", "uy-kabel", "dns-sorov"], "tezlik": 0.8, "tur": "sorov" },
+          { "yol": ["wifi", "uy-kabel", "dns-sorov"], "tezlik": 0.8, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["dns"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Okean tubidagi kabel",
+      "matn": [
+        "Paket provayderdan yer osti kabellari orqali Yevropadagi Telegram serveriga, u yerdan Atlantika okeani tubidagi kabel orqali Nyu-Yorkka boradi.",
+        "Bu kabellar ichida ingichka shisha tola bor: bitlar yorug'lik impulslari ko'rinishida yuguradi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Yorug'lik shisha tolada soniyasiga ~200 000 km yuradi. 11 000 km yo'l uchun eng kamida 55 ms kerak, qolgan vaqt routerlar va navbatlarga ketadi."
+      },
+      "metrika": { "masofa": 11000, "kechikish": 130 },
+      "sahna": {
+        "obyektlar": ["telefon", "router", "provayder", "server", "aka"],
+        "aloqalar": ["wifi", "uy-kabel", "magistral", "okean"],
+        "oqimlar": [{ "yol": ["wifi", "uy-kabel", "magistral", "okean"], "tezlik": 1.5 }]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Paket yo'qoldi!",
+      "matn": [
+        "Aziz salomdan keyin rasm ham yubordi. Rasm katta, shuning uchun u yuzlab paketga bo'linadi.",
+        "Yo'lda paketlardan biri yo'qoldi: tiqilib qolgan router uni tashlab yubordi. Endi rasm chala!"
+      ],
+      "eslatma": {
+        "tur": "warn",
+        "matn": "Internet har bir paket yetib borishiga kafolat bermaydi. Paket yo'qolishi odatiy hol."
+      },
+      "metrika": { "paketlar": 150, "yoqolgan": 1 },
+      "sahna": {
+        "obyektlar": ["telefon", "router", "provayder", "server", "aka"],
+        "aloqalar": ["wifi", "uy-kabel", "magistral", "okean"],
+        "oqimlar": [
+          { "yol": ["wifi", "uy-kabel", "magistral", "okean"], "tezlik": 3 },
+          { "yol": ["magistral", "okean"], "tezlik": 0.6, "tur": "xato", "yoqolish": 0.75 }
+        ]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Qayta yuborish (TCP)",
+      "matn": [
+        "Qabul qiluvchi qaysi paketlar kelganini tasdiqlab turadi. Yuboruvchi bitta paketga tasdiq kelmaganini sezadi.",
+        "U butun rasmni emas, faqat o'sha yo'qolgan paketni qayta yuboradi. Bu qoidalar to'plami TCP deb ataladi."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Paketlarda tartib raqami bor. Ular aralash kelsa ham, rasm oxirida to'g'ri tartibda yig'iladi."
+      },
+      "metrika": { "kechikish": 190 },
+      "sahna": {
+        "obyektlar": ["telefon", "router", "provayder", "server", "aka"],
+        "aloqalar": ["wifi", "uy-kabel", "magistral", "okean"],
+        "oqimlar": [
+          { "yol": ["okean"], "tezlik": 2, "tur": "tasdiq", "teskari": true },
+          { "yol": ["okean"], "tezlik": 0.8 }
+        ],
+        "urgu": ["server"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "Shifrlash: yo'lda hech kim o'qiy olmaydi",
+      "matn": [
+        "Paket ko'plab begona routerlar va kabellardan o'tadi. Agar u ochiq bo'lsa, yo'ldagi odam \"Salom!\"ni o'qiy oladi.",
+        "Shuning uchun Telegram paketlarni shifrlaydi: begona odam faqat ma'nosiz belgilarni ko'radi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Oddiy chatlarda shifr telefon bilan Telegram serveri orasida ishlaydi. \"Maxfiy chat\"da esa xabarni faqat ikki suhbatdosh o'qiy oladi, hatto server ham emas."
+      },
+      "sahna": {
+        "obyektlar": ["telefon", "router", "provayder", "server", "aka", "kuzatuvchi"],
+        "aloqalar": ["wifi", "uy-kabel", "magistral", "okean"],
+        "oqimlar": [{ "yol": ["wifi", "uy-kabel", "magistral", "okean"], "tezlik": 1.5, "tur": "qulf" }],
+        "urgu": ["kuzatuvchi"]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Butun yo'l bitta rasmda",
+      "matn": [
+        "Bitlar → paket → Wi-Fi → router → provayder → DNS → Yevropadagi server → okean kabeli → akasining telefoni.",
+        "Hammasi taxminan 0,2 soniyada: ko'z ochib-yumguncha."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Sun'iy yo'ldosh orqali yo'l ancha uzoq bo'lardi: geostatsionar yo'ldosh 36 000 km balandlikda turadi."
+      },
+      "metrika": { "kechikish": 200 },
+      "sahna": {
+        "obyektlar": ["telefon", "router", "provayder", "dns", "server", "aka"],
+        "aloqalar": ["wifi", "uy-kabel", "dns-sorov", "magistral", "okean"],
+        "oqimlar": [
+          { "yol": ["wifi", "uy-kabel", "magistral", "okean"], "tezlik": 1.2, "tur": "qulf" },
+          { "yol": ["wifi", "uy-kabel", "dns-sorov"], "tezlik": 0.4, "tur": "sorov" }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    { "id": "kabel-uzilsa", "matn": "Atlantika kabeli uzilib qolsa, paket qaysi yo'l bilan aylanib o'tishi mumkin? Xaritada ko'rsating." },
+    { "id": "uzun-xabar", "matn": "Bitta paketga taxminan 1 400 bayt sig'adi. Lotin harflarida yozilgan 1 000 harfli xabar nechta paket bo'ladi?" },
+    { "id": "shifrsiz", "matn": "Shifrlash o'chirilgan bo'lsa, yo'ldagi begona odam paketda nimalarni ko'radi? Ro'yxat qiling." }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "Bitta paket yo'qolsa nima bo'ladi?",
+      "variantlar": ["Butun xabar yo'qoladi", "Faqat shu paket qayta yuboriladi", "Xabar buzilib keladi"]
+    },
+    {
+      "id": "q2",
+      "savol": "DNS nima qiladi?",
+      "variantlar": ["Xabarni shifrlaydi", "Paketlarni qayta yuboradi", "Sayt nomini IP manzilga aylantiradi"]
+    },
+    {
+      "id": "q3",
+      "savol": "Nega sun'iy yo'ldosh orqali yuborish sekinroq bo'lardi?",
+      "variantlar": [
+        "Kosmosda yorug'lik sekinroq yuradi",
+        "Yo'ldosh juda baland: signal 36 000 km borib-kelishi kerak",
+        "Yo'ldoshlar faqat kechasi ishlaydi"
+      ]
+    },
+    {
+      "id": "q4",
+      "savol": "Okean tubidagi kabelda bitlar qanday ko'rinishda yuguradi?",
+      "variantlar": ["Yorug'lik impulslari", "Tovush to'lqinlari", "Suv bosimi"]
+    }
+  ],
+  "faktlar": [
+    "Xalqaro internet trafikining aksariyati okean tubidagi kabellardan o'tadi.",
+    "\"Salom!\" xabari atigi 48 bit, telefonda olingan bitta rasm esa millionlab bit.",
+    "DNS tizimi 1983-yilda yaratilgan va hozir ham internetning asosiy qismlaridan biri."
+  ],
+  "ai": {
+    "javob": "Telegram xabarlari sun'iy yo'ldosh orqali yuboriladi, shuning uchun ular dunyoning istalgan nuqtasiga tez yetib boradi.",
+    "savol": "Bu javob to'g'rimi? Darsdagi qaysi dalillar bilan tekshirasiz?"
+  }
+}

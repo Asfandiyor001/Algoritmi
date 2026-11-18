@@ -139,6 +139,10 @@ Maqsad: AI kod yozib beradigan davrda yosh avlodga **kompyuter, internet va AI q
 ### 6.2. Darsning ma'lumot sxemasi
 
 Darslar kod emas, **ma'lumot** sifatida yoziladi. Shunda kontent muallifi dasturchi bo'lishi shart emas.
+Aniq tiplar: `frontend/src/engine/types.ts`. Har bir JSON build paytida `frontend/src/engine/validate.ts` bilan tekshiriladi.
+
+Sahna obyektlari va aloqalari **darsda bir marta** e'lon qilinadi, qadamlar esa ulardan keraklisini nomi bilan tanlaydi.
+Shunda obyekt qadamdan qadamga o'z joyida qoladi, kamera esa silliq kattalashadi yoki kichrayadi.
 
 ```jsonc
 {
@@ -148,39 +152,48 @@ Darslar kod emas, **ma'lumot** sifatida yoziladi. Shunda kontent muallifi dastur
   "daqiqa": 12,
   "sarlavha": "Telegram xabarining sayohati",
   "vaziyat": "Xabaringiz Toshkentdan Nyu-Yorkka 0,2 soniyada qanday yetadi?",
-  "taxmin": {
+  "taxmin": {                     // baholanmaydi, to'g'ri javob yozilmaydi
     "savol": "Xabar qanday yo'l bilan boradi?",
-    "variantlar": ["Sun'iy yo'ldosh orqali", "Okean tubidagi kabel orqali", "Radio to'lqin orqali"],
-    "togri": 1
+    "variantlar": ["Sun'iy yo'ldosh orqali", "Okean tubidagi kabel orqali", "Radio to'lqin orqali"]
   },
-  "metrikalar": ["masofa", "kechikish", "paketlar"],
+  "metrikalar": [{ "id": "masofa", "nom": "Masofa", "birlik": "km" }, { "id": "paketlar", "nom": "Paketlar" }],
+  "obyektlar": {                  // x, y katakda; m = telefon ekrani uchun koordinata (ixtiyoriy)
+    "telefon": { "tur": "telefon", "x": 0, "y": 0, "m": [0, 0], "yorliq": "Aziz", "izoh": "Toshkent" },
+    "router":  { "tur": "router",  "x": 2, "y": 0, "m": [2, 0], "yorliq": "Uy routeri" }
+  },
+  "aloqalar": {
+    "wifi": { "dan": "telefon", "ga": "router", "tur": "wifi", "yorliq": "Wi-Fi" }
+  },
   "qadamlar": [
     {
-      "bob": "muammo",
-      "sarlavha": "Xabar — bu bitlar",
-      "matn": ["Siz yozgan \"Salom\" kompyuter uchun 0 va 1 lardan iborat..."],
-      "eslatma": { "tur": "insight", "matn": "Har bir harf UTF-8 da 1–4 baytga aylanadi." },
-      "metrika": { "masofa": 0, "kechikish": 0, "paketlar": 1 },
-      "sahna": {
-        "obyektlar": { "telefon": { "tur": "phone", "x": 0, "y": 0 } },
-        "aloqalar": {},
-        "oqimlar": []
+      "bob": "texnika",           // muammo | yechim | texnika | insight | xulosa
+      "sarlavha": "Wi-Fi orqali routerga",
+      "matn": ["Paket telefondan radio to'lqin ko'rinishida uydagi routerga uchadi."],
+      "eslatma": { "tur": "insight", "matn": "..." },   // warn | tip | insight
+      "metrika": { "masofa": 0.01 },                     // faqat o'zgarganlari, qolgani meros
+      "sahna": {                                         // berilmasa, oldingi qadam sahnasi qoladi
+        "obyektlar": ["telefon", "router"],
+        "aloqalar": ["wifi"],
+        "oqimlar": [{ "yol": ["wifi"], "tezlik": 1.5, "tur": "oddiy" }],
+        "urgu": ["router"]
       }
     }
   ],
-  "topshiriqlar": [
-    { "id": "mtu", "matn": "Paket hajmini 2 baravar kamaytiring. Paketlar soni qanday o'zgaradi?" }
-  ],
+  "topshiriqlar": [{ "id": "uzun-xabar", "matn": "1000 harfli xabar nechta paket bo'ladi?" }],
   "test": [
     {
+      "id": "q1",                 // to'g'ri javob kliyentga YUBORILMAYDI, u serverda id bo'yicha saqlanadi
       "savol": "Bitta paket yo'qolsa nima bo'ladi?",
-      "variantlar": ["Butun xabar yo'qoladi", "Faqat shu paket qayta yuboriladi", "Xabar buzilib keladi"],
-      "javob_id": "q1"              // to'g'ri javob kliyentga YUBORILMAYDI
+      "variantlar": ["Butun xabar yo'qoladi", "Faqat shu paket qayta yuboriladi", "Xabar buzilib keladi"]
     }
   ],
-  "faktlar": ["Dunyodagi internet trafikining 95% dan ortig'i okean tubidagi kabellardan o'tadi."]
+  "faktlar": ["Xalqaro internet trafikining aksariyati okean tubidagi kabellardan o'tadi."],
+  "ai": { "javob": "AI aytgan (xato) gap", "savol": "Bu to'g'rimi? Qaysi dalil bilan tekshirasiz?" }
 }
 ```
+
+**Oqim turlari:** `oddiy`, `bit` (mayda), `sorov` (DNS so'rovi), `tasdiq` (javob/ACK), `xato` (yo'lda yo'qoladi, `yoqolish` 0–1), `qulf` (shifrlangan).
+`teskari: true` paketlarni zanjir bo'ylab orqaga yuradi.
 
 > ⚠️ **Muhim:** test javoblari kliyentga yuborilmaydi. Javob serverga jo'natiladi va server tekshiradi. Oson Studio'dagi xato shu yo'l bilan oldi olinadi.
 
@@ -192,7 +205,7 @@ designed-to-scale'dagi kabi bitta umumiy dvigatel ishlatiladi:
 - **Aloqalar** (`links`): obyektlar orasidagi chiziqlar (kabel, Wi-Fi, ma'lumot oqimi).
 - **Oqimlar** (`flows`): aloqalar bo'ylab harakatlanadigan "paketlar". Ularning tezligi (`rate`) va turi (oddiy, og'ir, xato, ping) beriladi.
 - **Metrikalar paneli**: qadam almashganda raqamlar animatsiya bilan o'zgaradi.
-- **Boshqaruv**: ← → qadamlar, Space pauza, R qayta, 0 ekranga moslash.
+- **Boshqaruv**: ← → qadamlar, Space pauza, telefonda sahnani surish. Kamera har qadamda ko'rinadigan obyektlarga avtomatik moslashadi.
 
 Ikki xil sahna turi bo'ladi:
 1. **Diagramma sahnasi** (SVG): tarmoq, arxitektura, algoritmlar.
@@ -441,10 +454,10 @@ Fanlab tizimiga asoslangan:
 | Python | **Pyodide** (WebAssembly) | Kod brauzerda ishlaydi, server yuklanmaydi |
 | SQL | **sql.js** (SQLite WASM) | Brauzerda haqiqiy SQL |
 | Formulalar | KaTeX yoki Temml | Yengil |
-| Backend | Node.js (Fastify) yoki Go | Oddiy REST API |
-| Ma'lumotlar bazasi | PostgreSQL | Ishonchli, reyting so'rovlari uchun qulay |
+| Backend | **Python: FastAPI** (`backend/`, frontenddan alohida) | Oddiy REST API, tez yoziladi, AI kutubxonalari bilan qulay |
+| Ma'lumotlar bazasi | SQLAlchemy 2: MVP'da SQLite, keyin PostgreSQL | Ishonchli, reyting so'rovlari uchun qulay; o'tish faqat URL o'zgarishi |
 | Kesh va reyting | Redis (sorted set) | Reytingni tez hisoblash |
-| Login | **Telegram bot** (Fanlab uslubida) | O'zbekistonda deyarli hammada Telegram bor, parol kerak emas |
+| Login | **Telegram bot** (aiogram 3, Fanlab uslubida) | O'zbekistonda deyarli hammada Telegram bor, parol kerak emas |
 | Hosting | VPS (nginx) + CDN | Arzon, mahalliy auditoriyaga tez |
 | Analitika | O'zimiz yoki Plausible | Bolalar ma'lumotlarini himoya qilish uchun |
 
