@@ -1,0 +1,244 @@
+{
+  "id": "dns",
+  "modul": "internet",
+  "daraja": "m7",
+  "daqiqa": 10,
+  "sarlavha": "DNS: telefon kitobchasi",
+  "vaziyat": "Siz brauzerga «uzum.uz» deb yozasiz. Lekin internetdagi paketlar faqat raqamli IP manzil bilan yuradi. So'zni raqamga kim va qanday aylantiradi?",
+  "taxmin": {
+    "savol": "«uzum.uz» ning IP manzilini brauzer qayerdan biladi?",
+    "variantlar": [
+      "Barcha saytlar manzili brauzer ichida yozilgan",
+      "Maxsus serverlardan so'rab, javobni zanjir bo'ylab topadi",
+      "Sayt nomining o'zi IP manzil bo'ladi"
+    ]
+  },
+  "metrikalar": [
+    { "id": "kechikish", "nom": "Vaqt", "birlik": "ms" },
+    { "id": "sorovlar", "nom": "So'rovlar" },
+    { "id": "kesh", "nom": "Kesh" }
+  ],
+  "obyektlar": {
+    "brauzer": { "tur": "noutbuk", "x": 0, "y": 0, "m": [1.6, 0], "yorliq": "Brauzer", "izoh": "uzum.uz" },
+    "savol": { "tur": "savol", "x": 2, "y": 0, "m": [1.6, 2.0], "yorliq": "IP qaysi?" },
+    "rezolver": { "tur": "dns", "x": 2, "y": 0, "m": [1.6, 2.0], "yorliq": "Provayder DNS", "izoh": "javob qidiruvchi" },
+    "ildiz": { "tur": "dns", "x": 4.2, "y": -1.8, "m": [-0.3, 4.0], "yorliq": "Ildiz server", "izoh": "«.»" },
+    "tld": { "tur": "dns", "x": 4.2, "y": 0, "m": [1.6, 4.0], "yorliq": ".uz serveri" },
+    "nufuzli": { "tur": "dns", "x": 4.2, "y": 1.8, "m": [3.5, 4.0], "yorliq": "uzum.uz DNS", "izoh": "aniq javob" },
+    "sayt": { "tur": "server", "x": 0, "y": 2.2, "m": [3.6, 0], "yorliq": "uzum.uz sayti", "izoh": "198.51.100.20" },
+    "firibgar": { "tur": "kuzatuvchi", "x": 2, "y": 1.8, "m": [3.6, 2.0], "yorliq": "Firibgar", "izoh": "soxta javob" }
+  },
+  "aloqalar": {
+    "savol-yol": { "dan": "brauzer", "ga": "savol", "tur": "havo" },
+    "sorov": { "dan": "brauzer", "ga": "rezolver", "tur": "kabel", "yorliq": "so'rov" },
+    "ildizga": { "dan": "rezolver", "ga": "ildiz", "tur": "kabel" },
+    "tldga": { "dan": "rezolver", "ga": "tld", "tur": "kabel" },
+    "nufuzliga": { "dan": "rezolver", "ga": "nufuzli", "tur": "kabel" },
+    "ulanish": { "dan": "brauzer", "ga": "sayt", "tur": "kabel", "yorliq": "ulanish" },
+    "soxta": { "dan": "firibgar", "ga": "brauzer", "tur": "havo" }
+  },
+  "qadamlar": [
+    {
+      "bob": "muammo",
+      "sarlavha": "Odam nomni, kompyuter raqamni eslaydi",
+      "matn": [
+        "«uzum.uz» ni eslab qolish oson, «198.51.100.20» ni esa qiyin.",
+        "Lekin paket konvertiga faqat raqamli IP manzil yoziladi. Brauzer nomni raqamga aylantirishi kerak."
+      ],
+      "metrika": { "kechikish": 0, "sorovlar": 0, "kesh": "bo'sh" },
+      "sahna": {
+        "obyektlar": ["brauzer", "savol"],
+        "aloqalar": ["savol-yol"],
+        "urgu": ["savol"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "DNS — internetning telefon kitobchasi",
+      "matn": [
+        "DNS (Domain Name System) — nomlarni IP manzilga aylantiradigan tizim. Telefonda kontakt nomini bossangiz raqam teriladi — xuddi shunday.",
+        "Brauzer avval yaqin DNS serveridan so'raydi. Odatda u provayderniki bo'ladi va «rezolver» deb ataladi."
+      ],
+      "metrika": { "kechikish": 10, "sorovlar": 1 },
+      "sahna": {
+        "obyektlar": ["brauzer", "rezolver"],
+        "aloqalar": ["sorov"],
+        "oqimlar": [{ "yol": ["sorov"], "tezlik": 0.9, "tur": "sorov" }],
+        "urgu": ["rezolver"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Ildiz serverlar",
+      "matn": [
+        "Rezolver ham hamma nomni bilmaydi. U eng yuqoriga — ildiz serverga murojaat qiladi.",
+        "Ildiz server javob beradi: «Men .uz ni bilmayman, lekin .uz serveri qayerdaligini bilaman»."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Ildiz serverlar 13 ta nom ostida ishlaydi (a dan m gacha), lekin ularning nusxalari dunyodagi minglab joyda turadi."
+      },
+      "metrika": { "kechikish": 30, "sorovlar": 2 },
+      "sahna": {
+        "obyektlar": ["brauzer", "rezolver", "ildiz"],
+        "aloqalar": ["sorov", "ildizga"],
+        "oqimlar": [
+          { "yol": ["ildizga"], "tezlik": 0.9, "tur": "sorov" },
+          { "yol": ["ildizga"], "tezlik": 0.9, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["ildiz"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": ".uz zonasi",
+      "matn": [
+        "Endi rezolver .uz serveridan so'raydi. U barcha .uz saytlari ro'yxatini emas, faqat ularning DNS serverlarini biladi.",
+        "Javob: «uzum.uz haqida uning o'z DNS serveridan so'rang»."
+      ],
+      "metrika": { "kechikish": 55, "sorovlar": 3 },
+      "sahna": {
+        "obyektlar": ["brauzer", "rezolver", "ildiz", "tld"],
+        "aloqalar": ["sorov", "ildizga", "tldga"],
+        "oqimlar": [
+          { "yol": ["tldga"], "tezlik": 0.9, "tur": "sorov" },
+          { "yol": ["tldga"], "tezlik": 0.9, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["tld"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Nufuzli server aniq javob beradi",
+      "matn": [
+        "Saytning o'z DNS serveri — «nufuzli» server — aniq javobni biladi: uzum.uz = 198.51.100.20.",
+        "Rezolver bu raqamni brauzerga qaytaradi. Zanjir tugadi: ildiz → .uz → sayt DNS."
+      ],
+      "metrika": { "kechikish": 80, "sorovlar": 4 },
+      "sahna": {
+        "obyektlar": ["brauzer", "rezolver", "ildiz", "tld", "nufuzli"],
+        "aloqalar": ["sorov", "ildizga", "tldga", "nufuzliga"],
+        "oqimlar": [
+          { "yol": ["nufuzliga"], "tezlik": 0.9, "tur": "sorov" },
+          { "yol": ["nufuzliga", "sorov"], "tezlik": 0.9, "tur": "tasdiq" }
+        ],
+        "urgu": ["nufuzli"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Endi saytga ulanish mumkin",
+      "matn": [
+        "IP manzil topildi. Brauzer endi to'g'ridan-to'g'ri sayt serveriga ulanadi va sahifani so'raydi.",
+        "DNS faqat manzilni topib beradi. Saytning o'zi DNS'da saqlanmaydi."
+      ],
+      "sahna": {
+        "obyektlar": ["brauzer", "rezolver", "sayt"],
+        "aloqalar": ["sorov", "ulanish"],
+        "oqimlar": [
+          { "yol": ["ulanish"], "tezlik": 1.4 },
+          { "yol": ["ulanish"], "tezlik": 1, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["sayt"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "Kesh: javob eslab qolinadi",
+      "matn": [
+        "Rezolver va brauzer javobni bir muddat eslab qoladi. Bu kesh deyiladi.",
+        "Ertaga yana uzum.uz ni ochsangiz, butun zanjir takrorlanmaydi: javob bir zumda keshdan olinadi."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Har bir javobda «yashash muddati» (TTL) bor: masalan, 1 soat. Muddat tugagach, javob qaytadan so'raladi — sayt manzili o'zgargan bo'lishi mumkin."
+      },
+      "metrika": { "kechikish": 5, "sorovlar": 1, "kesh": "bor" },
+      "sahna": {
+        "obyektlar": ["brauzer", "rezolver"],
+        "aloqalar": ["sorov"],
+        "oqimlar": [
+          { "yol": ["sorov"], "tezlik": 1.5, "tur": "sorov" },
+          { "yol": ["sorov"], "tezlik": 1.5, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["rezolver"]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Soxta javob xavfi",
+      "matn": [
+        "Firibgar o'zini DNS serveri qilib ko'rsatib, soxta manzil yuborishi mumkin: «uzum.uz = mening serverim».",
+        "Shunda brauzer soxta saytga borib qoladi, sahifa esa asl saytga juda o'xshaydi."
+      ],
+      "eslatma": {
+        "tur": "warn",
+        "matn": "Himoya: DNSSEC javoblarni raqamli imzo bilan tasdiqlaydi, HTTPS esa saytning haqiqiyligini sertifikat orqali tekshiradi."
+      },
+      "sahna": {
+        "obyektlar": ["brauzer", "rezolver", "firibgar"],
+        "aloqalar": ["sorov", "soxta"],
+        "oqimlar": [
+          { "yol": ["sorov"], "tezlik": 0.8, "tur": "sorov" },
+          { "yol": ["soxta"], "tezlik": 0.8, "tur": "xato", "yoqolish": 0.85 }
+        ],
+        "urgu": ["firibgar"]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Nomdan manzilgacha",
+      "matn": [
+        "Brauzer → rezolver → ildiz → .uz → sayt DNS → IP manzil → sayt. Birinchi marta ~80 ms, keyingi safar keshdan bir necha ms.",
+        "DNS — internetning telefon kitobchasi: u saytlarni saqlamaydi, faqat ular qayerdaligini aytadi."
+      ],
+      "metrika": { "kechikish": 80, "sorovlar": 4, "kesh": "bor" },
+      "sahna": {
+        "obyektlar": ["brauzer", "rezolver", "ildiz", "tld", "nufuzli", "sayt"],
+        "aloqalar": ["sorov", "ildizga", "tldga", "nufuzliga", "ulanish"],
+        "oqimlar": [
+          { "yol": ["sorov", "ildizga"], "tezlik": 0.5, "tur": "sorov" },
+          { "yol": ["sorov", "tldga"], "tezlik": 0.5, "tur": "sorov" },
+          { "yol": ["sorov", "nufuzliga"], "tezlik": 0.5, "tur": "sorov" },
+          { "yol": ["ulanish"], "tezlik": 1.2 }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    { "id": "nslookup", "matn": "Kompyuterda buyruqlar qatorini oching va «nslookup uzum.uz» deb yozing. Qanday IP manzil chiqdi? Uni brauzerga yozib ko'ring." },
+    { "id": "dns-ochsa", "matn": "Agar DNS butunlay ishlamay qolsa, internet ishlaydimi? Saytlarni ochishning qanday yo'li qoladi?" },
+    { "id": "tld", "matn": "maktab.uz, google.com, wikipedia.org — har birining yuqori darajali domeni nima va u nimani bildiradi?" }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "DNS nima qiladi?",
+      "variantlar": ["Saytlarni tezlashtiradi", "Sayt nomini IP manzilga aylantiradi", "Parollarni saqlaydi"]
+    },
+    {
+      "id": "q2",
+      "savol": "Keshda javob bo'lmasa, rezolver birinchi bo'lib qaysi serverdan so'raydi?",
+      "variantlar": ["Ildiz serverdan", ".uz serveridan", "Saytning o'zidan"]
+    },
+    {
+      "id": "q3",
+      "savol": "Nega ikkinchi marta sayt nomi tezroq topiladi?",
+      "variantlar": ["Internet tezlashadi", "Sayt yaqinroqqa ko'chadi", "Javob keshda saqlangan"]
+    },
+    {
+      "id": "q4",
+      "savol": "Firibgarning soxta DNS javobidan nima himoya qiladi?",
+      "variantlar": ["DNSSEC imzosi va HTTPS sertifikati", "Ekran yorqinligi", "Tezroq internet"]
+    }
+  ],
+  "faktlar": [
+    "DNS 1983-yilda yaratilgan. Undan oldin internetdagi barcha kompyuter nomlari bitta HOSTS.TXT faylida saqlanardi.",
+    "Ildiz DNS serverlari 13 ta nom ostida ishlaydi, lekin ularning minglab nusxasi butun dunyoda tarqalgan.",
+    "Telefon, brauzer va uydagi router ham DNS javoblarini qisqa vaqt eslab qoladi."
+  ],
+  "ai": {
+    "javob": "DNS — bu internetdagi barcha saytlar saqlanadigan ulkan server. Sayt ochilganda sahifa aynan DNS serveridan yuklanadi.",
+    "savol": "Bu to'g'rimi? Darsda DNS aslida brauzerga nimani qaytardi?"
+  }
+}

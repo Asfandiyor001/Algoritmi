@@ -1,0 +1,254 @@
+{
+  "id": "ip-manzil",
+  "modul": "internet",
+  "daraja": "m7",
+  "daqiqa": 10,
+  "sarlavha": "IP manzil: internetdagi uy manzili",
+  "vaziyat": "Pochtachi xatni uy manzili bo'yicha olib boradi. Internetda esa milliardlab qurilma bor. Paket aynan sizning telefoningizni qanday topadi?",
+  "taxmin": {
+    "savol": "Telefoningizning internetdagi manzili doim bir xilmi?",
+    "variantlar": [
+      "Ha, telefon raqamidek bir umrga beriladi",
+      "Yo'q, qaysi tarmoqqa ulanganiga qarab o'zgaradi",
+      "Telefonning internetda manzili bo'lmaydi"
+    ]
+  },
+  "metrikalar": [
+    { "id": "qurilmalar", "nom": "Qurilmalar" },
+    { "id": "manzil", "nom": "Manzil" },
+    { "id": "bit", "nom": "Uzunligi", "birlik": "bit" }
+  ],
+  "obyektlar": {
+    "telefon": { "tur": "telefon", "x": 0, "y": 0, "m": [0, 0], "yorliq": "Aziz telefoni", "izoh": "192.168.1.5" },
+    "noutbuk": { "tur": "noutbuk", "x": 0, "y": 2, "m": [2.4, 0], "yorliq": "Opasining noutbuki", "izoh": "192.168.1.7" },
+    "router": { "tur": "router", "x": 2, "y": 1, "m": [1.2, 1.8], "yorliq": "Uy routeri", "izoh": "192.168.1.1" },
+    "provayder": { "tur": "provayder", "x": 4, "y": 1, "m": [0, 3.6], "yorliq": "Provayder", "izoh": "203.0.113.25" },
+    "server": { "tur": "server", "x": 6, "y": 1, "m": [2.4, 3.6], "yorliq": "Sayt serveri", "izoh": "198.51.100.10" },
+    "savol": { "tur": "savol", "x": 2.4, "y": 0, "m": [2.2, 0], "yorliq": "Qayerga?" },
+    "ikkilik": { "tur": "bitlar", "x": 2.4, "y": 0, "m": [2.2, 0], "yorliq": "11000000 …", "izoh": "32 ta 0 va 1" }
+  },
+  "aloqalar": {
+    "adashish": { "dan": "telefon", "ga": "savol", "tur": "havo" },
+    "ikkilik-yol": { "dan": "telefon", "ga": "ikkilik", "tur": "havo" },
+    "wifi-t": { "dan": "telefon", "ga": "router", "tur": "wifi", "yorliq": "Wi-Fi" },
+    "wifi-n": { "dan": "noutbuk", "ga": "router", "tur": "wifi" },
+    "uy-kabel": { "dan": "router", "ga": "provayder", "tur": "kabel", "yorliq": "kabel" },
+    "internet": { "dan": "provayder", "ga": "server", "tur": "kabel", "yorliq": "internet" }
+  },
+  "qadamlar": [
+    {
+      "bob": "muammo",
+      "sarlavha": "Manzilsiz paket adashadi",
+      "matn": [
+        "Aziz sayt ochmoqchi. Telefon so'rov paketini yubordi, lekin paketda manzil yo'q.",
+        "Internetdagi qurilmalar paketni kimga uzatishni bilmaydi — u yo'lda yo'qoladi."
+      ],
+      "metrika": { "qurilmalar": 1, "manzil": "?", "bit": 0 },
+      "sahna": {
+        "obyektlar": ["telefon", "savol"],
+        "aloqalar": ["adashish"],
+        "oqimlar": [{ "yol": ["adashish"], "tezlik": 1, "tur": "xato", "yoqolish": 0.7 }],
+        "urgu": ["savol"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "IP manzil — raqamli manzil",
+      "matn": [
+        "Tarmoqqa ulangan har bir qurilma IP manzil oladi. Masalan: 192.168.1.5.",
+        "Bu to'rtta son, ular nuqta bilan ajratiladi. Har bir son 0 dan 255 gacha bo'ladi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "IP — «Internet Protocol», ya'ni internet qoidalari. Paketning har biriga kimdan va kimga degan IP manzillar yoziladi."
+      },
+      "metrika": { "manzil": "192.168.1.5", "bit": 32 },
+      "sahna": { "obyektlar": ["telefon"], "urgu": ["telefon"] }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "To'rtta son = 32 bit",
+      "matn": [
+        "Kompyuter uchun manzil — bu ham 0 va 1 lar. Har bir son 8 bitga sig'adi: 4 × 8 = 32 bit.",
+        "Shuning uchun son 255 dan oshmaydi: 8 bit bilan eng kattasi 11111111 = 255."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "192 ikkilikda 11000000 bo'ladi: 128 + 64 = 192. Manzil 256.1.1.1 bo'lishi mumkin emas."
+      },
+      "sahna": {
+        "obyektlar": ["telefon", "ikkilik"],
+        "aloqalar": ["ikkilik-yol"],
+        "oqimlar": [{ "yol": ["ikkilik-yol"], "tezlik": 4, "tur": "bit" }]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Uyda qurilma ko'p",
+      "matn": [
+        "Uyda telefon, noutbuk, televizor bor. Hammasiga provayderdan alohida manzil olish qimmat va noqulay.",
+        "Qolaversa, internetdagi manzillar soni cheklangan. Nima qilish kerak?"
+      ],
+      "metrika": { "qurilmalar": 3 },
+      "sahna": {
+        "obyektlar": ["telefon", "noutbuk", "router"],
+        "aloqalar": ["wifi-t", "wifi-n"],
+        "oqimlar": [
+          { "yol": ["wifi-t"], "tezlik": 1.2 },
+          { "yol": ["wifi-n"], "tezlik": 1.2 }
+        ]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Router ichki manzil beradi",
+      "matn": [
+        "Router uy ichida o'z «ko'cha»sini quradi va har bir qurilmaga ichki manzil beradi: 192.168.1.5, 192.168.1.7…",
+        "Qurilma Wi-Fi ga ulanishi bilan manzilni o'zi so'raydi. Bu xizmat DHCP deb ataladi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "192.168.… va 10.… bilan boshlanadigan manzillar faqat ichki tarmoq uchun. Ular minglab uylarda takrorlanadi va internetda ko'rinmaydi."
+      },
+      "sahna": {
+        "obyektlar": ["telefon", "noutbuk", "router"],
+        "aloqalar": ["wifi-t", "wifi-n"],
+        "oqimlar": [
+          { "yol": ["wifi-t"], "tezlik": 1, "tur": "tasdiq", "teskari": true },
+          { "yol": ["wifi-n"], "tezlik": 1, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["router"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Ochiq manzil va NAT",
+      "matn": [
+        "Internetga chiqishda router paketdagi ichki manzilni o'zining ochiq manziliga almashtiradi: 203.0.113.25.",
+        "Javob qaytganda router qaysi qurilma so'raganini eslab qolgan bo'ladi va paketni o'shanga uzatadi. Bu NAT deyiladi."
+      ],
+      "metrika": { "manzil": "203.0.113.25" },
+      "sahna": {
+        "obyektlar": ["telefon", "noutbuk", "router", "provayder"],
+        "aloqalar": ["wifi-t", "wifi-n", "uy-kabel"],
+        "oqimlar": [
+          { "yol": ["wifi-t", "uy-kabel"], "tezlik": 1.3 },
+          { "yol": ["wifi-n", "uy-kabel"], "tezlik": 0.8 }
+        ],
+        "urgu": ["router"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Paket manzilga yetdi",
+      "matn": [
+        "Endi paketda ikkala manzil bor: kimdan — 203.0.113.25, kimga — sayt serveri 198.51.100.10.",
+        "Yo'ldagi har bir router «kimga» manzilini o'qib, paketni to'g'ri tomonga uzatadi. Javob esa teskari yo'l bilan qaytadi."
+      ],
+      "metrika": { "qurilmalar": 4 },
+      "sahna": {
+        "obyektlar": ["telefon", "noutbuk", "router", "provayder", "server"],
+        "aloqalar": ["wifi-t", "wifi-n", "uy-kabel", "internet"],
+        "oqimlar": [
+          { "yol": ["wifi-t", "uy-kabel", "internet"], "tezlik": 1.2 },
+          { "yol": ["wifi-t", "uy-kabel", "internet"], "tezlik": 0.8, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["server"]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Manzillar tugab qoldi",
+      "matn": [
+        "32 bitli manzillar jami 4 294 967 296 ta. Bu juda ko'pdek tuyuladi.",
+        "Lekin dunyoda 8 milliarddan ortiq odam bor, har birida telefon, kompyuter, soat… Manzillar allaqachon yetishmay qoldi."
+      ],
+      "eslatma": {
+        "tur": "warn",
+        "matn": "Yangi IPv4 manzillarning asosiy zaxirasi 2011-yilda tugagan. Hozir ular asosan qayta taqsimlanadi va NAT bilan tejaladi."
+      },
+      "sahna": {
+        "obyektlar": ["telefon", "noutbuk", "router", "provayder", "server"],
+        "aloqalar": ["wifi-t", "wifi-n", "uy-kabel", "internet"],
+        "oqimlar": [
+          { "yol": ["wifi-t", "uy-kabel", "internet"], "tezlik": 2 },
+          { "yol": ["wifi-n", "uy-kabel", "internet"], "tezlik": 2 }
+        ],
+        "urgu": ["provayder"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "IPv6: 128 bitli manzil",
+      "matn": [
+        "Yangi tizim — IPv6. Unda manzil 128 bit va o'n oltilik raqamlar bilan yoziladi: 2001:db8::25.",
+        "IPv6 manzillari shunchalik ko'pki, Yer yuzidagi har bir qum zarrasiga ham behisob manzil yetadi."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Bugun ko'p qurilmalarda bir vaqtda ikkala manzil bor: IPv4 ham, IPv6 ham. Telefon sozlamalarida ikkalasini ko'rish mumkin."
+      },
+      "metrika": { "manzil": "2001:db8::25", "bit": 128 },
+      "sahna": {
+        "obyektlar": ["telefon", "noutbuk", "router", "provayder", "server"],
+        "aloqalar": ["wifi-t", "wifi-n", "uy-kabel", "internet"],
+        "oqimlar": [{ "yol": ["wifi-t", "uy-kabel", "internet"], "tezlik": 1.2 }],
+        "urgu": ["telefon"]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Manzillar zanjiri",
+      "matn": [
+        "Uyda — ichki manzil (192.168.1.5), internetda — routerning ochiq manzili, oxirida — serverning manzili.",
+        "Boshqa Wi-Fi ga ulansangiz, telefon yangi manzil oladi. Manzil qurilmaga emas, ulanishga beriladi."
+      ],
+      "metrika": { "manzil": "192.168.1.5", "bit": 32 },
+      "sahna": {
+        "obyektlar": ["telefon", "noutbuk", "router", "provayder", "server"],
+        "aloqalar": ["wifi-t", "wifi-n", "uy-kabel", "internet"],
+        "oqimlar": [
+          { "yol": ["wifi-t", "uy-kabel", "internet"], "tezlik": 1 },
+          { "yol": ["wifi-n", "uy-kabel", "internet"], "tezlik": 0.7 },
+          { "yol": ["wifi-t", "uy-kabel", "internet"], "tezlik": 0.6, "tur": "tasdiq", "teskari": true }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    { "id": "oz-manzil", "matn": "Telefoningiz sozlamalarida Wi-Fi bo'limini oching va ichki IP manzilingizni toping. U 192.168 bilan boshlanadimi?" },
+    { "id": "notogri", "matn": "256.10.1.1 manzili nega bo'lishi mumkin emas? Bitlar orqali tushuntiring." },
+    { "id": "hisobla", "matn": "IPv4 da 4 294 967 296 ta manzil bor. Bu Yer aholisining har biriga yetadimi? Hisoblab ko'ring." }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "IPv4 manzil nechta sondan iborat?",
+      "variantlar": ["2 ta", "4 ta", "8 ta"]
+    },
+    {
+      "id": "q2",
+      "savol": "192.168.1.5 qanday manzil?",
+      "variantlar": ["Uy tarmog'idagi ichki manzil", "Sayt serverining manzili", "Telefon raqami"]
+    },
+    {
+      "id": "q3",
+      "savol": "Nega IPv6 yaratildi?",
+      "variantlar": ["IPv4 juda sekin ishlaydi", "IPv6 xabarlarni shifrlaydi", "IPv4 manzillar yetishmay qoldi"]
+    },
+    {
+      "id": "q4",
+      "savol": "IPv4 manzildagi har bir son qaysi oraliqda bo'ladi?",
+      "variantlar": ["0 dan 255 gacha", "0 dan 999 gacha", "1 dan 100 gacha"]
+    }
+  ],
+  "faktlar": [
+    "IPv4 da jami 4 294 967 296 ta manzil bor — bu Yer aholisining yarmiga ham yetmaydi.",
+    "203.0.113.x va 198.51.100.x manzillari darslik va hujjatlardagi misollar uchun ajratilgan: ular hech qaysi haqiqiy qurilmaga berilmaydi.",
+    "Bitta uydagi barcha qurilmalar internetga ko'pincha routerning yagona ochiq IP manzili orqali chiqadi."
+  ],
+  "ai": {
+    "javob": "IP manzil telefon raqamiga o'xshaydi: har bir telefonga bir umrlik, hech qachon o'zgarmaydigan IP manzil beriladi.",
+    "savol": "Bu to'g'rimi? Uydan maktab Wi-Fi siga o'tganingizda telefoningiz manzili nima bo'ladi?"
+  }
+}

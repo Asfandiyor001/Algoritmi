@@ -1,0 +1,129 @@
+{
+  "modullar": [
+    {
+      "id": "algoritmlar-olami",
+      "raqam": "01",
+      "nom": "Algoritmlar olami",
+      "sinf": "1–4-sinf",
+      "tavsif": "Robotni labirintdan olib chiqib, ketma-ketlik, takrorlash va shartni o'yin orqali o'rganamiz.",
+      "darslar": []
+    },
+    {
+      "id": "kompyuter-ichida",
+      "raqam": "02",
+      "nom": "Kompyuter ichida nima bor?",
+      "sinf": "5–6-sinf",
+      "tavsif": "Bit va bayt, ikkilik sanoq, piksellar, harflar qanday saqlanishi va protsessor ishi.",
+      "darslar": []
+    },
+    {
+      "id": "internet",
+      "raqam": "03",
+      "nom": "Internet qanday ishlaydi",
+      "sinf": "7-sinf",
+      "tavsif": "Xabar, sayt va video sizga qanday yetib keladi: paketlar, IP, DNS, kabellar va shifrlash.",
+      "mavzular": ["Paketlar", "IP manzil", "DNS", "Okean kabellari", "Shifrlash", "TCP"],
+      "darslar": [
+        {
+          "id": "telegram-xabar",
+          "sarlavha": "Telegram xabarining sayohati",
+          "belgi": "telefon"
+        },
+        {
+          "id": "ip-manzil",
+          "sarlavha": "IP manzil: internetdagi uy manzili",
+          "belgi": "router"
+        },
+        {
+          "id": "dns",
+          "sarlavha": "DNS: telefon kitobchasi",
+          "belgi": "dns"
+        },
+        {
+          "id": "paketlar",
+          "sarlavha": "Paketlar: xabar bo'laklarga bo'linadi",
+          "belgi": "paket"
+        },
+        {
+          "id": "wifi-mobil-kabel",
+          "sarlavha": "Wi-Fi, mobil tarmoq va okean tubidagi kabel",
+          "belgi": "minora"
+        },
+        {
+          "id": "https",
+          "sarlavha": "HTTPS va qulfcha belgisi",
+          "belgi": "sertifikat"
+        },
+        {
+          "id": "sayt-ochilganda",
+          "sarlavha": "Sayt ochilganda nima bo'ladi",
+          "belgi": "noutbuk"
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "raqam": "04",
+      "nom": "Birinchi dasturlarim, Python",
+      "sinf": "7–8-sinf",
+      "tavsif": "O'zgaruvchi, shart, sikl va funksiyalar. Kodni o'qish va xatoni topishni mashq qilamiz.",
+      "darslar": []
+    },
+    {
+      "id": "algoritmlar",
+      "raqam": "05",
+      "nom": "Algoritmlar",
+      "sinf": "8–9-sinf",
+      "tavsif": "Qidiruv, saralash, murakkablik va graflar: metro xaritasida eng qisqa yo'l.",
+      "darslar": []
+    },
+    {
+      "id": "xavfsizlik",
+      "raqam": "06",
+      "nom": "Raqamli xavfsizlik",
+      "sinf": "5–11-sinf",
+      "tavsif": "Kuchli parol, fishingni aniqlash, ikki bosqichli himoya va shifrlash asoslari.",
+      "darslar": []
+    },
+    {
+      "id": "malumotlar",
+      "raqam": "07",
+      "nom": "Ma'lumotlar",
+      "sinf": "9–10-sinf",
+      "tavsif": "Jadvallar, SQL so'rovlari, indeks va grafiklardan to'g'ri xulosa chiqarish.",
+      "darslar": []
+    },
+    {
+      "id": "ai",
+      "raqam": "08",
+      "nom": "AI qanday ishlaydi",
+      "sinf": "9–11-sinf",
+      "tavsif": "Neyron qanday o'rganadi, til modeli qanday ishlaydi va AI nega adashadi.",
+      "darslar": []
+    },
+    {
+      "id": "web",
+      "raqam": "09",
+      "nom": "Web dasturlash",
+      "sinf": "10–11-sinf",
+      "tavsif": "HTML, CSS va JavaScript: brauzer sahifani qanday chizishini ko'ramiz.",
+      "darslar": []
+    },
+    {
+      "id": "katta-tizimlar",
+      "raqam": "10",
+      "nom": "Katta tizimlar",
+      "sinf": "11-sinf, universitet",
+      "tavsif": "Bitta serverdan millionlab foydalanuvchigacha: kesh, CDN, navbatlar.",
+      "darslar": []
+    },
+    {
+      "id": "cs-asoslari",
+      "raqam": "11",
+      "nom": "Kompyuter fanlari asoslari",
+      "sinf": "Universitet",
+      "tavsif": "Operatsion tizim, tarmoqlar, kompilyator va ma'lumotlar tuzilmalari.",
+      "darslar": []
+    }
+  ]
+}

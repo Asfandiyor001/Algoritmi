@@ -1,0 +1,269 @@
+{
+  "id": "sayt-ochilganda",
+  "modul": "internet",
+  "daraja": "m7",
+  "daqiqa": 12,
+  "sarlavha": "Sayt ochilganda nima bo'ladi",
+  "vaziyat": "Siz manzil qatoriga sayt nomini yozib, Enter bosasiz. Bir soniyaga qolmay sahifa matn, rasm va tugmalari bilan paydo bo'ladi. Shu bir soniyada nimalar sodir bo'ladi?",
+  "taxmin": {
+    "savol": "Brauzer saytni qanday oladi?",
+    "variantlar": [
+      "Butun saytni bitta fayl qilib yuklab oladi",
+      "Avval manzilni topadi, keyin sahifa va har bir rasmni alohida so'raydi",
+      "Sayt kompyuterda oldindan saqlangan bo'ladi"
+    ]
+  },
+  "metrikalar": [
+    { "id": "vaqt", "nom": "Vaqt", "birlik": "ms" },
+    { "id": "sorovlar", "nom": "So'rovlar" },
+    { "id": "hajm", "nom": "Yuklandi", "birlik": "KB" }
+  ],
+  "obyektlar": {
+    "brauzer": { "tur": "noutbuk", "x": 0, "y": 0, "m": [1.3, 0], "yorliq": "Brauzer", "izoh": "kitoblar.uz" },
+    "savol": { "tur": "savol", "x": 2.5, "y": 0, "m": [1.3, 1.7], "yorliq": "Enter!" },
+    "dns": { "tur": "dns", "x": 2.5, "y": -1.8, "m": [-0.6, 1.5], "yorliq": "DNS", "izoh": "nom → IP" },
+    "sayt": { "tur": "server", "x": 5, "y": 0, "m": [1.3, 3.0], "yorliq": "Sayt serveri", "izoh": "sahifani tayyorlaydi" },
+    "baza": { "tur": "server", "x": 7.5, "y": 0, "m": [1.3, 5.0], "yorliq": "Ma'lumotlar bazasi", "izoh": "kitoblar ro'yxati" },
+    "cdn": { "tur": "bulut", "x": 2.5, "y": 1.8, "m": [3.2, 1.5], "yorliq": "CDN", "izoh": "Toshkentdagi nusxa" }
+  },
+  "aloqalar": {
+    "enter": { "dan": "brauzer", "ga": "savol", "tur": "havo" },
+    "dns-yol": { "dan": "brauzer", "ga": "dns", "tur": "kabel", "yorliq": "1 · DNS" },
+    "ulanish": { "dan": "brauzer", "ga": "sayt", "tur": "kabel", "yorliq": "2 · ulanish" },
+    "sorov": { "dan": "sayt", "ga": "baza", "tur": "kabel", "yorliq": "so'rov" },
+    "cdn-yol": { "dan": "brauzer", "ga": "cdn", "tur": "kabel", "yorliq": "rasmlar" }
+  },
+  "qadamlar": [
+    {
+      "bob": "muammo",
+      "sarlavha": "Enter bosildi",
+      "matn": [
+        "Brauzer qo'lida faqat bitta so'z bor: «kitoblar.uz». Na serverning manzili, na sahifaning o'zi.",
+        "Sahifa ekranda paydo bo'lishi uchun bir necha bosqich kerak. Ularni birma-bir kuzatamiz."
+      ],
+      "metrika": { "vaqt": 0, "sorovlar": 0, "hajm": 0 },
+      "sahna": {
+        "obyektlar": ["brauzer", "savol"],
+        "aloqalar": ["enter"],
+        "urgu": ["savol"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "1 · DNS: nom → IP manzil",
+      "matn": [
+        "Avval brauzer DNS dan so'raydi: «kitoblar.uz qaysi IP manzilda?»",
+        "Javob keshda bo'lsa, bir zumda keladi. Bo'lmasa, DNS uni zanjir bo'ylab topib beradi."
+      ],
+      "metrika": { "vaqt": 30, "sorovlar": 1 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns"],
+        "aloqalar": ["dns-yol"],
+        "oqimlar": [
+          { "yol": ["dns-yol"], "tezlik": 0.9, "tur": "sorov" },
+          { "yol": ["dns-yol"], "tezlik": 0.9, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["dns"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "2 · Ulanish: «qo'l siqish»",
+      "matn": [
+        "Brauzer serverga ulanadi. TCP qoidasi bo'yicha uchta qisqa xabar almashiladi: «Salom» — «Salom, eshityapman» — «Kelishdik».",
+        "Shundan keyin ikkala tomon paketlarni tartib raqami bilan yuborishga tayyor."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Bu «uch bosqichli qo'l siqish» deyiladi. Har bir bosqich paket borib-kelishini talab qiladi, shuning uchun uzoqdagi server sekinroq javob beradi."
+      },
+      "metrika": { "vaqt": 70 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt"],
+        "aloqalar": ["dns-yol", "ulanish"],
+        "oqimlar": [
+          { "yol": ["ulanish"], "tezlik": 0.9, "tur": "sorov" },
+          { "yol": ["ulanish"], "tezlik": 0.9, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["sayt"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "3 · HTTPS: shifr kelishuvi",
+      "matn": [
+        "Sayt sertifikatini ko'rsatadi, brauzer uni tekshiradi va ikkalasi maxfiy kalitni kelishib oladi.",
+        "Endi barcha so'rov va javoblar shifrlangan holda boradi — manzil qatorida qulfcha paydo bo'ladi."
+      ],
+      "metrika": { "vaqt": 110 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt"],
+        "aloqalar": ["dns-yol", "ulanish"],
+        "oqimlar": [
+          { "yol": ["ulanish"], "tezlik": 1, "tur": "qulf" },
+          { "yol": ["ulanish"], "tezlik": 1, "tur": "qulf", "teskari": true }
+        ]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "4 · So'rov: «bosh sahifani ber»",
+      "matn": [
+        "Brauzer HTTP so'rov yuboradi: «GET /» — ya'ni «bosh sahifani bering». So'rovga brauzer turi va til ham yoziladi.",
+        "Bu so'rov kichkina: bir necha yuz bayt."
+      ],
+      "metrika": { "vaqt": 130, "sorovlar": 2 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt"],
+        "aloqalar": ["dns-yol", "ulanish"],
+        "oqimlar": [{ "yol": ["ulanish"], "tezlik": 1.4, "tur": "qulf" }],
+        "urgu": ["sayt"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "5 · Server sahifani tayyorlaydi",
+      "matn": [
+        "Server tayyor sahifani saqlamaydi: u ma'lumotlar bazasidan yangi kitoblar ro'yxatini so'raydi.",
+        "Ro'yxat kelgach, server undan HTML sahifa yasaydi. Ertaga ro'yxat o'zgarsa, sahifa ham o'zgaradi."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Restoran misoli: brauzer — mijoz, server — ofitsiant va oshpaz, ma'lumotlar bazasi — ombor."
+      },
+      "metrika": { "vaqt": 190 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt", "baza"],
+        "aloqalar": ["dns-yol", "ulanish", "sorov"],
+        "oqimlar": [
+          { "yol": ["sorov"], "tezlik": 1.2, "tur": "sorov" },
+          { "yol": ["sorov"], "tezlik": 1.2, "tur": "tasdiq", "teskari": true }
+        ],
+        "urgu": ["baza"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "6 · Javob: HTML sahifa",
+      "matn": [
+        "Server tayyor HTML ni brauzerga yuboradi. HTML — sahifaning skeleti: sarlavhalar, matn, tugmalar va «bu yerda rasm bo'ladi» degan belgilar.",
+        "Javob ~50 KB, u o'nlab paketga bo'linib keladi."
+      ],
+      "metrika": { "vaqt": 240, "hajm": 50 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt", "baza"],
+        "aloqalar": ["dns-yol", "ulanish", "sorov"],
+        "oqimlar": [{ "yol": ["ulanish"], "tezlik": 2.5, "tur": "qulf", "teskari": true }],
+        "urgu": ["brauzer"]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Sahifada yana 40 ta fayl bor",
+      "matn": [
+        "HTML ichida havolalar bor: dizayn (CSS), dasturlar (JavaScript), shriftlar va 30 ta kitob muqovasi.",
+        "Har biri alohida so'rov. Server uzoqda bo'lsa, ularning hammasi uzoq yo'l bosadi va sahifa sekin ochiladi."
+      ],
+      "metrika": { "vaqt": 900, "sorovlar": 42, "hajm": 2000 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt", "baza"],
+        "aloqalar": ["dns-yol", "ulanish", "sorov"],
+        "oqimlar": [
+          { "yol": ["ulanish"], "tezlik": 3, "tur": "sorov" },
+          { "yol": ["ulanish"], "tezlik": 3, "tur": "qulf", "teskari": true }
+        ],
+        "urgu": ["sayt"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "CDN: yaqindagi nusxa",
+      "matn": [
+        "Rasm, shrift va dizayn kabi o'zgarmaydigan fayllar nusxasi foydalanuvchiga yaqin serverlarda turadi. Bu tarmoq CDN deyiladi.",
+        "Brauzer muqovalarni Toshkentdagi CDN serveridan oladi: yo'l qisqa, sahifa ancha tez ochiladi."
+      ],
+      "metrika": { "vaqt": 450 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt", "baza", "cdn"],
+        "aloqalar": ["dns-yol", "ulanish", "sorov", "cdn-yol"],
+        "oqimlar": [
+          { "yol": ["cdn-yol"], "tezlik": 3, "teskari": true },
+          { "yol": ["ulanish"], "tezlik": 0.8, "tur": "qulf", "teskari": true }
+        ],
+        "urgu": ["cdn"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "Brauzer sahifani chizadi",
+      "matn": [
+        "Fayllar kelishi bilan brauzer ishga tushadi: HTML dan sahifa tuzilishini, CSS dan ranglar va joylashuvni hisoblaydi, JavaScript ni bajaradi.",
+        "Keyin har bir pikselni ekranga chizadi. Ko'p sahifalar birinchi matnni fayllar to'liq kelmasdanoq ko'rsatadi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Ikkinchi marta sayt tezroq ochiladi: DNS javobi ham, rasm va dizayn fayllari ham brauzer keshida qoladi."
+      },
+      "metrika": { "vaqt": 600 },
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt", "baza", "cdn"],
+        "aloqalar": ["dns-yol", "ulanish", "sorov", "cdn-yol"],
+        "urgu": ["brauzer"]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Bir soniyadagi butun yo'l",
+      "matn": [
+        "DNS → ulanish → shifr → so'rov → baza → HTML → qo'shimcha fayllar (CDN dan) → chizish. Hammasi taxminan 0,6 soniyada.",
+        "Bu modulda o'rgangan hamma narsa — IP, DNS, paketlar, kabellar va HTTPS — har bir sayt ochilganda birgalikda ishlaydi."
+      ],
+      "sahna": {
+        "obyektlar": ["brauzer", "dns", "sayt", "baza", "cdn"],
+        "aloqalar": ["dns-yol", "ulanish", "sorov", "cdn-yol"],
+        "oqimlar": [
+          { "yol": ["dns-yol"], "tezlik": 0.4, "tur": "sorov" },
+          { "yol": ["ulanish"], "tezlik": 1, "tur": "qulf" },
+          { "yol": ["sorov"], "tezlik": 0.7, "tur": "sorov" },
+          { "yol": ["cdn-yol"], "tezlik": 1.6, "teskari": true }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    { "id": "network", "matn": "Kompyuterda brauzerni oching, F12 → «Network» bo'limini tanlab, sevimli saytingizni yangilang. Nechta so'rov ketdi va eng og'ir fayl qaysi?" },
+    { "id": "restoran", "matn": "Sahifa ochilishini restoranga o'xshatib yozing: kim mijoz, kim ofitsiant, kim oshpaz, qayer ombor, menyu nima?" },
+    { "id": "ikkinchi", "matn": "Nega sayt ikkinchi marta tezroq ochiladi? Darsdan kamida ikkita sabab toping." }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "Sayt ochilganda birinchi navbatda nima bo'ladi?",
+      "variantlar": ["Server sahifani yuboradi", "Brauzer DNS orqali IP manzilni bilib oladi", "Rasmlar yuklanadi"]
+    },
+    {
+      "id": "q2",
+      "savol": "CDN nima uchun kerak?",
+      "variantlar": ["Fayllarni foydalanuvchiga yaqin joydan berish uchun", "Parollarni saqlash uchun", "Saytni chiroyli qilish uchun"]
+    },
+    {
+      "id": "q3",
+      "savol": "Server yangi kitoblar ro'yxatini qayerdan oladi?",
+      "variantlar": ["Brauzerdan", "DNS serveridan", "Ma'lumotlar bazasidan"]
+    },
+    {
+      "id": "q4",
+      "savol": "HTML nima?",
+      "variantlar": ["Sahifaning tuzilishi: matn, sarlavha va qismlar", "Rasm formati", "Internet provayderi"]
+    }
+  ],
+  "faktlar": [
+    "Birinchi veb-sayt 1991-yilda Tim Berners-Li tomonidan yaratilgan va u hozir ham ochiladi: info.cern.ch.",
+    "Bugungi o'rtacha veb-sahifa 2 MB dan og'ir va o'nlab alohida so'rovdan iborat.",
+    "Sahifa 3 soniyadan uzoq ochilsa, mobil foydalanuvchilarning yarmidan ko'pi uni kutmasdan yopib ketadi."
+  ],
+  "ai": {
+    "javob": "Saytni ochganingizda brauzer serverdan butun saytni bitta fayl sifatida yuklab oladi va keyin ko'rsatadi.",
+    "savol": "Bu to'g'rimi? Darsda nechta va qanday so'rovlar ketdi?"
+  }
+}

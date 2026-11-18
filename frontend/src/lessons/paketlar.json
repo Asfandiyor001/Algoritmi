@@ -1,0 +1,247 @@
+{
+  "id": "paketlar",
+  "modul": "internet",
+  "daraja": "m7",
+  "daqiqa": 10,
+  "sarlavha": "Paketlar: xabar bo'laklarga bo'linadi",
+  "vaziyat": "Aziz Berlindagi do'stiga 2 MB li rasm yubordi. Rasm bir zumda yetib bordi, garchi yo'lda yuzlab router va kabel bo'lsa ham. Bunday katta faylni internet qanday tashiydi?",
+  "taxmin": {
+    "savol": "Rasm do'stga qanday ko'rinishda boradi?",
+    "variantlar": [
+      "Bitta butun fayl bo'lib, bitta yo'l bilan",
+      "Yuzlab mayda bo'laklarga bo'linib, turli yo'llar bilan",
+      "Rasmni server qayta chizib yuboradi"
+    ]
+  },
+  "metrikalar": [
+    { "id": "hajm", "nom": "Hajm", "birlik": "KB" },
+    { "id": "paketlar", "nom": "Paketlar" },
+    { "id": "tartib", "nom": "Kelish tartibi" },
+    { "id": "qayta", "nom": "Qayta yuborildi" }
+  ],
+  "obyektlar": {
+    "aziz": { "tur": "telefon", "x": 0, "y": 0, "m": [1.2, 0], "yorliq": "Aziz", "izoh": "Toshkent" },
+    "rasm": { "tur": "bitlar", "x": 2.5, "y": 0, "m": [1.2, 1.8], "yorliq": "Rasm", "izoh": "2 MB" },
+    "ra": { "tur": "router", "x": 2.5, "y": -1.3, "m": [0, 1.8], "yorliq": "Router A", "izoh": "Moskva orqali" },
+    "rb": { "tur": "router", "x": 2.5, "y": 1.3, "m": [2.4, 1.8], "yorliq": "Router B", "izoh": "Istanbul orqali" },
+    "dost": { "tur": "telefon", "x": 5, "y": 0, "m": [1.2, 3.6], "yorliq": "Do'sti", "izoh": "Berlin" }
+  },
+  "aloqalar": {
+    "rasm-yol": { "dan": "aziz", "ga": "rasm", "tur": "havo" },
+    "aziz-a": { "dan": "aziz", "ga": "ra", "tur": "kabel" },
+    "aziz-b": { "dan": "aziz", "ga": "rb", "tur": "kabel" },
+    "a-dost": { "dan": "ra", "ga": "dost", "tur": "kabel" },
+    "b-dost": { "dan": "rb", "ga": "dost", "tur": "kabel" }
+  },
+  "qadamlar": [
+    {
+      "bob": "muammo",
+      "sarlavha": "Katta rasm — bitta og'ir yuk",
+      "matn": [
+        "Rasm — 2 MB, ya'ni taxminan 2 million bayt. Uni bitta yaxlit bo'lak qilib yuborsak nima bo'ladi?",
+        "Yo'lda bitta bit buzilsa, butun rasmni boshidan yuborish kerak. Katta bo'lak kabelni ham band qilib qo'yadi: boshqalar navbat kutadi."
+      ],
+      "metrika": { "hajm": 2048, "paketlar": 1, "tartib": "—", "qayta": 0 },
+      "sahna": {
+        "obyektlar": ["aziz", "rasm"],
+        "aloqalar": ["rasm-yol"],
+        "urgu": ["rasm"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Bo'lib yuborish",
+      "matn": [
+        "Telefon rasmni mayda bo'laklarga — paketlarga bo'ladi. Har bir paket taxminan 1 400 bayt.",
+        "2 MB rasm ≈ 1 500 ta paket. Ular kabelga birin-ketin, boshqa foydalanuvchilarning paketlari bilan aralashib chiqadi."
+      ],
+      "metrika": { "paketlar": 1498 },
+      "sahna": {
+        "obyektlar": ["aziz", "rasm"],
+        "aloqalar": ["rasm-yol"],
+        "oqimlar": [{ "yol": ["rasm-yol"], "tezlik": 5, "tur": "bit", "teskari": true }]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Har bir paketda «sarlavha»",
+      "matn": [
+        "Har bir paketning boshida xizmat ma'lumoti — sarlavha bor: kimdan (IP), kimga (IP), nechanchi bo'lak va tekshiruv summasi.",
+        "Tekshiruv summasi yordamida qabul qiluvchi paket yo'lda buzilmaganini bilib oladi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "Paket — konvertdagi xat: konvert ustida manzil va tartib raqami, ichida — rasmning kichik bo'lagi."
+      },
+      "sahna": {
+        "obyektlar": ["aziz", "ra"],
+        "aloqalar": ["aziz-a"],
+        "oqimlar": [{ "yol": ["aziz-a"], "tezlik": 1.5 }],
+        "urgu": ["aziz"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Har xil yo'llar",
+      "matn": [
+        "Har bir router paketni qaysi tomonga uzatishni o'zi tanlaydi: qaysi yo'l bo'sh va qisqa bo'lsa.",
+        "Shuning uchun bitta rasmning paketlari Moskva orqali ham, Istanbul orqali ham borishi mumkin."
+      ],
+      "sahna": {
+        "obyektlar": ["aziz", "ra", "rb", "dost"],
+        "aloqalar": ["aziz-a", "aziz-b", "a-dost", "b-dost"],
+        "oqimlar": [
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 1.6 },
+          { "yol": ["aziz-b", "b-dost"], "tezlik": 1.2 }
+        ]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Tartib aralashdi",
+      "matn": [
+        "Yo'llar har xil uzunlikda va bandlikda. 3-paket 1-paketdan oldin yetib kelishi mumkin.",
+        "Agar paketlarni kelgan tartibda yopishtirsak, rasm buzilib ketadi."
+      ],
+      "metrika": { "tartib": "3, 1, 2" },
+      "sahna": {
+        "obyektlar": ["aziz", "ra", "rb", "dost"],
+        "aloqalar": ["aziz-a", "aziz-b", "a-dost", "b-dost"],
+        "oqimlar": [
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 2.2 },
+          { "yol": ["aziz-b", "b-dost"], "tezlik": 0.8 }
+        ],
+        "urgu": ["dost"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Tartib raqami bo'yicha yig'ish",
+      "matn": [
+        "Har bir paketda tartib raqami bor. Do'stining telefoni paketlarni raqam bo'yicha saralab, rasmni to'g'ri yig'adi.",
+        "Paketlar qaysi tartibda kelgani muhim emas — oxirida rasm aynan asl holida bo'ladi."
+      ],
+      "metrika": { "tartib": "1, 2, 3" },
+      "sahna": {
+        "obyektlar": ["aziz", "ra", "rb", "dost"],
+        "aloqalar": ["aziz-a", "aziz-b", "a-dost", "b-dost"],
+        "oqimlar": [
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 1.4 },
+          { "yol": ["aziz-b", "b-dost"], "tezlik": 1.4 }
+        ],
+        "urgu": ["dost"]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Paket yo'qoldi",
+      "matn": [
+        "Istanbul yo'lidagi router band bo'lib qoldi va bir nechta paketni tashlab yubordi.",
+        "Do'stining telefonida 3 ta bo'lak yetishmaydi: rasmning bir qismi bo'sh."
+      ],
+      "metrika": { "qayta": 0 },
+      "sahna": {
+        "obyektlar": ["aziz", "ra", "rb", "dost"],
+        "aloqalar": ["aziz-a", "aziz-b", "a-dost", "b-dost"],
+        "oqimlar": [
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 1.4 },
+          { "yol": ["aziz-b", "b-dost"], "tezlik": 1, "tur": "xato", "yoqolish": 0.55 }
+        ],
+        "urgu": ["rb"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Tasdiq va qayta yuborish",
+      "matn": [
+        "Qabul qiluvchi qaysi paketlar kelganini tasdiqlab turadi. Tasdig'i kelmagan paketni Aziz telefoni qayta yuboradi.",
+        "Faqat yo'qolgan 3 ta paket qayta boradi, butun rasm emas. Bu qoidalar TCP deyiladi."
+      ],
+      "metrika": { "qayta": 3 },
+      "sahna": {
+        "obyektlar": ["aziz", "ra", "rb", "dost"],
+        "aloqalar": ["aziz-a", "aziz-b", "a-dost", "b-dost"],
+        "oqimlar": [
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 1.6, "tur": "tasdiq", "teskari": true },
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 0.7 }
+        ],
+        "urgu": ["aziz"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "Jonli videoda boshqacha",
+      "matn": [
+        "Videoqo'ng'iroq yoki onlayn o'yinda yo'qolgan paketni qayta yuborishning ma'nosi yo'q: u yetib kelguncha kadr eskirib bo'ladi.",
+        "Shuning uchun jonli aloqada ko'pincha UDP ishlatiladi: tez, lekin kafolatsiz. Ekranda bir lahza «qotish» shundan."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "TCP — «hammasi yetib borsin, kechiksa ham». UDP — «tez borsin, bir-ikkitasi yo'qolsa ham»."
+      },
+      "sahna": {
+        "obyektlar": ["aziz", "ra", "rb", "dost"],
+        "aloqalar": ["aziz-a", "aziz-b", "a-dost", "b-dost"],
+        "oqimlar": [
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 3, "tur": "bit" },
+          { "yol": ["aziz-b", "b-dost"], "tezlik": 3, "tur": "bit" },
+          { "yol": ["aziz-b", "b-dost"], "tezlik": 0.5, "tur": "xato", "yoqolish": 0.6 }
+        ]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Internetda hamma narsa — paket",
+      "matn": [
+        "Xabar, rasm, video, o'yin — hammasi mayda paketlarga bo'linadi, turli yo'llar bilan boradi va manzilda tartib raqami bo'yicha yig'iladi.",
+        "Yo'qolgan bo'lak qayta so'raladi. Shuning uchun internet ayrim kabellar ishlamay qolsa ham ishlayveradi."
+      ],
+      "metrika": { "tartib": "1, 2, 3" },
+      "sahna": {
+        "obyektlar": ["aziz", "ra", "rb", "dost"],
+        "aloqalar": ["aziz-a", "aziz-b", "a-dost", "b-dost"],
+        "oqimlar": [
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 1.4 },
+          { "yol": ["aziz-b", "b-dost"], "tezlik": 1.1 },
+          { "yol": ["aziz-a", "a-dost"], "tezlik": 0.6, "tur": "tasdiq", "teskari": true }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    { "id": "video", "matn": "5 MB li videoni 1 400 baytli paketlarga bo'lsangiz, taxminan nechta paket bo'ladi? (1 MB ≈ 1 000 000 bayt)" },
+    { "id": "kartochka", "matn": "Do'stingiz bilan o'yin: biror jumlani so'zlarga bo'lib, kartochkalarga yozing va aralashtiring. Tartib raqamisiz jumlani yig'ish osonmi?" },
+    { "id": "tcp-udp", "matn": "Ikki ro'yxat tuzing: qaysi ilovalarda hamma ma'lumot yetib borishi shart (TCP), qaysilarida tezlik muhimroq (UDP)?" }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "Nega katta fayl paketlarga bo'linadi?",
+      "variantlar": ["Xato bo'lsa faqat kichik bo'lak qayta yuboriladi", "Fayl chiroyliroq ko'rinadi", "Paketlar bepul yuboriladi"]
+    },
+    {
+      "id": "q2",
+      "savol": "Paketlar aralash tartibda kelsa nima bo'ladi?",
+      "variantlar": ["Rasm butunlay buziladi", "Tartib raqami bo'yicha qayta yig'iladi", "Hammasi boshidan yuboriladi"]
+    },
+    {
+      "id": "q3",
+      "savol": "Paket sarlavhasida nima bo'lmaydi?",
+      "variantlar": ["Qabul qiluvchining IP manzili", "Tartib raqami", "Yuboruvchining paroli"]
+    },
+    {
+      "id": "q4",
+      "savol": "Jonli videoqo'ng'iroqda yo'qolgan paket ko'pincha qayta yuborilmaydi. Nega?",
+      "variantlar": ["Kechikkan kadr endi kerak emas", "Video paketlari hech qachon yo'qolmaydi", "Qayta yuborish taqiqlangan"]
+    }
+  ],
+  "faktlar": [
+    "Ma'lumotni paketlarga bo'lish g'oyasini 1960-yillarda Pol Baran (AQSh) va Donald Devis (Buyuk Britaniya) bir-biridan mustaqil taklif qilgan.",
+    "Odatiy Ethernet tarmog'ida bitta paket 1 500 baytdan oshmaydi.",
+    "Bir soniyalik HD video ham yuzlab paketdan iborat."
+  ],
+  "ai": {
+    "javob": "Rasm bitta butun fayl bo'lib yuboriladi, chunki bo'laklarga bo'linsa, qayta yig'ilganda rasm sifati yomonlashadi.",
+    "savol": "Bu to'g'rimi? Paketlar tartib raqami bo'yicha yig'ilganda rasmning birorta piksel o'zgaradimi?"
+  }
+}
