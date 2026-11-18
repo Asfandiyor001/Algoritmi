@@ -1,5 +1,7 @@
 # Algoritmi
 
+[![CI](https://github.com/Asfandiyor001/Algoritmi/actions/workflows/ci.yml/badge.svg)](https://github.com/Asfandiyor001/Algoritmi/actions/workflows/ci.yml)
+
 **AI davri uchun interaktiv informatika platformasi** — o'zbek tilida, 1-sinfdan universitetgacha.
 
 Har bir mavzu jonli diagramma yoki tajriba ko'rinishida beriladi: o'quvchi avval **taxmin qiladi**, keyin **o'zi sinab ko'radi**, oxirida qonuniyatni **o'zi kashf etadi**.
