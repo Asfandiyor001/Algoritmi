@@ -1,10 +1,22 @@
+# Frontend
 node_modules/
 dist/
 .vite/
-*.log
+
+# Backend (Python)
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+backend/data/
+
+# Maxfiy sozlamalar: tokenlar faqat .env da, git'ga kirmaydi
 .env
 .env.*
 !.env.example
+
+*.log
 .DS_Store
 Thumbs.db
 .vscode/*
