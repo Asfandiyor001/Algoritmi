@@ -52,7 +52,7 @@ Yangi obyekt turi: `types.ts` dagi `OBYEKT_TURLARI` + `icons.ts`.
 
 ## Asosiy tamoyillar
 1. **Darslar = ma'lumot.** Yangi dars qo'shish uchun dvigatelga tegmasdan faqat JSON yozish kifoya bo'lishi kerak.
-2. **Test javoblari kliyentda saqlanmaydi.** `Dars.test` ichida to'g'ri javob bo'lmaydi, tekshiruv serverda bo'ladi.
+2. **Hozircha sayt faqat frontend.** Backend (`backend/`, Telegram kirish) kodda saqlangan, lekin uzilgan: sayt `/api` ga murojaat qilmaydi. Test ta'limiy, ball bermaydi: `Dars.test[].togri` brauzerda tekshiriladi. Ball va reyting paydo bo'lsa, tekshiruv serverga ko'chadi.
 3. **Yengil.** Frontendda og'ir framework yo'q. Arzon Android telefonda ham silliq ishlashi kerak.
 4. **Mobil birinchi.** Har bir UI 360px kenglikda tekshiriladi.
 5. **Qorong'i tema.** Ranglar faqat `frontend/src/style.css` dagi CSS o'zgaruvchilari orqali.

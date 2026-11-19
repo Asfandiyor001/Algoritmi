@@ -1,0 +1,61 @@
+{
+  "id": "robot-xato",
+  "tur": "robot",
+  "modul": "algoritmlar-olami",
+  "daraja": "m14",
+  "daqiqa": 10,
+  "sarlavha": "Xatoni top: robot nega adashdi?",
+  "vaziyat": "Kimdir Bit uchun dastur yozib qo'yibdi, lekin Bit adashib qolyapti! Dasturni ishga tushiring, xatoni toping va tuzating.",
+  "goya": "Dasturdagi xato «bag» deyiladi, uni topib tuzatish — «debugging». Avval ishga tushir, qayerda adashganini ko'r, keyin faqat o'sha blokni tuzat.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Bit devorga urilyapti! Qaysi burilish noto'g'ri?",
+      "xarita": ["#####", "#R..#", "###.#", "###*#", "#####"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "chapga", "ongga"],
+      "eng_kam": 5,
+      "boshlangich": ["oldinga", "oldinga", "chapga", "oldinga", "oldinga"],
+      "yechim": ["oldinga", "oldinga", "ongga", "oldinga", "oldinga"],
+      "maslahat": "Qizil yongan blokka qarang. Bit qayoqqa burilishi kerak edi?"
+    },
+    {
+      "id": "2",
+      "matn": "Bit yulduzga yetmasdan to'xtab qoldi. Nima yetishmayapti?",
+      "xarita": ["#######", "#R...*#", "#######"],
+      "yon": "ong",
+      "bloklar": ["oldinga"],
+      "eng_kam": 4,
+      "boshlangich": ["oldinga", "oldinga", "oldinga"],
+      "yechim": ["oldinga", "oldinga", "oldinga", "oldinga"],
+      "maslahat": "Kataklarni sanang va dasturdagi ⬆ lar bilan solishtiring."
+    },
+    {
+      "id": "3",
+      "matn": "Takrorlash soni xato! Uni tuzating.",
+      "xarita": ["#########", "#R.....*#", "#########"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "takrorla"],
+      "eng_kam": 2,
+      "boshlangich": [{ "takrorla": 4, "ichi": ["oldinga"] }],
+      "yechim": [{ "takrorla": 6, "ichi": ["oldinga"] }],
+      "maslahat": "🔁 dagi sonni − / + bilan o'zgartirish mumkin."
+    },
+    {
+      "id": "4",
+      "matn": "Zinapoyada Bit birinchi pog'onadayoq adashdi. Takrorlash ichidagi xatoni toping!",
+      "xarita": ["########", "#R.#####", "##..####", "###..###", "####..*#", "########"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "chapga", "ongga", "takrorla"],
+      "eng_kam": 7,
+      "boshlangich": [{ "takrorla": 3, "ichi": ["oldinga", "chapga", "oldinga", "ongga"] }, { "takrorla": 2, "ichi": ["oldinga"] }],
+      "yechim": [{ "takrorla": 3, "ichi": ["oldinga", "ongga", "oldinga", "chapga"] }, { "takrorla": 2, "ichi": ["oldinga"] }],
+      "maslahat": "Bit pog'onadan pastga tushishi kerak. Birinchi burilish qaysi tomonga bo'lishi kerak?"
+    }
+  ],
+  "faktlar": [
+    "1947-yilda kompyuter ichidan haqiqiy kuya (hasharot) topilgan — o'shandan beri xato «bag» (bug — hasharot) deyiladi.",
+    "Eng tajribali dasturchilar ham har kuni xato qiladi. Muhimi — xatoni tez topa bilish.",
+    "Xatoni topishning eng yaxshi usuli — dasturni qadamma-qadam kuzatish, xuddi Bit kabi."
+  ]
+}

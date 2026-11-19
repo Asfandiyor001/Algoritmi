@@ -1,8 +1,8 @@
 /**
  * Dars yakuni: taxmin bilan solishtirish, AI-bo'lim, topshiriqlar, test va faktlar. Manzil: #/<dars>/yakun.
  *
- * Test javoblari bu yerda TEKSHIRILMAYDI: to'g'ri javob kliyentda yo'q (konsepsiya, 13-bo'lim).
- * Server ulanmaguncha tanlov faqat shu qurilmada saqlanadi.
+ * Test ta'limiy, ball bermaydi: javob darhol brauzerda tekshiriladi, xato bo'lsa qayta urinish mumkin.
+ * Hammasi shu qurilmada saqlanadi (localStorage), serverga hech narsa yuborilmaydi.
  */
 import type { Dars } from '../engine/types';
 import { belgi, girih } from './belgilar';
@@ -16,7 +16,7 @@ export class Yakun implements Korinish {
 
   constructor(ildiz: HTMLElement, dars: Dars) {
     this.ildiz = ildiz;
-    // Yakunga yetdi: o'quv xaritasida dars "tugallangan" deb ko'rsatiladi (server ulanmaguncha shu qurilmada).
+    // Yakunga yetdi: o'quv xaritasida dars "tugallangan" deb ko'rsatiladi (shu qurilmada).
     xotiraga(`tugadi:${dars.id}`, true);
     const taxmin = xotiradan<number | null>(`taxmin:${dars.id}`, null);
     const bajarilgan = new Set(xotiradan<string[]>(`topshiriq:${dars.id}`, []));
@@ -25,7 +25,8 @@ export class Yakun implements Korinish {
     const modul = modulTop(dars.modul);
     const keyingi = keyingiDars(dars.id);
 
-    const testJavoblangan = () => dars.test.filter((s) => javoblar[s.id] !== undefined).length;
+    const yechilgan = (s: (typeof dars.test)[number]) => javoblar[s.id] === s.togri;
+    const testTogri = () => dars.test.filter(yechilgan).length;
 
     ildiz.innerHTML = `
       ${navigatsiya(false)}
@@ -40,7 +41,7 @@ export class Yakun implements Korinish {
             <ul class="yakun-raqamlar">
               <li><b>${dars.qadamlar.length}</b><span>qadam o'tildi</span></li>
               <li><b class="topshiriq-hisob">${bajarilgan.size}/${dars.topshiriqlar.length}</b><span>topshiriq</span></li>
-              <li><b class="test-hisob">${testJavoblangan()}/${dars.test.length}</b><span>test savoli</span></li>
+              <li><b class="test-hisob">${testTogri()}/${dars.test.length}</b><span>test to'g'ri</span></li>
             </ul>
           </div>
         </section>
@@ -97,23 +98,25 @@ export class Yakun implements Korinish {
           ${
             dars.test.length
               ? `<section class="karta">
-                  <div class="karta-sarlavha"><h2>Test</h2></div>
-                  <p class="server-izoh">${belgi('tekshir')}<span>Javoblar serverda tekshiriladi. Server hali ishga tushmagan, shuning uchun tanlovingiz hozircha shu qurilmada saqlanadi.</span></p>
+                  <div class="karta-sarlavha"><h2>Test</h2><span class="izoh-matn">Javob darhol tekshiriladi</span></div>
                   ${dars.test
-                    .map(
-                      (s, i) => `<fieldset class="savol">
+                    .map((s, i) => {
+                      const ok = yechilgan(s);
+                      return `<fieldset class="savol${ok ? ' yechildi' : ''}"${ok ? ' disabled' : ''}>
                         <legend><span class="savol-raqam">${i + 1}</span>${esc(s.savol)}</legend>
                         ${s.variantlar
                           .map(
-                            (v, j) => `<label class="variant">
-                              <input type="radio" name="${esc(s.id)}" value="${j}"${javoblar[s.id] === j ? ' checked' : ''}>
+                            (v, j) => `<label class="variant${ok && j === s.togri ? ' togri' : ''}">
+                              <input type="radio" name="${esc(s.id)}" value="${j}"${ok && j === s.togri ? ' checked' : ''}>
                               <span class="harf">${String.fromCharCode(65 + j)}</span><span class="variant-matn">${esc(v)}</span>
                             </label>`,
                           )
                           .join('')}
-                      </fieldset>`,
-                    )
+                        <p class="savol-javob${ok ? ' ok' : ''}" aria-live="polite">${ok ? "To'g'ri!" : ''}</p>
+                      </fieldset>`;
+                    })
                     .join('')}
+                  <p class="test-yakun" aria-live="polite"${testTogri() === dars.test.length ? '' : ' hidden'}>${belgi('medal')}<span>Hamma savolga to'g'ri javob berdingiz. Zo'r!</span></p>
                 </section>`
               : ''
           }
@@ -167,11 +170,38 @@ export class Yakun implements Korinish {
     }
 
     const testHisob = ildiz.querySelector<HTMLElement>('.test-hisob');
-    for (const r of ildiz.querySelectorAll<HTMLInputElement>('input[type=radio]')) {
+    const testYakun = ildiz.querySelector<HTMLElement>('.test-yakun');
+    for (const r of ildiz.querySelectorAll<HTMLInputElement>('.savol input[type=radio]')) {
       r.addEventListener('change', () => {
-        javoblar[r.name] = Number(r.value);
-        xotiraga(`test:${dars.id}`, javoblar);
-        if (testHisob) testHisob.textContent = `${testJavoblangan()}/${dars.test.length}`;
+        const s = dars.test.find((x) => x.id === r.name);
+        const fs = r.closest('fieldset');
+        const label = r.closest('label');
+        const javob = fs?.querySelector<HTMLElement>('.savol-javob');
+        if (!s || !fs || !label || !javob) return;
+        const tanlov = Number(r.value);
+        if (tanlov === s.togri) {
+          javoblar[s.id] = tanlov;
+          xotiraga(`test:${dars.id}`, javoblar);
+          for (const l of fs.querySelectorAll('.variant')) l.classList.remove('notogri');
+          label.classList.add('togri');
+          fs.classList.add('yechildi');
+          fs.disabled = true;
+          javob.className = 'savol-javob ok';
+          javob.textContent = "To'g'ri!";
+          if (testHisob) testHisob.textContent = `${testTogri()}/${dars.test.length}`;
+          if (testTogri() === dars.test.length && testYakun) {
+            testYakun.hidden = false;
+            const t = testYakun.getBoundingClientRect();
+            konfetti({ x: t.left + t.width / 2, y: t.top + t.height / 2 });
+          }
+        } else {
+          label.classList.remove('notogri');
+          void label.offsetWidth; // silkinish animatsiyasi har safar qayta boshlansin
+          label.classList.add('notogri');
+          r.checked = false;
+          javob.className = 'savol-javob xato';
+          javob.textContent = "Unchalik emas. Darsni eslang va yana urinib ko'ring.";
+        }
       });
     }
 

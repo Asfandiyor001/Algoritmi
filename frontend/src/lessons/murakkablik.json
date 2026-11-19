@@ -1,0 +1,55 @@
+{
+  "id": "murakkablik",
+  "tur": "lab",
+  "modul": "algoritmlar",
+  "daraja": "m89",
+  "daqiqa": 10,
+  "sarlavha": "Murakkablik: tez va sekin algoritm",
+  "vaziyat": "Ikki dastur bir xil ishni qiladi: biri 10 ta foydalanuvchida ham, 10 million foydalanuvchida ham tez ishlaydi, ikkinchisi esa qotib qoladi. Farq qayerda? Qadamlarni sanab ko'ramiz.",
+  "goya": "Murakkablik — ma'lumot ko'payganda qadamlar qanday o'sishi. O(n) — chiziqli (2 baravar ma'lumot → 2 baravar vaqt), O(n²) — kvadratik (2 baravar → 4 baravar), O(log n) — juda sekin o'sadi. Katta ma'lumotda aynan shu farq hal qiladi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Bitta sikl. n = 4 bo'lsa, qadam necha marta oshadi?",
+      "izoh": "4 ta — n ga teng. n = 1000 bo'lsa, 1000 qadam. Bunday algoritm «O(n)» — chiziqli deyiladi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["n = 4", "qadam = 0", "for i in range(n):", "    qadam = qadam + 1", "print(qadam)"],
+        "savol": "Ekranga nima chiqadi?", "variantlar": ["4", "16", "1"], "togri": 0
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Endi sikl ichida sikl. n = 4. Nechta qadam?",
+      "izoh": "4 × 4 = 16. Har bir i uchun ichki sikl n marta aylanadi. Bunday algoritm «O(n²)» — kvadratik.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["n = 4", "qadam = 0", "for i in range(n):", "    for j in range(n):", "        qadam = qadam + 1", "print(qadam)"],
+        "savol": "Ekranga nima chiqadi?", "variantlar": ["8", "16", "4"], "togri": 1
+      }
+    },
+    {
+      "id": "3",
+      "matn": "n = 1000 bo'lsa, ichma-ich sikl necha qadam qiladi?",
+      "izoh": "1 000 × 1 000 = 1 000 000. Ma'lumot 1000 baravar oshdi, vaqt esa million baravar! Shuning uchun dasturchilar ichma-ich sikldan ehtiyot bo'lishadi.",
+      "vidjet": { "tur": "tanlov", "savol": "n = 1000, O(n²) — necha qadam?", "variantlar": ["1 000", "2 000", "1 000 000"], "togri": 2 }
+    },
+    {
+      "id": "4",
+      "matn": "Ikkilik qidiruvni eslang: har safar yarmini tashlaymiz. Uning murakkabligi qanday?",
+      "izoh": "O(log n): million element uchun ~20 qadam. Eng tez o'sadigandan eng sekiniga: O(n²) → O(n·log n) → O(n) → O(log n) → O(1).",
+      "vidjet": { "tur": "tanlov", "savol": "Ikkilik qidiruv murakkabligi?", "variantlar": ["O(n)", "O(log n)", "O(n²)"], "togri": 1 }
+    },
+    {
+      "id": "5",
+      "matn": "Xulosa savoli: 10 million foydalanuvchili ilova uchun qaysi algoritm yaxshi?",
+      "izoh": "O(n) bilan 10 million qadam — kompyuter uchun bir zum. O(n²) bilan esa 100 trillion qadam — soatlar! Kichik ma'lumotda farq sezilmaydi, kattasida esa hamma narsani hal qiladi.",
+      "vidjet": { "tur": "tanlov", "savol": "Katta ma'lumotda qaysi biri tezroq?", "variantlar": ["O(n)", "O(n²)", "Farqi yo'q"], "togri": 0 }
+    }
+  ],
+  "faktlar": [
+    "«O» belgisini (Big O) matematikada Pol Baxman 1894-yilda kiritgan.",
+    "Zamonaviy protsessor soniyasiga milliardlab amal bajaradi, lekin O(2ⁿ) algoritm uchun bu ham yetmaydi.",
+    "Intervyularda dasturchilardan ko'pincha «bu kodning murakkabligi qanday?» deb so'rashadi."
+  ]
+}

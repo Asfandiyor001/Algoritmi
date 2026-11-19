@@ -239,22 +239,26 @@
     {
       "id": "q1",
       "savol": "Sayt ochilganda birinchi navbatda nima bo'ladi?",
-      "variantlar": ["Server sahifani yuboradi", "Brauzer DNS orqali IP manzilni bilib oladi", "Rasmlar yuklanadi"]
+      "variantlar": ["Server sahifani yuboradi", "Brauzer DNS orqali IP manzilni bilib oladi", "Rasmlar yuklanadi"],
+      "togri": 1
     },
     {
       "id": "q2",
       "savol": "CDN nima uchun kerak?",
-      "variantlar": ["Fayllarni foydalanuvchiga yaqin joydan berish uchun", "Parollarni saqlash uchun", "Saytni chiroyli qilish uchun"]
+      "variantlar": ["Fayllarni foydalanuvchiga yaqin joydan berish uchun", "Parollarni saqlash uchun", "Saytni chiroyli qilish uchun"],
+      "togri": 0
     },
     {
       "id": "q3",
       "savol": "Server yangi kitoblar ro'yxatini qayerdan oladi?",
-      "variantlar": ["Brauzerdan", "DNS serveridan", "Ma'lumotlar bazasidan"]
+      "variantlar": ["Brauzerdan", "DNS serveridan", "Ma'lumotlar bazasidan"],
+      "togri": 2
     },
     {
       "id": "q4",
       "savol": "HTML nima?",
-      "variantlar": ["Sahifaning tuzilishi: matn, sarlavha va qismlar", "Rasm formati", "Internet provayderi"]
+      "variantlar": ["Sahifaning tuzilishi: matn, sarlavha va qismlar", "Rasm formati", "Internet provayderi"],
+      "togri": 0
     }
   ],
   "faktlar": [

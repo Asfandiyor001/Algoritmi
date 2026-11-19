@@ -220,22 +220,26 @@
     {
       "id": "q1",
       "savol": "Wi-Fi signali nima?",
-      "variantlar": ["Radio to'lqin", "Yorug'lik nuri", "Tovush to'lqini"]
+      "variantlar": ["Radio to'lqin", "Yorug'lik nuri", "Tovush to'lqini"],
+      "togri": 0
     },
     {
       "id": "q2",
       "savol": "Mobil internetda minoradan keyin ma'lumot odatda qayerga ketadi?",
-      "variantlar": ["Yana havo orqali sun'iy yo'ldoshga", "Kabel orqali provayder tarmog'iga", "To'g'ridan-to'g'ri do'stingiz telefoniga"]
+      "variantlar": ["Yana havo orqali sun'iy yo'ldoshga", "Kabel orqali provayder tarmog'iga", "To'g'ridan-to'g'ri do'stingiz telefoniga"],
+      "togri": 1
     },
     {
       "id": "q3",
       "savol": "Okean kabelida so'nayotgan signalni nima tiklaydi?",
-      "variantlar": ["Hech narsa, signal so'nmaydi", "Suv bosimi", "Har bir necha o'n km dagi kuchaytirgichlar"]
+      "variantlar": ["Hech narsa, signal so'nmaydi", "Suv bosimi", "Har bir necha o'n km dagi kuchaytirgichlar"],
+      "togri": 2
     },
     {
       "id": "q4",
       "savol": "Geostatsionar yo'ldosh orqali aloqa nega sekin?",
-      "variantlar": ["Signal 36 000 km balandlikka borib qaytadi", "Kosmosda internet yo'q", "Yo'ldosh kechasi o'chadi"]
+      "variantlar": ["Signal 36 000 km balandlikka borib qaytadi", "Kosmosda internet yo'q", "Yo'ldosh kechasi o'chadi"],
+      "togri": 0
     }
   ],
   "faktlar": [

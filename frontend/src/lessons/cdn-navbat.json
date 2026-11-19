@@ -1,0 +1,198 @@
+{
+  "id": "cdn-navbat",
+  "modul": "katta-tizimlar",
+  "daraja": "uni",
+  "daqiqa": 12,
+  "sarlavha": "CDN va navbatlar: tez va bardoshli",
+  "vaziyat": "Video platformada video AQShdagi serverda. Toshkentdan ochsangiz, har kadr okeandan o'tib keladi. Yuklagan videongiz esa bir necha daqiqa qayta ishlanadi — shu vaqt ekranga tikilib turish kerakmi?",
+  "taxmin": {
+    "savol": "Video Toshkentda tez ochilishi uchun nima qilinadi?",
+    "variantlar": ["Videoning nusxasi foydalanuvchiga yaqin serverga qo'yiladi", "Internet tezligi oshiriladi", "Video sifati doim pasaytiriladi"]
+  },
+  "metrikalar": [
+    { "id": "kechikish", "nom": "Kechikish", "birlik": "ms" },
+    { "id": "yuk", "nom": "Asosiy server yuki" },
+    { "id": "kutish", "nom": "Siz kutasiz" }
+  ],
+  "obyektlar": {
+    "siz": { "tur": "telefon", "x": 0, "y": 1.3, "m": [1.3, 0], "yorliq": "Siz", "izoh": "Toshkent" },
+    "cdn": { "tur": "bulut", "x": 2.4, "y": 0, "m": [0, 1.9], "yorliq": "CDN serveri", "izoh": "Toshkent" },
+    "asosiy": { "tur": "server", "x": 5.6, "y": 1.3, "m": [2.6, 1.9], "yorliq": "Asosiy server", "izoh": "AQSh" },
+    "navbat": { "tur": "navbat", "x": 2.4, "y": 2.7, "m": [0, 3.8], "yorliq": "Navbat", "izoh": "vazifalar ro'yxati" },
+    "ishchi": { "tur": "server", "x": 5.6, "y": 2.7, "m": [2.6, 3.8], "yorliq": "Ishchilar", "izoh": "videoni qayta ishlaydi" }
+  },
+  "aloqalar": {
+    "uzoq": { "dan": "siz", "ga": "asosiy", "tur": "okean", "yorliq": "11 000 km" },
+    "yaqin": { "dan": "siz", "ga": "cdn", "tur": "kabel", "yorliq": "yaqin" },
+    "cdn-asosiy": { "dan": "cdn", "ga": "asosiy", "tur": "okean", "yorliq": "bir marta" },
+    "yuklash": { "dan": "siz", "ga": "navbat", "tur": "kabel", "yorliq": "yuklash" },
+    "navbat-ishchi": { "dan": "navbat", "ga": "ishchi", "tur": "kabel" },
+    "ishchi-asosiy": { "dan": "ishchi", "ga": "asosiy", "tur": "kabel", "yorliq": "tayyor video" }
+  },
+  "qadamlar": [
+    {
+      "bob": "muammo",
+      "sarlavha": "Video okean ortida",
+      "matn": [
+        "Siz video ochdingiz. U AQShdagi serverda turibdi — har bir bo'lak 11 000 km yo'l bosib keladi.",
+        "Kechikish katta, video «o'ylanib» qoladi. Million odam ko'rsa, asosiy server ham og'ir yuk ostida qoladi."
+      ],
+      "metrika": { "kechikish": 180, "yuk": "90%", "kutish": "buferlash…" },
+      "sahna": {
+        "obyektlar": ["siz", "asosiy"],
+        "aloqalar": ["uzoq"],
+        "oqimlar": [{ "yol": ["uzoq"], "tezlik": 2, "teskari": true }],
+        "urgu": ["asosiy"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "CDN: yaqin nusxa",
+      "matn": [
+        "CDN — dunyo bo'ylab tarqalgan serverlar tarmog'i. Video nusxasi Toshkentdagi CDN serveriga qo'yiladi.",
+        "Endi video qo'shni ko'chadan keladi: kechikish kichik, asosiy server esa bo'shaydi."
+      ],
+      "eslatma": {
+        "tur": "insight",
+        "matn": "CDN — Content Delivery Network, ya'ni kontent yetkazib berish tarmog'i. Katta videoxizmatlar o'z serverlarini hatto provayderlar binolariga qo'yadi."
+      },
+      "metrika": { "kechikish": 15, "yuk": "20%", "kutish": "yo'q" },
+      "sahna": {
+        "obyektlar": ["siz", "cdn", "asosiy"],
+        "aloqalar": ["yaqin", "cdn-asosiy"],
+        "oqimlar": [{ "yol": ["yaqin"], "tezlik": 3, "teskari": true }, { "yol": ["cdn-asosiy"], "tezlik": 0.3, "teskari": true }],
+        "urgu": ["cdn"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "Birinchi tomoshabin va qolganlar",
+      "matn": [
+        "Videoni Toshkentda birinchi bo'lib siz ochsangiz, CDN uni bir marta asosiy serverdan oladi va saqlab qo'yadi.",
+        "Keyingi minglab tomoshabin uni to'g'ridan-to'g'ri CDN'dan oladi — xuddi kesh kabi, faqat butun dunyo bo'ylab."
+      ],
+      "sahna": {
+        "obyektlar": ["siz", "cdn", "asosiy"],
+        "aloqalar": ["yaqin", "cdn-asosiy"],
+        "oqimlar": [
+          { "yol": ["cdn-asosiy", "yaqin"], "tezlik": 0.8, "tur": "sorov", "teskari": true },
+          { "yol": ["yaqin"], "tezlik": 2.5, "teskari": true }
+        ]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Video yuklash — og'ir ish",
+      "matn": [
+        "Endi siz video yukladingiz. Server uni turli sifatlarga (360p, 720p, 1080p) aylantirishi kerak — bu daqiqalar oladi.",
+        "Agar server ishni tugatguncha sizni kuttirib qo'ysa, ilova qotib qoladi. Bir vaqtda ming kishi yuklasa-chi?"
+      ],
+      "metrika": { "kutish": "5 daqiqa", "yuk": "100%" },
+      "sahna": {
+        "obyektlar": ["siz", "asosiy"],
+        "aloqalar": ["uzoq"],
+        "oqimlar": [{ "yol": ["uzoq"], "tezlik": 1.5, "tur": "bit" }],
+        "urgu": ["asosiy"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Navbat: «qabul qildik, keyin qilamiz»",
+      "matn": [
+        "Yuklangan video darhol navbatga tushadi va sizga bir zumda «Qabul qilindi!» javobi keladi.",
+        "Ilovadan bemalol foydalanaverasiz, video esa fonda qayta ishlanadi."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Navbat yukni «tekislaydi»: bir vaqtda ko'p vazifa kelsa ham, ishchilar ularni o'z tezligida birin-ketin bajaradi."
+      },
+      "metrika": { "kutish": "1 soniya", "yuk": "40%" },
+      "sahna": {
+        "obyektlar": ["siz", "navbat", "ishchi"],
+        "aloqalar": ["yuklash", "navbat-ishchi"],
+        "oqimlar": [
+          { "yol": ["yuklash"], "tezlik": 2.5, "tur": "bit" },
+          { "yol": ["yuklash"], "tezlik": 1, "tur": "tasdiq", "teskari": true },
+          { "yol": ["navbat-ishchi"], "tezlik": 0.7 }
+        ],
+        "urgu": ["navbat"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Ishchilar o'z tezligida",
+      "matn": [
+        "Ishchi serverlar navbatdan vazifalarni birin-ketin oladi va tayyor videoni asosiy serverga — u yerdan CDN'ga — joylaydi.",
+        "Vazifalar ko'payib ketsa, yana ishchi qo'shiladi. Ishchi buzilsa, vazifa navbatda qoladi va boshqasi oladi."
+      ],
+      "sahna": {
+        "obyektlar": ["siz", "navbat", "ishchi", "asosiy"],
+        "aloqalar": ["yuklash", "navbat-ishchi", "ishchi-asosiy"],
+        "oqimlar": [{ "yol": ["navbat-ishchi", "ishchi-asosiy"], "tezlik": 0.9 }, { "yol": ["yuklash"], "tezlik": 1.5, "tur": "bit" }],
+        "urgu": ["ishchi"]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Tez va bardoshli",
+      "matn": [
+        "CDN — tomosha qilishni tezlashtiradi: kontent foydalanuvchiga yaqin. Navbat — og'ir ishlarni fonga olib, ilovani tez qoldiradi.",
+        "Ikkalasi birga million kishilik xizmatni ham silliq ishlatadi."
+      ],
+      "metrika": { "kechikish": 15, "yuk": "30%", "kutish": "yo'q" },
+      "sahna": {
+        "obyektlar": ["siz", "cdn", "asosiy", "navbat", "ishchi"],
+        "aloqalar": ["yaqin", "cdn-asosiy", "yuklash", "navbat-ishchi", "ishchi-asosiy"],
+        "oqimlar": [
+          { "yol": ["yaqin"], "tezlik": 2.5, "teskari": true },
+          { "yol": ["yuklash"], "tezlik": 1, "tur": "bit" },
+          { "yol": ["navbat-ishchi", "ishchi-asosiy"], "tezlik": 0.7 },
+          { "yol": ["cdn-asosiy"], "tezlik": 0.3, "teskari": true }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    {
+      "id": "cdn-qachon",
+      "matn": "Qaysi ma'lumotni CDN'ga qo'yish foydali (rasm, video, shrift…), qaysisini esa qo'yib bo'lmaydi (masalan, bank balansi)? Nega?"
+    },
+    {
+      "id": "navbat-misol",
+      "matn": "Hayotdan navbat misollarini toping: oshxona buyurtmalari, pochta… Ular dasturdagi navbatga qanday o'xshaydi?"
+    },
+    {
+      "id": "devtools",
+      "matn": "Brauzerda F12 → Network ochib, sevimli saytingizdagi rasmlar qaysi domendan yuklanayotganini qarang. CDN bormi?"
+    }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "CDN nima beradi?",
+      "variantlar": ["Kontentni foydalanuvchiga yaqin serverdan beradi", "Parollarni shifrlaydi", "Videoni qisqartiradi"],
+      "togri": 0
+    },
+    {
+      "id": "q2",
+      "savol": "Navbat nima uchun kerak?",
+      "variantlar": ["Internetni tezlashtirish uchun", "Og'ir ishlarni fonga olib, foydalanuvchini kuttirmaslik uchun", "Ma'lumotni o'chirish uchun"],
+      "togri": 1
+    },
+    {
+      "id": "q3",
+      "savol": "Ishchi server buzilsa, navbatdagi vazifa nima bo'ladi?",
+      "variantlar": ["Yo'qoladi", "Butun sayt to'xtaydi", "Navbatda qoladi va boshqa ishchi oladi"],
+      "togri": 2
+    }
+  ],
+  "faktlar": [
+    "Internet trafigining katta qismini videolar tashkil qiladi va ularning ko'pi CDN orqali yetkaziladi.",
+    "Yirik CDN tarmoqlarida yuzlab shaharlarda serverlar bor.",
+    "Navbatlar (message queue) banklarda ham ishlaydi: to'lovlar yo'qolmasligi uchun avval navbatga yoziladi."
+  ],
+  "ai": {
+    "javob": "CDN ishlatilsa, asosiy server umuman kerak bo'lmaydi.",
+    "savol": "Bu to'g'rimi? Darsda CDN videoni birinchi marta qayerdan olgan edi?"
+  }
+}

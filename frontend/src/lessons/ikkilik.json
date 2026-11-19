@@ -1,0 +1,53 @@
+{
+  "id": "ikkilik",
+  "tur": "lab",
+  "modul": "kompyuter-ichida",
+  "daraja": "m56",
+  "daqiqa": 10,
+  "sarlavha": "Ikkilik sanoq: kompyuter qanday sanaydi",
+  "vaziyat": "Biz 10 ta raqam bilan sanaymiz: 0 dan 9 gacha. Kompyuter esa faqat ikkita raqamni biladi: 0 va 1. Unda u 19 yoki 42 ni qanday yozadi?",
+  "goya": "Ikkilik sanoqda har bir o'rin ikki baravar katta: 1, 2, 4, 8, 16, 32… Son — yoniq o'rinlar qiymatlarining yig'indisi. O'nlikda 9 + 1 = 10 bo'lgani kabi, ikkilikda 1 + 1 = 10.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Ikkilik son 0110. O'rinlar qiymati: 8, 4, 2, 1. Bu qaysi son?",
+      "izoh": "0110: 4 va 2 o'rinlari yoniq → 4 + 2 = 6. Ikkilik sonni o'qish uchun yoniq o'rinlarni qo'shib chiqamiz.",
+      "vidjet": { "tur": "tanlov", "savol": "0110 (ikkilik) = ?", "variantlar": ["6", "110", "3"], "togri": 0 }
+    },
+    {
+      "id": "2",
+      "matn": "Beshinchi chiroq qo'shildi — uning qiymati 16. 19 sonini yasang.",
+      "izoh": "19 = 16 + 2 + 1 → 10011. Har yangi o'rin oldingisidan ikki baravar katta: 1, 2, 4, 8, 16.",
+      "vidjet": { "tur": "chiroqlar", "soni": 5, "maqsad": 19 }
+    },
+    {
+      "id": "3",
+      "matn": "O'nlikda 9 dan keyin 10 keladi. Ikkilikda 1 dan keyin nima keladi?",
+      "izoh": "Ikkilikda 2 raqami yo'q! Shuning uchun 1 + 1 = 10 (o'qilishi: «bir-nol»), bu 2 ni bildiradi. Xuddi o'nlikdagi 9 + 1 = 10 kabi.",
+      "vidjet": { "tur": "tanlov", "savol": "Ikkilikda 1 + 1 = ?", "variantlar": ["2", "10", "11"], "togri": 1 }
+    },
+    {
+      "id": "4",
+      "matn": "Kompyuterga bitta chiroq (bit) qo'shsak, yozish mumkin bo'lgan sonlar soni nima bo'ladi?",
+      "izoh": "Ikki baravar ko'payadi: 1 bit — 2 ta son, 2 bit — 4, 3 bit — 8, 8 bit — 256. Shuning uchun bitlar ozgina qo'shilsa ham imkoniyat juda tez o'sadi.",
+      "vidjet": { "tur": "tanlov", "savol": "Bir bit qo'shilsa, sonlar soni…", "variantlar": ["Bittaga ko'payadi", "Ikki baravar ko'payadi", "O'zgarmaydi"], "togri": 1 }
+    },
+    {
+      "id": "5",
+      "matn": "Olti chiroq: 32, 16, 8, 4, 2, 1. 42 sonini yasang!",
+      "izoh": "42 = 32 + 8 + 2 → 101010. Katta sonni yasashning siri: eng katta chiroqdan boshlang va qolganini kichiklari bilan to'ldiring.",
+      "vidjet": { "tur": "chiroqlar", "soni": 6, "maqsad": 42 }
+    },
+    {
+      "id": "6",
+      "matn": "Oxirgi savol: ikkilik 11111111 qaysi son?",
+      "izoh": "128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255 — bir baytning eng katta qiymati. Oson usul: keyingi o'rin 256, undan 1 ayiramiz.",
+      "vidjet": { "tur": "tanlov", "savol": "11111111 (ikkilik) = ?", "variantlar": ["8", "256", "255"], "togri": 2 }
+    }
+  ],
+  "faktlar": [
+    "Ikkilik sanoq tizimini 1703-yilda nemis olimi Gotfrid Leybnits batafsil tasvirlagan.",
+    "Kompyuter ikkilikni tanlagan, chunki elektr uchun ikki holatni ajratish eng oson va ishonchli: tok bor yoki yo'q.",
+    "Barmoqlar bilan ikkilikda sanasangiz, bir qo'l bilan 31 gacha sanash mumkin!"
+  ]
+}

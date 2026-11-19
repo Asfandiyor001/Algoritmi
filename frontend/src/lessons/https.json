@@ -203,22 +203,26 @@
     {
       "id": "q1",
       "savol": "Ochiq Wi-Fi da HTTP orqali yuborilgan parolni kim ko'ra oladi?",
-      "variantlar": ["Hech kim", "Faqat sayt egasi", "Shu tarmoqdagi istalgan odam"]
+      "variantlar": ["Hech kim", "Faqat sayt egasi", "Shu tarmoqdagi istalgan odam"],
+      "togri": 2
     },
     {
       "id": "q2",
       "savol": "Brauzerdagi qulfcha belgisi nimani kafolatlaydi?",
-      "variantlar": ["Ulanish shifrlangan va sayt nomi sertifikatga mos", "Sayt egasi halol odam", "Saytda virus yo'q"]
+      "variantlar": ["Ulanish shifrlangan va sayt nomi sertifikatga mos", "Sayt egasi halol odam", "Saytda virus yo'q"],
+      "togri": 0
     },
     {
       "id": "q3",
       "savol": "Sertifikat nima uchun kerak?",
-      "variantlar": ["Saytni tezlashtirish uchun", "Sayt haqiqatan o'zi ekanini tasdiqlash uchun", "Reklamani o'chirish uchun"]
+      "variantlar": ["Saytni tezlashtirish uchun", "Sayt haqiqatan o'zi ekanini tasdiqlash uchun", "Reklamani o'chirish uchun"],
+      "togri": 1
     },
     {
       "id": "q4",
       "savol": "Brauzer «Ulanish xavfsiz emas» desa nima qilish kerak?",
-      "variantlar": ["Parol kiritmasdan saytdan chiqish", "Sahifani yangilab, parolni kiritish", "Ogohlantirishga e'tibor bermaslik"]
+      "variantlar": ["Parol kiritmasdan saytdan chiqish", "Sahifani yangilab, parolni kiritish", "Ogohlantirishga e'tibor bermaslik"],
+      "togri": 0
     }
   ],
   "faktlar": [

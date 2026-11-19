@@ -1,0 +1,53 @@
+{
+  "id": "harflar",
+  "tur": "lab",
+  "modul": "kompyuter-ichida",
+  "daraja": "m56",
+  "daqiqa": 10,
+  "sarlavha": "Harflar qanday saqlanadi",
+  "vaziyat": "Kompyuter faqat sonlarni biladi. Unda u «Salom» so'zini qanday saqlaydi? Siri oddiy: har bir harfning o'z raqami bor!",
+  "goya": "Har bir harf va belgining raqami bor (ASCII, Unicode). Matn — raqamlar ketma-ketligi, raqamlar esa — bitlar. Lotin harfi 1 bayt, kirill harfi va «ʻ» kabi belgilar UTF-8 da 2 bayt.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Chiroqlar bu safar harf ko'rsatadi! «A» harfining raqami — 65. Chiroqlar bilan «A» ni yasang.",
+      "izoh": "65 = 64 + 1 → 01000001. Kompyuter «A» ni aynan shu 8 bit sifatida saqlaydi. Bu jadval ASCII deyiladi.",
+      "vidjet": { "tur": "chiroqlar", "soni": 8, "maqsad": 65, "korinish": "harf" }
+    },
+    {
+      "id": "2",
+      "matn": "Harflar alifbo tartibida raqamlangan. «C» harfini yasang!",
+      "izoh": "A = 65, B = 66, C = 67. Kompyuter so'zlarni alifbo bo'yicha saralashda shu raqamlarni solishtiradi.",
+      "vidjet": { "tur": "chiroqlar", "soni": 8, "maqsad": 67, "korinish": "harf" }
+    },
+    {
+      "id": "3",
+      "matn": "Kichik «a» ham alohida raqam. Qaysi biri?",
+      "izoh": "Kichik harflar 97 dan boshlanadi: a = 97. Katta va kichik harf orasidagi farq doim 32. Shuning uchun kompyuter uchun «A» va «a» — ikki xil belgi.",
+      "vidjet": { "tur": "tanlov", "savol": "Kichik «a» harfining raqami?", "variantlar": ["65", "1", "97"], "togri": 2 }
+    },
+    {
+      "id": "4",
+      "matn": "SALOM so'zini yozing va har harf qanday bitlarga aylanishini ko'ring.",
+      "izoh": "5 harf = 5 bayt = 40 bit. Xabar yuborganingizda tarmoq orqali aynan shu bitlar uchadi (Internet modulidagi «Telegram xabarining sayohati» darsini eslang).",
+      "vidjet": { "tur": "harf", "maqsad": "SALOM" }
+    },
+    {
+      "id": "5",
+      "matn": "Endi ismingizni yozing — lotin, kirill yoki «oʻ», «gʻ» bilan. Nechta bayt chiqdi?",
+      "izoh": "Lotin harfi — 1 bayt. Kirill harflari va oʻzbekcha «ʻ» belgisi UTF-8 da 2 bayt, emoji esa 4 bayt! Unicode jadvalida dunyodagi deyarli barcha yozuvlar uchun 150 mingdan ortiq belgi bor.",
+      "vidjet": { "tur": "harf" }
+    },
+    {
+      "id": "6",
+      "matn": "Oxirgi savol: «Salom!» xabari necha bit? (6 ta lotin belgi)",
+      "izoh": "6 belgi × 8 bit = 48 bit. Undov belgisi ham belgi, uning ham raqami bor (33).",
+      "vidjet": { "tur": "tanlov", "savol": "«Salom!» = ? bit", "variantlar": ["6", "48", "12"], "togri": 1 }
+    }
+  ],
+  "faktlar": [
+    "ASCII jadvali 1963-yilda yaratilgan va unda bor-yo'g'i 128 ta belgi bo'lgan.",
+    "Unicode'da hatto qadimgi Misr iyerogliflari va shaxmat donalari ham bor.",
+    "Emoji ham harf kabi belgi: 😀 ning ham o'z raqami bor — 128 512."
+  ]
+}

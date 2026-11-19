@@ -1,7 +1,11 @@
 /** Umumiy qobiq: yuqori navigatsiya va pastki qism (bosh, kirish, yakun va 404 ekranlarida). */
 import { belgi, logoBelgi } from './belgilar';
-import { profilJoyi, profilniUla } from './profil';
 import { temaTugmalariniUla, temaTugmasi } from './tema';
+
+// Hozircha sayt faqat frontend: ro'yxatsiz, hammasi ochiq, natijalar brauzerda (localStorage).
+// Telegram orqali kirish (./profil, ./telegram-kirish, ../api va backend/) kodda saqlangan.
+// Qayta yoqish: profilJoyi() ni nav-ong ichiga, profilniUla(ildiz) ni qobiqniUla ga qaytarish
+// va vite.config.ts dagi /api proxy'ni tiklash kifoya.
 
 export function navigatsiya(havolalar = true): string {
   return `
@@ -19,7 +23,6 @@ export function navigatsiya(havolalar = true): string {
         }
         <div class="nav-ong">
           ${temaTugmasi()}
-          ${profilJoyi()}
           <a class="tugma asosiy kichik nav-boshlash" href="#/telegram-xabar">Boshlash ${belgi('oq')}</a>
         </div>
       </div>
@@ -39,10 +42,9 @@ export function pastki(): string {
     </footer>`;
 }
 
-/** Navigatsiya va pastki qismdagi hamma tugmalarni ishga tushiradi: tema, profil, bo'limlarga o'tish. */
+/** Navigatsiya va pastki qismdagi hamma tugmalarni ishga tushiradi: tema, bo'limlarga o'tish. */
 export function qobiqniUla(ildiz: ParentNode): void {
   temaTugmalariniUla(ildiz);
-  profilniUla(ildiz);
   bolimHavolalariniUla(ildiz);
 }
 

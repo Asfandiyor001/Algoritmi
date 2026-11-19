@@ -214,22 +214,26 @@
     {
       "id": "q1",
       "savol": "DNS nima qiladi?",
-      "variantlar": ["Saytlarni tezlashtiradi", "Sayt nomini IP manzilga aylantiradi", "Parollarni saqlaydi"]
+      "variantlar": ["Saytlarni tezlashtiradi", "Sayt nomini IP manzilga aylantiradi", "Parollarni saqlaydi"],
+      "togri": 1
     },
     {
       "id": "q2",
       "savol": "Keshda javob bo'lmasa, rezolver birinchi bo'lib qaysi serverdan so'raydi?",
-      "variantlar": ["Ildiz serverdan", ".uz serveridan", "Saytning o'zidan"]
+      "variantlar": ["Ildiz serverdan", ".uz serveridan", "Saytning o'zidan"],
+      "togri": 0
     },
     {
       "id": "q3",
       "savol": "Nega ikkinchi marta sayt nomi tezroq topiladi?",
-      "variantlar": ["Internet tezlashadi", "Sayt yaqinroqqa ko'chadi", "Javob keshda saqlangan"]
+      "variantlar": ["Internet tezlashadi", "Sayt yaqinroqqa ko'chadi", "Javob keshda saqlangan"],
+      "togri": 2
     },
     {
       "id": "q4",
       "savol": "Firibgarning soxta DNS javobidan nima himoya qiladi?",
-      "variantlar": ["DNSSEC imzosi va HTTPS sertifikati", "Ekran yorqinligi", "Tezroq internet"]
+      "variantlar": ["DNSSEC imzosi va HTTPS sertifikati", "Ekran yorqinligi", "Tezroq internet"],
+      "togri": 0
     }
   ],
   "faktlar": [

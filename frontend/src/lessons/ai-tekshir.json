@@ -1,0 +1,95 @@
+{
+  "id": "ai-tekshir",
+  "tur": "lab",
+  "modul": "ai",
+  "daraja": "m1011",
+  "daqiqa": 10,
+  "sarlavha": "AI javobini tekshir",
+  "vaziyat": "AI — ajoyib yordamchi, lekin u ham xato qiladi: faktlarda ham, kodda ham. Bugun siz AI'ning tekshiruvchisisiz. Har bir javobda xato bormi — toping!",
+  "goya": "AI bilan to'g'ri ishlash: savolni aniq bering, javobni tekshiring (faktni — manbadan, kodni — ishga tushirib va natijani hisoblab), mas'uliyatni o'zingizda qoldiring. AI — yordamchi, hakam emas.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "AI dedi: «Quyosh Yer atrofida aylanadi.» To'g'rimi?",
+      "izoh": "Noto'g'ri — Yer Quyosh atrofida aylanadi. «Quyosh chiqadi va botadi» kabi kundalik iboralar internetda ko'p — ular AI'ni ham chalg'itishi mumkin.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "«Quyosh Yer atrofida aylanadi» — to'g'rimi?",
+        "variantlar": [
+          "To'g'ri",
+          "Noto'g'ri — Yer Quyosh atrofida aylanadi"
+        ],
+        "togri": 1
+      }
+    },
+    {
+      "id": "2",
+      "matn": "AI juft sonlarni sanaydigan kod yozdi. Ro'yxatda 3 ta juft son bor, kod ham 3 chiqaradi — lekin u boshqa narsani sanayapti! Xato qatorni bosing.",
+      "izoh": "s % 2 == 1 — toq sonlar sharti. Juft uchun s % 2 == 0 bo'lishi kerak. Bu ro'yxatda tasodifan toq va juftlar soni teng — shuning uchun javob «to'g'ri» ko'rinadi. Eng xavfli xato aynan shunday.",
+      "vidjet": {
+        "tur": "kod",
+        "til": "python",
+        "kod": [
+          "sonlar = [1, 2, 3, 4, 5, 6]",
+          "juftlar = 0",
+          "for s in sonlar:",
+          "    if s % 2 == 1:",
+          "        juftlar = juftlar + 1",
+          "print(juftlar)"
+        ],
+        "xato_qator": 4
+      }
+    },
+    {
+      "id": "3",
+      "matn": "AI dedi: «Dunyodagi eng uzun daryo — Amudaryo.» Qanday tekshirasiz?",
+      "izoh": "Ensiklopediyaga qarasangiz: eng uzun daryolar — Nil va Amazonka (6 400 km dan uzun), Amudaryo esa ~1 400 km. Ishonchli manba — eng yaxshi tekshiruv.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "«Eng uzun daryo — Amudaryo» — qanday tekshirasiz?",
+        "variantlar": [
+          "Ishonaman, AI biladi",
+          "Ensiklopediya yoki ishonchli manbadan qarayman",
+          "Boshqa AI'dan so'rayman: u ham shunday desa — to'g'ri"
+        ],
+        "togri": 1
+      }
+    },
+    {
+      "id": "4",
+      "matn": "AI 20% chegirmadan keyingi narxni hisoblaydigan kod yozdi. 80 000 chiqishi kerak edi. Xatoni toping!",
+      "izoh": "Narxdan 20 so'm emas, 20 foiz ayirish kerak: yangi_narx = narx - narx * chegirma / 100. AI ko'pincha birliklarni (foiz, so'm, soniya) chalkashtiradi.",
+      "vidjet": {
+        "tur": "kod",
+        "til": "python",
+        "kod": [
+          "narx = 100000",
+          "chegirma = 20   # foiz",
+          "yangi_narx = narx - chegirma",
+          "print(yangi_narx)"
+        ],
+        "xato_qator": 3
+      }
+    },
+    {
+      "id": "5",
+      "matn": "Xulosa: AI bilan ishlashning eng to'g'ri yo'li qaysi?",
+      "izoh": "AI — tezlashtiruvchi yordamchi. Lekin natija uchun javobgarlik doim sizda: tekshirish, tushunish va kerak bo'lsa tuzatish — AI davrining eng muhim ko'nikmasi.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "AI bilan qanday ishlash kerak?",
+        "variantlar": [
+          "Javobni ko'chirib olaman",
+          "Yordamchi sifatida ishlatib, natijani o'zim tekshiraman",
+          "Umuman ishlatmayman"
+        ],
+        "togri": 1
+      }
+    }
+  ],
+  "faktlar": [
+    "Sudga AI o'ylab topgan, aslida mavjud bo'lmagan ishlarni keltirgan advokatlar jarimaga tortilgan holatlar bo'lgan.",
+    "Dasturchilar AI yozgan kodni avtomatik testlar bilan tekshiradi.",
+    "Yaxshi savol — yarim javob: AI'ga kontekst va misol bersangiz, xato kamayadi."
+  ]
+}

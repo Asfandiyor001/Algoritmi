@@ -224,22 +224,26 @@
     {
       "id": "q1",
       "savol": "IPv4 manzil nechta sondan iborat?",
-      "variantlar": ["2 ta", "4 ta", "8 ta"]
+      "variantlar": ["2 ta", "4 ta", "8 ta"],
+      "togri": 1
     },
     {
       "id": "q2",
       "savol": "192.168.1.5 qanday manzil?",
-      "variantlar": ["Uy tarmog'idagi ichki manzil", "Sayt serverining manzili", "Telefon raqami"]
+      "variantlar": ["Uy tarmog'idagi ichki manzil", "Sayt serverining manzili", "Telefon raqami"],
+      "togri": 0
     },
     {
       "id": "q3",
       "savol": "Nega IPv6 yaratildi?",
-      "variantlar": ["IPv4 juda sekin ishlaydi", "IPv6 xabarlarni shifrlaydi", "IPv4 manzillar yetishmay qoldi"]
+      "variantlar": ["IPv4 juda sekin ishlaydi", "IPv6 xabarlarni shifrlaydi", "IPv4 manzillar yetishmay qoldi"],
+      "togri": 2
     },
     {
       "id": "q4",
       "savol": "IPv4 manzildagi har bir son qaysi oraliqda bo'ladi?",
-      "variantlar": ["0 dan 255 gacha", "0 dan 999 gacha", "1 dan 100 gacha"]
+      "variantlar": ["0 dan 255 gacha", "0 dan 999 gacha", "1 dan 100 gacha"],
+      "togri": 0
     }
   ],
   "faktlar": [

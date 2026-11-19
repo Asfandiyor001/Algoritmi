@@ -1,0 +1,50 @@
+{
+  "id": "robot-shart",
+  "tur": "robot",
+  "modul": "algoritmlar-olami",
+  "daraja": "m14",
+  "daqiqa": 12,
+  "sarlavha": "Shart: agar devor bo'lsa, buril",
+  "vaziyat": "Bit endi o'ylay oladi! Yangi blok: «Agar oldinda devor bo'lsa — buril, bo'lmasa — yur». Shu bitta qoida bilan butun yo'lni o'tish mumkin.",
+  "goya": "Shart — «agar … bo'lsa, … qil». Robot vaziyatga qarab o'zi tanlaydi. Shart va takrorlash birga — kuchli algoritm.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Faqat 2 ta blok: 🔁 va uning ichida «agar devor ↷». Takrorlash sonini toping!",
+      "xarita": ["#######", "#R...##", "####.##", "####*##", "#######"],
+      "yon": "ong",
+      "bloklar": ["takrorla", "agar_devor"],
+      "eng_kam": 2,
+      "maks": 2,
+      "yechim": [{ "takrorla": 6, "ichi": [{ "agar_devor": "ongga" }] }],
+      "maslahat": "Bit har safar bitta ish qiladi: yo yuradi, yo buriladi. Hammasi bo'lib nechta ish kerak?"
+    },
+    {
+      "id": "2",
+      "matn": "Uzun yo'l, ikki burilish. Yana o'sha 2 ta blok yetadi!",
+      "xarita": ["#######", "#R....#", "#####.#", "#*....#", "#######"],
+      "yon": "ong",
+      "bloklar": ["takrorla", "agar_devor"],
+      "eng_kam": 2,
+      "maks": 2,
+      "yechim": [{ "takrorla": 12, "ichi": [{ "agar_devor": "ongga" }] }],
+      "maslahat": "Takrorlash sonini kattaroq qilsangiz ham bo'ladi: Bit yulduzga yetishi bilan to'xtaydi."
+    },
+    {
+      "id": "3",
+      "matn": "Bu safar yo'l chapga buriladi. Qaysi «agar» bloki kerak?",
+      "xarita": ["#######", "#....R#", "#.#####", "#....*#", "#######"],
+      "yon": "chap",
+      "bloklar": ["takrorla", "agar_devor"],
+      "eng_kam": 2,
+      "maks": 2,
+      "yechim": [{ "takrorla": 12, "ichi": [{ "agar_devor": "chapga" }] }],
+      "maslahat": "Devorga yetganda Bit qaysi tomonga burilishi kerak — o'ngga yoki chapga?"
+    }
+  ],
+  "faktlar": [
+    "Robot-changyutgich ham shunday ishlaydi: devorga yaqinlashsa — buriladi.",
+    "Svetofor ham shart bilan ishlaydi: agar qizil bo'lsa — to'xta, yashil bo'lsa — yur.",
+    "Dasturchilar shartni «if» deb yozadi — inglizcha «agar»."
+  ]
+}

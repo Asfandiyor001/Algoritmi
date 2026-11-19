@@ -6,7 +6,7 @@ import { BELGILAR } from '../engine/icons';
 import { MetrikaPaneli } from '../engine/metrics';
 import { qadamMetrikasi, qadamSahnasi } from '../engine/qadam';
 import { SahnaDvigateli } from '../engine/scene';
-import type { Dars } from '../engine/types';
+import { labmi, robotmi, type Dars, type HarDars } from '../engine/types';
 import { darsBormi, darsniYukla } from '../lessons';
 import { belgi, girih, type BelgiNomi } from './belgilar';
 import { egilishniUla } from './egilish';
@@ -43,7 +43,7 @@ const KONIKMALAR: { belgi: BelgiNomi; nom: string; matn: string }[] = [
 const ISHONCH: { belgi: BelgiNomi; nom: string; matn: string }[] = [
   { belgi: 'bepul', nom: 'Bepul', matn: "O'quvchi uchun doim" },
   { belgi: 'til', nom: "O'zbek tilida", matn: 'Tushunarli atamalar bilan' },
-  { belgi: 'shaxs', nom: "Ro'yxatsiz ham ishlaydi", matn: 'Kirish ixtiyoriy, Telegram orqali' },
+  { belgi: 'shaxs', nom: "Ro'yxatdan o'tish shart emas", matn: 'Oching va darhol boshlang' },
   { belgi: 'telefon', nom: 'Telefonda ham', matn: 'Arzon Android uchun yengil' },
 ];
 
@@ -51,17 +51,17 @@ const HALOLLIK: { belgi: BelgiNomi; rang: 'ok' | 'brand' | 'gold'; teg: string; 
   {
     belgi: 'tekshir',
     rang: 'ok',
-    teg: 'Serverda tekshiriladi',
-    nom: "Javoblar sahifada yo'q",
-    matn: "Test javoblari sahifa kodida saqlanmaydi: ularni brauzer orqali ko'chirib bo'lmaydi.",
-    raqam: 'ta javob sahifa kodida',
+    teg: 'Qurilmangizda',
+    nom: 'Natijalar sizda qoladi',
+    matn: "Tugatilgan darslar faqat shu brauzerda saqlanadi. Hech qanday ma'lumot serverga yuborilmaydi.",
+    raqam: "ta ma'lumot serverga",
   },
   {
     belgi: 'shaxs',
     rang: 'brand',
-    teg: 'Parolsiz kirish',
+    teg: "Ro'yxatsiz",
     nom: "Shaxsiy ma'lumot so'ralmaydi",
-    matn: "Parol, telefon va email kerak emas. Telegram orqali kirsangiz ham faqat ism saqlanadi.",
+    matn: "Ism, parol, telefon va email kerak emas. Saytni oching va darhol o'rganishni boshlang.",
     raqam: "ta telefon raqam so'raladi",
   },
   {
@@ -386,24 +386,29 @@ export class BoshSahifa implements Korinish {
 
   /** Tayyor darslarning qadamlar soni, vaqti va shaxsiy progressi (dars JSON'i kerak bo'lganda yuklanadi). */
   private async darslarMetasi(): Promise<void> {
-    let jamiDaqiqa = 0;
-    for (const el of this.ildiz.querySelectorAll<HTMLElement>('[data-meta]')) {
-      const id = el.dataset.meta!;
-      let dars: Dars | undefined;
-      try {
-        dars = await darsniYukla(id);
-      } catch {
-        continue;
+    // Har bir faol modul o'z daqiqalar yig'indisini oladi.
+    for (const modul of this.ildiz.querySelectorAll<HTMLElement>('.modul-asosiy')) {
+      let jamiDaqiqa = 0;
+      for (const el of modul.querySelectorAll<HTMLElement>('[data-meta]')) {
+        const id = el.dataset.meta!;
+        let dars: HarDars | undefined;
+        try {
+          dars = await darsniYukla(id);
+        } catch {
+          continue;
+        }
+        if (!dars || this.yoqildi) return;
+        jamiDaqiqa += dars.daqiqa;
+        // Robot darsida "bosqich", tarmoq darsida "qadam".
+        const [soni, nomi] = robotmi(dars) || labmi(dars) ? [dars.bosqichlar.length, 'bosqich'] : [dars.qadamlar.length, 'qadam'];
+        el.textContent = `${soni} ${nomi} · ~${dars.daqiqa} daqiqa`;
+        const oxirgi = xotiradan<number | null>(`oxirgi:${id}`, null);
+        const bar = el.parentElement?.querySelector<HTMLElement>('.dars-progress span');
+        if (bar && oxirgi) bar.style.width = `${Math.min(100, (oxirgi / soni) * 100)}%`;
       }
-      if (!dars || this.yoqildi) return;
-      jamiDaqiqa += dars.daqiqa;
-      el.textContent = `${dars.qadamlar.length} qadam · ~${dars.daqiqa} daqiqa`;
-      const oxirgi = xotiradan<number | null>(`oxirgi:${id}`, null);
-      const bar = el.parentElement?.querySelector<HTMLElement>('.dars-progress span');
-      if (bar && oxirgi) bar.style.width = `${Math.min(100, (oxirgi / dars.qadamlar.length) * 100)}%`;
+      const jami = modul.querySelector<HTMLElement>('[data-jami-daqiqa]');
+      if (jami && jamiDaqiqa) jami.textContent = `~${jamiDaqiqa}`;
     }
-    const jami = this.ildiz.querySelector<HTMLElement>('[data-jami-daqiqa]');
-    if (jami && jamiDaqiqa) jami.textContent = `~${jamiDaqiqa}`;
   }
 
   private rejaModul(m: KatalogModul): string {
@@ -419,13 +424,14 @@ export class BoshSahifa implements Korinish {
   // ───────────── Hero'dagi jonli namuna ─────────────
 
   private async demoniBoshla(): Promise<void> {
-    let dars: Dars | undefined;
+    let yuklangan: HarDars | undefined;
     try {
-      dars = await darsniYukla(DEMO_DARS);
+      yuklangan = await darsniYukla(DEMO_DARS);
     } catch {
       return;
     }
-    if (!dars || this.yoqildi) return;
+    if (!yuklangan || robotmi(yuklangan) || labmi(yuklangan) || this.yoqildi) return;
+    const dars: Dars = yuklangan;
     const quti = this.ildiz.querySelector<HTMLElement>('.demo-sahna');
     const metrikaQuti = this.ildiz.querySelector<HTMLElement>('.demo-metrikalar');
     if (!quti || !metrikaQuti) return;

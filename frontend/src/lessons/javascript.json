@@ -1,0 +1,115 @@
+{
+  "id": "javascript",
+  "tur": "lab",
+  "modul": "web",
+  "daraja": "m1011",
+  "daqiqa": 10,
+  "sarlavha": "JavaScript: sahifani jonlantirish",
+  "vaziyat": "HTML — skelet, CSS — kiyim, JavaScript esa — mushak va miya: tugma bosilganda nimadir sodir bo'lishi, hisob-kitob, o'yinlar. Brauzer ichida ishlaydigan yagona dasturlash tili. Kodini o'qib ko'ramiz!",
+  "goya": "JavaScript brauzerda ishlaydi va sahifani o'zgartiradi: hodisalarga (bosish, yozish) javob beradi, hisoblaydi, ma'lumot yuklaydi. O'zgaruvchi (let), shart (if), funksiya — Python'dagi g'oyalar, faqat boshqacha yozuvda.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Kodni qadamma-qadam bajaring va o'zgaruvchilarni kuzating.",
+      "izoh": "let — o'zgaruvchi e'lon qilish. Matnlar «+» bilan ulanadi (Python'dagi kabi). console.log — natijani konsolga chiqarish (brauzerda F12 → Console).",
+      "vidjet": {
+        "tur": "kod",
+        "til": "js",
+        "kod": [
+          "let ism = \"Malika\";",
+          "let salom = \"Salom, \" + ism + \"!\";",
+          "console.log(salom);"
+        ],
+        "izlar": [
+          {
+            "qator": 1,
+            "ozgaruvchilar": {
+              "ism": "\"Malika\""
+            }
+          },
+          {
+            "qator": 2,
+            "ozgaruvchilar": {
+              "ism": "\"Malika\"",
+              "salom": "\"Salom, Malika!\""
+            }
+          },
+          {
+            "qator": 3,
+            "ozgaruvchilar": {
+              "ism": "\"Malika\"",
+              "salom": "\"Salom, Malika!\""
+            },
+            "chiqish": "Salom, Malika!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "matn": "% — bo'linmadagi qoldiq. Kod nima chiqaradi?",
+      "izoh": "7 % 2 = 1 (7 ni 2 ga bo'lsa, qoldiq 1). === — qat'iy tenglik. Shart yolg'on, demak else ishlaydi: «toq».",
+      "vidjet": {
+        "tur": "kod",
+        "til": "js",
+        "kod": [
+          "let son = 7;",
+          "if (son % 2 === 0) {",
+          "  console.log(\"juft\");",
+          "} else {",
+          "  console.log(\"toq\");",
+          "}"
+        ],
+        "savol": "Konsolga nima chiqadi?",
+        "variantlar": [
+          "juft",
+          "toq",
+          "7"
+        ],
+        "togri": 1
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Bu kod sahifadagi tugma bilan ishlaydi. U nima qiladi?",
+      "izoh": "addEventListener(\"click\", …) — «bosilganda shuni bajar». Bu — hodisa. Saytdagi deyarli har bir jonli narsa shunday hodisalar bilan ishlaydi.",
+      "vidjet": {
+        "tur": "kod",
+        "til": "js",
+        "kod": [
+          "let tugma = document.querySelector(\"button\");",
+          "tugma.addEventListener(\"click\", () => {",
+          "  alert(\"Bosildi!\");",
+          "});"
+        ],
+        "savol": "Bu kod nima qiladi?",
+        "variantlar": [
+          "Sahifa ochilishi bilan oyna chiqaradi",
+          "Tugma bosilganda «Bosildi!» oynasini chiqaradi",
+          "Tugmani o'chiradi"
+        ],
+        "togri": 1
+      }
+    },
+    {
+      "id": "4",
+      "matn": "Sahifa uchligi: HTML, CSS va JavaScript. JavaScript nima qiladi?",
+      "izoh": "HTML — tuzilish, CSS — ko'rinish, JavaScript — xatti-harakat. Bu sayt ham shu uchlikdan iborat: sahna, robot va laboratoriya — hammasi JavaScript (TypeScript).",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "JavaScript nima qiladi?",
+        "variantlar": [
+          "Sahifani jonlantiradi: bosish, hisoblash, o'zgartirish",
+          "Faqat rang beradi",
+          "Sahifa matnini saqlaydi"
+        ],
+        "togri": 0
+      }
+    }
+  ],
+  "faktlar": [
+    "JavaScript 1995-yilda atigi 10 kunda yaratilgan.",
+    "Nomiga qaramay, JavaScript va Java — butunlay boshqa tillar.",
+    "Bugun JavaScript serverlarda (Node.js) va telefon ilovalarida ham ishlaydi."
+  ]
+}

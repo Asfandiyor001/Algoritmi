@@ -1,0 +1,105 @@
+{
+  "id": "kompilyator",
+  "tur": "lab",
+  "modul": "cs-asoslari",
+  "daraja": "uni",
+  "daqiqa": 10,
+  "sarlavha": "Kompilyator qanday ishlaydi",
+  "vaziyat": "Protsessor faqat oddiy buyruqlarni tushunadi: «yukla», «qo'sh», «saqla». Siz esa narx = 2 + 3 * 4 deb yozasiz. O'rtada kim tarjima qiladi? Kompilyator! Uning ishini bosqichma-bosqich kuzatamiz.",
+  "goya": "Kompilyator kodni bosqichma-bosqich tarjima qiladi: leksik tahlil (tokenlarga bo'lish) → sintaksis tahlili (daraxt qurish, amallar tartibi) → mashina kodi. Sintaksis xatoni dastur ishga tushmasidan oldin aynan shu bosqichlar topadi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "«Qadam ▶» bilan kompilyator bosqichlarini kuzating. O'zgaruvchilar jadvalida har bosqich natijasi chiqadi.",
+      "izoh": "Kompilyator matnni tokenlarga bo'ldi, keyin amallar tartibiga ko'ra daraxt qurdi (ko'paytirish avval) va oxirida protsessor buyruqlarini yozdi. Har bir dastur shu yo'lni bosib o'tadi.",
+      "vidjet": {
+        "tur": "kod",
+        "til": "python",
+        "kod": [
+          "narx = 2 + 3 * 4"
+        ],
+        "izlar": [
+          {
+            "qator": 1,
+            "ozgaruvchilar": {
+              "bosqich": "1. Leksik tahlil",
+              "tokenlar": "[narx] [=] [2] [+] [3] [*] [4]"
+            }
+          },
+          {
+            "qator": 1,
+            "ozgaruvchilar": {
+              "bosqich": "2. Sintaksis daraxti",
+              "daraxt": "= (narx, + (2, * (3, 4)))"
+            }
+          },
+          {
+            "qator": 1,
+            "ozgaruvchilar": {
+              "bosqich": "3. Amallar tartibi",
+              "tartib": "avval 3 * 4 = 12, keyin 2 + 12"
+            }
+          },
+          {
+            "qator": 1,
+            "ozgaruvchilar": {
+              "bosqich": "4. Mashina kodi",
+              "buyruqlar": "LOAD 3; MUL 4; ADD 2; STORE narx"
+            },
+            "chiqish": "narx = 14"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Nega natija 14, 20 emas?",
+      "izoh": "Ko'paytirish qo'shishdan oldin bajariladi — matematikadagi kabi. Kompilyator buni sintaksis daraxtida hal qiladi: * tugun + tugunidan «pastda» turadi.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Nega 2 + 3 * 4 = 14?",
+        "variantlar": [
+          "Ko'paytirish qo'shishdan oldin bajariladi",
+          "Kompyuter xato qildi",
+          "Chapdan o'ngga hisoblanadi"
+        ],
+        "togri": 0
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Bu dastur umuman ishga tushmaydi — kompilyator xatoni topdi. Qaysi qatorda?",
+      "izoh": "Qavs yopilmagan: print(\"Salom\". Sintaksis tahlilida kompilyator qavslar juftini tekshiradi va dastur ishga tushmasidan oldin xato beradi.",
+      "vidjet": {
+        "tur": "kod",
+        "til": "python",
+        "kod": [
+          "print(\"Salom\"",
+          "x = 5",
+          "print(x)"
+        ],
+        "xato_qator": 1
+      }
+    },
+    {
+      "id": "4",
+      "matn": "Kompilyator va interpretator farqi nima?",
+      "izoh": "Kompilyator (C, Go, Rust) dasturni oldindan to'liq tarjima qiladi — ishga tushirish tez. Interpretator (Python, ko'p hollarda JavaScript) kodni bajarish paytida tarjima qiladi — qulay, lekin odatda sekinroq.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Kompilyator va interpretator farqi?",
+        "variantlar": [
+          "Kompilyator oldindan to'liq tarjima qiladi, interpretator bajarish paytida",
+          "Farqi yo'q",
+          "Interpretator faqat rasmlar uchun"
+        ],
+        "togri": 0
+      }
+    }
+  ],
+  "faktlar": [
+    "Birinchi kompilyatorlardan birini 1952-yilda Greys Xopper yaratgan.",
+    "Kompilyator o'zi ham dastur — ko'pincha o'zi kompilyatsiya qiladigan tilda yozilgan.",
+    "Brauzerlar JavaScript'ni tezlashtirish uchun uni ishlash paytida mashina kodiga kompilyatsiya qiladi (JIT)."
+  ]
+}

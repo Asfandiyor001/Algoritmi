@@ -1,0 +1,47 @@
+{
+  "id": "shifrlash",
+  "tur": "lab",
+  "modul": "xavfsizlik",
+  "daraja": "m56",
+  "daqiqa": 10,
+  "sarlavha": "Shifrlash: Sezar shifridan HTTPS gacha",
+  "vaziyat": "2000 yil oldin Rim imperatori Yuliy Sezar maxfiy xatlarini shifrlab yuborgan: har bir harfni alifboda bir necha qadam surgan. Keling, uning shifrlarini ochamiz!",
+  "goya": "Shifrlash — xabarni kalitsiz o'qib bo'lmaydigan holga keltirish. Sezar shifrining kaliti — siljish soni, atigi 25 ta variant, shuning uchun uni bir zumda buzish mumkin. Bugungi shifrlarda (HTTPS) kalitlar soni shunchalik ko'pki, ularni tanlab topishga koinot umri ham yetmaydi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Sezar har harfni 3 qadam oldinga surgan. Slayderni surib, xabarni oching!",
+      "izoh": "Siljish = 3: A → D, B → E, … Ochish uchun teskari tomonga suramiz. Shifrning kaliti — aynan shu son.",
+      "vidjet": { "tur": "sezar", "shifr": "VDORP GXQBR", "ochiq": "SALOM DUNYO", "siljish": 3 }
+    },
+    {
+      "id": "2",
+      "matn": "Bu xabarning kalitini bilmaymiz. Slayderni surib, ma'noli so'zlar chiqqunicha qidiring!",
+      "izoh": "Siz kalitni bilmasdan shifrni buzdingiz — shunchaki hamma variantni sinab. Bu usul «brute force» (kuch bilan) hujumi deyiladi.",
+      "vidjet": { "tur": "sezar", "shifr": "LYAHNH ZVHA ILZOKH RBAHTHU", "ochiq": "ERTAGA SOAT BESHDA KUTAMAN", "siljish": 7 }
+    },
+    {
+      "id": "3",
+      "matn": "Sezar shifrini buzish uchun ko'pi bilan nechta variantni sinash yetarli?",
+      "izoh": "Atigi 25 ta — kompyuter bir zumda sinaydi. Zamonaviy AES shifrining kaliti 2¹²⁸ variantdan iborat: bu 340 undetsillion — barcha kompyuterlar birga ham milliardlab yil sinaydi.",
+      "vidjet": { "tur": "tanlov", "savol": "Sezar shifrida nechta kalit varianti bor?", "variantlar": ["25", "1 000", "Million"], "togri": 0 }
+    },
+    {
+      "id": "4",
+      "matn": "Yana bir shifr — bu safar o'zingiz toping!",
+      "izoh": "Siljish 13 — «ROT13» deyiladi: ikki marta qo'llasangiz, asl matn qaytadi (13 + 13 = 26). Internetda hazil va spoylerlarni yashirish uchun ishlatiladi.",
+      "vidjet": { "tur": "sezar", "shifr": "XBZCLHGRE FVEV", "ochiq": "KOMPYUTER SIRI", "siljish": 13 }
+    },
+    {
+      "id": "5",
+      "matn": "Brauzerdagi HTTPS nimani shifrlaydi?",
+      "izoh": "Brauzer va sayt orasidagi barcha ma'lumotni: parol, xabar, karta raqami. Yo'ldagi Wi-Fi yoki provayder faqat ma'nosiz belgilarni ko'radi. (Internet modulidagi «HTTPS va qulfcha belgisi» darsida batafsil.)",
+      "vidjet": { "tur": "tanlov", "savol": "HTTPS nimani shifrlaydi?", "variantlar": ["Brauzer va sayt orasidagi barcha ma'lumotni", "Faqat rasmlarni", "Hech narsani"], "togri": 0 }
+    }
+  ],
+  "faktlar": [
+    "Ikkinchi jahon urushida nemislarning «Enigma» shifrini Alan Tyuring jamoasi buzgan — bu birinchi kompyuterlar yaratilishiga turtki bo'lgan.",
+    "IX asrda arab olimi al-Kindiy harflar chastotasi bo'yicha shifrlarni ochish usulini yozib qoldirgan.",
+    "Telegram «Maxfiy chat»ida xabarlar end-to-end shifrlanadi: server ham o'qiy olmaydi."
+  ]
+}

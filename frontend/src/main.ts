@@ -16,13 +16,25 @@ import { darsniYukla } from './lessons';
 import { BoshSahifa } from './ui/bosh';
 import { Kirish } from './ui/kirish';
 import { Pleer } from './ui/pleer';
+import { labmi, robotmi } from './engine/types';
 import { navigatsiya, qobiqniUla } from './ui/qobiq';
-import { esc, type Korinish } from './ui/util';
+import { esc, xotiradan, type Korinish } from './ui/util';
 import { Yakun } from './ui/yakun';
 
 const ildiz = document.querySelector<HTMLDivElement>('#app')!;
 let joriy: Korinish | null = null;
 let navbat = 0;
+
+/**
+ * Bosqichli ekran (robot o'yini, laboratoriya). Ular alohida bo'lakda — faqat kerak bo'lganda yuklanadi,
+ * bosh sahifa yengil qoladi (docs/konsepsiya.md, 12.3).
+ */
+interface BosqichliEkran extends Korinish {
+  darsId: string;
+  bosqichgaOt(n: number): void;
+  yakunniKorsat(): void;
+}
+const bosqichlimi = (x: Korinish | null): x is BosqichliEkran => !!x && 'bosqichgaOt' in x && 'yakunniKorsat' in x;
 
 function ekran(yarat: () => Korinish): void {
   joriy?.yoq();
@@ -63,6 +75,13 @@ async function marshrut(): Promise<void> {
     joriy.qadamgaOt(Number(qadam) - 1);
     return;
   }
+  // Robot o'yinida bosqichlar orasida ekran qayta yaratilmaydi.
+  if (bosqichlimi(joriy) && joriy.darsId === id && (raqamli || qadam === 'yakun')) {
+    if (qadam === 'yakun') joriy.yakunniKorsat();
+    else joriy.bosqichgaOt(Number(qadam) - 1);
+    window.scrollTo(0, 0);
+    return;
+  }
 
   let dars;
   try {
@@ -74,6 +93,24 @@ async function marshrut(): Promise<void> {
   if (raqam !== navbat) return; // foydalanuvchi bu orada boshqa sahifaga o'tdi
 
   if (!dars) return ekran(() => xabar('Dars topilmadi', 'Bunday dars yo\'q yoki hali tayyor emas.'));
+  if (robotmi(dars) || labmi(dars)) {
+    // Robot o'yini va laboratoriya: #/<dars> — oxirgi bosqichdan davom, #/<dars>/<n> — n-bosqich, #/<dars>/yakun.
+    const d = dars;
+    let Ekran;
+    try {
+      Ekran = robotmi(d) ? (await import('./ui/robot')).RobotOyin : (await import('./ui/lab')).LabOyin;
+    } catch {
+      if (raqam === navbat) ekran(() => xabar("Yuklab bo'lmadi", 'Internet aloqasini tekshirib, sahifani yangilang.'));
+      return;
+    }
+    if (raqam !== navbat) return;
+    const E = Ekran as new (i: HTMLElement, dd: typeof d, b: number | 'yakun') => BosqichliEkran;
+    const yarat = (b: number | 'yakun'): Korinish => new E(ildiz, d, b);
+    const oxirgi = Math.max(1, xotiradan<number>(`oxirgi:${d.id}`, 1));
+    if (qadam === 'yakun') return ekran(() => yarat('yakun'));
+    if (qadam === undefined || raqamli) return ekran(() => yarat((raqamli ? Number(qadam) : oxirgi) - 1));
+    return ekran(() => xabar('Sahifa topilmadi', 'Manzilda xato bor.'));
+  }
   if (qadam === undefined) ekran(() => new Kirish(ildiz, dars));
   else if (qadam === 'yakun') ekran(() => new Yakun(ildiz, dars));
   else if (raqamli) ekran(() => new Pleer(ildiz, dars, Number(qadam) - 1));

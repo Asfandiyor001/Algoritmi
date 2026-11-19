@@ -4,7 +4,7 @@
  *
  * Nega kerak: `json as Dars` TypeScript'da haqiqiy tekshiruv emas, "bob": "muamo" kabi xato
  * build'dan jim o'tib ketadi. Bu yerda esa tiplar, havolalar (obyekt/aloqa nomlari) va
- * test javoblari kliyentga sizmasligi tekshiriladi.
+ * test savollarining to'g'ri javobi mavjud variantga ishora qilishi tekshiriladi.
  */
 import {
   ALOQA_TURLARI,
@@ -15,6 +15,8 @@ import {
   PAKET_TURLARI,
 } from './types.ts';
 import type { Aloqa } from './types.ts';
+import { labDarsniTekshir } from './validate-lab.ts';
+import { robotDarsniTekshir } from './validate-robot.ts';
 import { zanjirTuz } from './zanjir.ts';
 
 type Obj = Record<string, unknown>;
@@ -37,6 +39,10 @@ export function darsniTekshir(d: unknown): string[] {
   };
 
   if (!isObj(d)) return ["dars: JSON obyekt bo'lishi kerak"];
+  // Robot o'yini darslari o'z sxemasiga ega (engine/validate-robot.ts).
+  if (d.tur === 'robot') return robotDarsniTekshir(d);
+  // Laboratoriya darslari (engine/validate-lab.ts).
+  if (d.tur === 'lab') return labDarsniTekshir(d);
 
   ortiqcha(d, [
     'id', 'modul', 'daraja', 'daqiqa', 'sarlavha', 'vaziyat', 'taxmin', 'metrikalar',
@@ -228,7 +234,7 @@ export function darsniTekshir(d: unknown): string[] {
     royxat.forEach((o, i) => {
       const yol = `${nom}[${i}]`;
       if (!isObj(o)) return xato(yol, "obyekt bo'lishi kerak");
-      ortiqcha(o, ruxsat, yol, nom === 'test' ? " (to'g'ri javob kliyent JSON'iga yozilmaydi, u serverda saqlanadi)" : '');
+      ortiqcha(o, ruxsat, yol);
       if (!isStr(o.id)) xato(`${yol}.id`, "matn bo'lishi kerak");
       else if (korilgan.has(o.id)) xato(`${yol}.id`, `"${o.id}" takrorlangan`);
       else korilgan.add(o.id);
@@ -239,9 +245,12 @@ export function darsniTekshir(d: unknown): string[] {
   idlar(d.topshiriqlar, 'topshiriqlar', ['id', 'matn'], (o, yol) => {
     if (!isStr(o.matn)) xato(`${yol}.matn`, "matn bo'lishi kerak");
   });
-  idlar(d.test, 'test', ['id', 'savol', 'variantlar'], (o, yol) => {
+  idlar(d.test, 'test', ['id', 'savol', 'variantlar', 'togri'], (o, yol) => {
     if (!isStr(o.savol)) xato(`${yol}.savol`, "matn bo'lishi kerak");
     if (!isStrArr(o.variantlar) || o.variantlar.length < 2) xato(`${yol}.variantlar`, "kamida 2 ta matn bo'lishi kerak");
+    else if (!Number.isInteger(o.togri) || (o.togri as number) < 0 || (o.togri as number) >= o.variantlar.length) {
+      xato(`${yol}.togri`, `0…${o.variantlar.length - 1} oralig'idagi variant indeksi bo'lishi kerak`);
+    }
   });
 
   if (!isStrArr(d.faktlar)) xato('faktlar', "matnlar ro'yxati bo'lishi kerak");

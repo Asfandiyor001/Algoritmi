@@ -6,7 +6,34 @@
       "nom": "Algoritmlar olami",
       "sinf": "1–4-sinf",
       "tavsif": "Robotni labirintdan olib chiqib, ketma-ketlik, takrorlash va shartni o'yin orqali o'rganamiz.",
-      "darslar": []
+      "mavzular": [
+        "Ketma-ketlik",
+        "Takrorlash",
+        "Shart",
+        "Xatoni topish"
+      ],
+      "darslar": [
+        {
+          "id": "robot-ketma-ketlik",
+          "sarlavha": "Robot yo'l topadi: ketma-ketlik",
+          "belgi": "robot"
+        },
+        {
+          "id": "robot-takrorlash",
+          "sarlavha": "Takrorlash: 6 marta oldinga",
+          "belgi": "takror"
+        },
+        {
+          "id": "robot-shart",
+          "sarlavha": "Shart: agar devor bo'lsa, buril",
+          "belgi": "shart"
+        },
+        {
+          "id": "robot-xato",
+          "sarlavha": "Xatoni top: robot nega adashdi?",
+          "belgi": "hasharot"
+        }
+      ]
     },
     {
       "id": "kompyuter-ichida",
@@ -14,7 +41,34 @@
       "nom": "Kompyuter ichida nima bor?",
       "sinf": "5–6-sinf",
       "tavsif": "Bit va bayt, ikkilik sanoq, piksellar, harflar qanday saqlanishi va protsessor ishi.",
-      "darslar": []
+      "mavzular": [
+        "Bit va bayt",
+        "Ikkilik sanoq",
+        "Piksel va RGB",
+        "ASCII va UTF-8"
+      ],
+      "darslar": [
+        {
+          "id": "bit-bayt",
+          "sarlavha": "Bit va bayt: chiroqlar bilan sanash",
+          "belgi": "chiroq"
+        },
+        {
+          "id": "ikkilik",
+          "sarlavha": "Ikkilik sanoq: kompyuter qanday sanaydi",
+          "belgi": "ikkilik"
+        },
+        {
+          "id": "piksel-rang",
+          "sarlavha": "Rasm piksellardan iborat: rangni kodla",
+          "belgi": "piksel"
+        },
+        {
+          "id": "harflar",
+          "sarlavha": "Harflar qanday saqlanadi",
+          "belgi": "harf"
+        }
+      ]
     },
     {
       "id": "internet",
@@ -22,7 +76,14 @@
       "nom": "Internet qanday ishlaydi",
       "sinf": "7-sinf",
       "tavsif": "Xabar, sayt va video sizga qanday yetib keladi: paketlar, IP, DNS, kabellar va shifrlash.",
-      "mavzular": ["Paketlar", "IP manzil", "DNS", "Okean kabellari", "Shifrlash", "TCP"],
+      "mavzular": [
+        "Paketlar",
+        "IP manzil",
+        "DNS",
+        "Okean kabellari",
+        "Shifrlash",
+        "TCP"
+      ],
       "darslar": [
         {
           "id": "telegram-xabar",
@@ -67,7 +128,29 @@
       "nom": "Birinchi dasturlarim, Python",
       "sinf": "7–8-sinf",
       "tavsif": "O'zgaruvchi, shart, sikl va funksiyalar. Kodni o'qish va xatoni topishni mashq qilamiz.",
-      "darslar": []
+      "mavzular": [
+        "O'zgaruvchi",
+        "if / else",
+        "for sikli",
+        "AI kodini tekshirish"
+      ],
+      "darslar": [
+        {
+          "id": "python-ozgaruvchi",
+          "sarlavha": "O'zgaruvchi: nomlangan quti",
+          "belgi": "kod"
+        },
+        {
+          "id": "python-shart-sikl",
+          "sarlavha": "Shart va sikl: if va for",
+          "belgi": "sikl"
+        },
+        {
+          "id": "python-xato",
+          "sarlavha": "Xatoni top: AI yozgan kod",
+          "belgi": "hasharot"
+        }
+      ]
     },
     {
       "id": "algoritmlar",
@@ -75,7 +158,28 @@
       "nom": "Algoritmlar",
       "sinf": "8–9-sinf",
       "tavsif": "Qidiruv, saralash, murakkablik va graflar: metro xaritasida eng qisqa yo'l.",
-      "darslar": []
+      "mavzular": [
+        "Ikkilik qidiruv",
+        "Saralash",
+        "Murakkablik O(n)"
+      ],
+      "darslar": [
+        {
+          "id": "qidiruv",
+          "sarlavha": "Qidiruv: millionlab mahsulot ichidan bir zumda",
+          "belgi": "qidirish"
+        },
+        {
+          "id": "saralash",
+          "sarlavha": "Saralash: kartalarni tartibla",
+          "belgi": "saralash"
+        },
+        {
+          "id": "murakkablik",
+          "sarlavha": "Murakkablik: tez va sekin algoritm",
+          "belgi": "grafik"
+        }
+      ]
     },
     {
       "id": "xavfsizlik",
@@ -83,7 +187,29 @@
       "nom": "Raqamli xavfsizlik",
       "sinf": "5–11-sinf",
       "tavsif": "Kuchli parol, fishingni aniqlash, ikki bosqichli himoya va shifrlash asoslari.",
-      "darslar": []
+      "mavzular": [
+        "Kuchli parol",
+        "Fishing",
+        "2FA",
+        "Shifrlash"
+      ],
+      "darslar": [
+        {
+          "id": "parol",
+          "sarlavha": "Kuchli parol: buzish vaqtini hisobla",
+          "belgi": "parol"
+        },
+        {
+          "id": "fishing",
+          "sarlavha": "Fishing: soxta xabarni aniqla",
+          "belgi": "baliq"
+        },
+        {
+          "id": "shifrlash",
+          "sarlavha": "Shifrlash: Sezar shifridan HTTPS gacha",
+          "belgi": "kalit"
+        }
+      ]
     },
     {
       "id": "malumotlar",
@@ -91,7 +217,28 @@
       "nom": "Ma'lumotlar",
       "sinf": "9–10-sinf",
       "tavsif": "Jadvallar, SQL so'rovlari, indeks va grafiklardan to'g'ri xulosa chiqarish.",
-      "darslar": []
+      "mavzular": [
+        "SQL so'rov",
+        "Indeks",
+        "Statistika"
+      ],
+      "darslar": [
+        {
+          "id": "sql",
+          "sarlavha": "Jadval va SQL: brauzerda haqiqiy so'rov",
+          "belgi": "jadval"
+        },
+        {
+          "id": "indeks",
+          "sarlavha": "Indeks: kitob mundarijasi",
+          "belgi": "qidirish"
+        },
+        {
+          "id": "grafik",
+          "sarlavha": "Grafik yolg'on gapirganda",
+          "belgi": "grafik"
+        }
+      ]
     },
     {
       "id": "ai",
@@ -99,7 +246,29 @@
       "nom": "AI qanday ishlaydi",
       "sinf": "9–11-sinf",
       "tavsif": "Neyron qanday o'rganadi, til modeli qanday ishlaydi va AI nega adashadi.",
-      "darslar": []
+      "mavzular": [
+        "Neyron",
+        "Til modeli",
+        "Gallyutsinatsiya",
+        "AI'ni tekshirish"
+      ],
+      "darslar": [
+        {
+          "id": "neyron",
+          "sarlavha": "Bitta neyron: og'irliklarni qo'lda sozla",
+          "belgi": "neyron"
+        },
+        {
+          "id": "til-modeli",
+          "sarlavha": "Til modeli: keyingi so'zni taxmin qilish",
+          "belgi": "chat"
+        },
+        {
+          "id": "ai-tekshir",
+          "sarlavha": "AI javobini tekshir",
+          "belgi": "hasharot"
+        }
+      ]
     },
     {
       "id": "web",
@@ -107,7 +276,28 @@
       "nom": "Web dasturlash",
       "sinf": "10–11-sinf",
       "tavsif": "HTML, CSS va JavaScript: brauzer sahifani qanday chizishini ko'ramiz.",
-      "darslar": []
+      "mavzular": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ],
+      "darslar": [
+        {
+          "id": "html",
+          "sarlavha": "HTML: sahifa skeleti",
+          "belgi": "html"
+        },
+        {
+          "id": "css",
+          "sarlavha": "CSS: dizayn",
+          "belgi": "css"
+        },
+        {
+          "id": "javascript",
+          "sarlavha": "JavaScript: sahifani jonlantirish",
+          "belgi": "kod"
+        }
+      ]
     },
     {
       "id": "katta-tizimlar",
@@ -115,7 +305,25 @@
       "nom": "Katta tizimlar",
       "sinf": "11-sinf, universitet",
       "tavsif": "Bitta serverdan millionlab foydalanuvchigacha: kesh, CDN, navbatlar.",
-      "darslar": []
+      "mavzular": [
+        "Load balancer",
+        "Kesh",
+        "Replika",
+        "CDN",
+        "Navbat"
+      ],
+      "darslar": [
+        {
+          "id": "masshtab",
+          "sarlavha": "Bitta serverdan millionlab foydalanuvchigacha",
+          "belgi": "balanser"
+        },
+        {
+          "id": "cdn-navbat",
+          "sarlavha": "CDN va navbatlar: tez va bardoshli",
+          "belgi": "navbat"
+        }
+      ]
     },
     {
       "id": "cs-asoslari",
@@ -123,7 +331,22 @@
       "nom": "Kompyuter fanlari asoslari",
       "sinf": "Universitet",
       "tavsif": "Operatsion tizim, tarmoqlar, kompilyator va ma'lumotlar tuzilmalari.",
-      "darslar": []
+      "mavzular": [
+        "Xesh-jadval",
+        "Kompilyator"
+      ],
+      "darslar": [
+        {
+          "id": "xesh-jadval",
+          "sarlavha": "Xesh-jadval: bir zumda topish",
+          "belgi": "xesh"
+        },
+        {
+          "id": "kompilyator",
+          "sarlavha": "Kompilyator qanday ishlaydi",
+          "belgi": "kompilyator"
+        }
+      ]
     }
   ]
 }

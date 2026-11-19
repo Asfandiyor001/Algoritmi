@@ -1,0 +1,74 @@
+{
+  "id": "python-shart-sikl",
+  "tur": "lab",
+  "modul": "python",
+  "daraja": "m89",
+  "daqiqa": 12,
+  "sarlavha": "Shart va sikl: if va for",
+  "vaziyat": "Dastur qaror qabul qila oladi («agar ball 80 dan yuqori bo'lsa…») va ishni takrorlay oladi («3 marta salom de»). Robot Bit bilan o'ynaganingizni eslang — endi xuddi shuni Python'da yozamiz!",
+  "goya": "if — shart: rost bo'lsa bir yo'l, aks holda (else) boshqa yo'l. for — takrorlash: range(n) 0 dan n−1 gacha sanaydi. Python'da qaysi qatorlar if yoki for ichida ekanini bo'sh joy (chekinish) bildiradi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Kodni qadamma-qadam bajaring. Qaysi print ishlaydi?",
+      "izoh": "ball >= 80 — rost (85 ≥ 80), shuning uchun if ichidagi qator bajarildi, else ichidagisi esa o'tkazib yuborildi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["ball = 85", "if ball >= 80:", "    print(\"A'lo!\")", "else:", "    print(\"Yana harakat\")"],
+        "izlar": [
+          { "qator": 1, "ozgaruvchilar": { "ball": "85" } },
+          { "qator": 2, "ozgaruvchilar": { "ball": "85", "shart": "85 >= 80 → True" } },
+          { "qator": 3, "ozgaruvchilar": { "ball": "85" }, "chiqish": "A'lo!" }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Endi ball = 60. Nima chiqadi?",
+      "izoh": "60 >= 80 — yolg'on (False), demak else qismi ishlaydi. Bitta kod, turli ma'lumot — turli natija. Dasturning «aqli» shu.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["ball = 60", "if ball >= 80:", "    print(\"A'lo!\")", "else:", "    print(\"Yana harakat\")"],
+        "savol": "Ekranga nima chiqadi?", "variantlar": ["A'lo!", "Yana harakat", "Hech narsa"], "togri": 1
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Sikl! Qadamma-qadam bajaring va i qanday o'zgarishini kuzating.",
+      "izoh": "range(3) — 0, 1, 2. Uchta takror, lekin 0 dan boshlanadi va 3 ning o'zi kirmaydi. Dasturchilar ko'pincha 0 dan sanaydi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["for i in range(3):", "    print(\"Salom\", i)"],
+        "izlar": [
+          { "qator": 1, "ozgaruvchilar": { "i": "0" } },
+          { "qator": 2, "ozgaruvchilar": { "i": "0" }, "chiqish": "Salom 0" },
+          { "qator": 1, "ozgaruvchilar": { "i": "1" }, "chiqish": "Salom 0" },
+          { "qator": 2, "ozgaruvchilar": { "i": "1" }, "chiqish": "Salom 0\nSalom 1" },
+          { "qator": 1, "ozgaruvchilar": { "i": "2" }, "chiqish": "Salom 0\nSalom 1" },
+          { "qator": 2, "ozgaruvchilar": { "i": "2" }, "chiqish": "Salom 0\nSalom 1\nSalom 2" }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "matn": "Bu kod sonlarni qo'shadi. Natija qancha? (range(1, 5) — 1 dan boshlanadi, 5 kirmaydi)",
+      "izoh": "range(1, 5) → 1, 2, 3, 4. s = 1 + 2 + 3 + 4 = 10. Sikl yordamida 1 dan millionlargacha qo'shish ham shu 4 qatorli kod bilan bo'ladi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["s = 0", "for i in range(1, 5):", "    s = s + i", "print(s)"],
+        "savol": "Ekranga nima chiqadi?", "variantlar": ["15", "10", "4"], "togri": 1
+      }
+    },
+    {
+      "id": "5",
+      "matn": "Oxirgi savol: range(0, 10) necha marta takrorlanadi?",
+      "izoh": "0 dan 9 gacha — 10 marta. Oxirgi son (10) kirmaydi. Bu qoida juda ko'p xatolarga sabab bo'ladi — keyingi darsda ko'rasiz!",
+      "vidjet": { "tur": "tanlov", "savol": "for i in range(0, 10) — necha marta?", "variantlar": ["10", "11", "9"], "togri": 0 }
+    }
+  ],
+  "faktlar": [
+    "Python'da chekinish (bo'sh joy) majburiy: u qaysi qatorlar if yoki for ichida ekanini bildiradi.",
+    "«True» va «False» — mantiqiy qiymatlar. Ularni XIX asrda yashagan matematik Jorj Bul sharafiga «bool» deyishadi.",
+    "O'yinlardagi har bir kadr ichida minglab if va for ishlaydi."
+  ]
+}

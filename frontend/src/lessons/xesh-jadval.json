@@ -1,0 +1,74 @@
+{
+  "id": "xesh-jadval",
+  "tur": "lab",
+  "modul": "cs-asoslari",
+  "daraja": "uni",
+  "daqiqa": 10,
+  "sarlavha": "Xesh-jadval: bir zumda topish",
+  "vaziyat": "Python'dagi lug'at (dict), telefoningizdagi kontaktlar, bazadagi indekslar — ko'pining ichida xesh-jadval ishlaydi. U million narsadan keraklisini bir zumda topadi. Siri — matematika!",
+  "goya": "Xesh-funksiya kalitni (masalan, ismni) songa aylantiradi, son esa quti raqamini beradi. Qidirishda yana xeshni hisoblaymiz va to'g'ri o'sha qutiga qaraymiz — o'rtacha O(1). Ikki kalit bitta qutiga tushsa — to'qnashuv, qutida ro'yxat saqlanadi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Har bir ism qaysi qutiga tushishini xesh-funksiya hisoblaydi: harflar kodlari yig'indisi, qutilar soniga bo'lgandagi qoldiq. Ismlarni bosing!",
+      "izoh": "Endi «Malika»ni qidirish uchun hamma ismlarni varaqlash shart emas: xeshni hisoblab, to'g'ri o'sha qutiga qaraymiz — bir zumda!",
+      "vidjet": {
+        "tur": "xesh",
+        "qutilar": 7,
+        "maqsad": "joyla",
+        "ismlar": [
+          "Aziz",
+          "Malika",
+          "Bobur",
+          "Zarina",
+          "Jasur"
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "matn": "O'zingiz ism yozing. Ikki ism bitta qutiga tushguncha davom eting!",
+      "izoh": "Bu — to'qnashuv (collision). Qutilar soni cheklangan, kalitlar esa cheksiz — to'qnashuv muqarrar. Yechim: qutida bir nechta element ro'yxat sifatida saqlanadi yoki qutilar soni oshiriladi.",
+      "vidjet": {
+        "tur": "xesh",
+        "qutilar": 5,
+        "maqsad": "toqnashuv"
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Xesh-jadvalda qidirish taxminan necha qadam?",
+      "izoh": "O'rtacha — doimiy, O(1): element millionta bo'lsa ham, bitta xesh hisoblash va bitta qutiga qarash. Ikkilik qidiruvdagi log n dan ham tez!",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Xesh-jadvalda qidirish — o'rtacha?",
+        "variantlar": [
+          "O(1) — doimiy",
+          "O(n)",
+          "O(n²)"
+        ],
+        "togri": 0
+      }
+    },
+    {
+      "id": "4",
+      "matn": "Python'dagi qaysi tuzilma ichida xesh-jadval ishlaydi?",
+      "izoh": "dict (lug'at): telefon = {\"Aziz\": \"+998…\"} — kalit bo'yicha bir zumda topadi. set (to'plam) ham xesh-jadval asosida ishlaydi.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Python'da xesh-jadval qaysi?",
+        "variantlar": [
+          "list (ro'yxat)",
+          "dict (lug'at)",
+          "str (matn)"
+        ],
+        "togri": 1
+      }
+    }
+  ],
+  "faktlar": [
+    "Parollar ham saqlashda xeshlanadi: sayt parolning o'zini emas, xeshini saqlaydi.",
+    "Xesh-jadval g'oyasini 1953-yilda IBM muhandisi Xans Piter Lun taklif qilgan.",
+    "Yaxshi xesh-funksiya kalitlarni qutilarga teng taqsimlaydi — biz ishlatgan oddiy yig'indi esa unchalik yaxshi emas."
+  ]
+}

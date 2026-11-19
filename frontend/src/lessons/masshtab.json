@@ -1,0 +1,254 @@
+{
+  "id": "masshtab",
+  "modul": "katta-tizimlar",
+  "daraja": "uni",
+  "daqiqa": 14,
+  "sarlavha": "Bitta serverdan millionlab foydalanuvchigacha",
+  "vaziyat": "Siz kichik sayt ochdingiz: 100 ta foydalanuvchi, bitta server. Bir kuni sayt mashhur bo'lib ketdi — endi million kishi kiradi va hammasi qotib qoldi. Katta kompaniyalar bu muammoni qanday hal qiladi?",
+  "taxmin": {
+    "savol": "Million foydalanuvchiga xizmat qilish uchun eng to'g'ri yo'l?",
+    "variantlar": ["Bitta juda kuchli server sotib olish", "Ko'p oddiy serverlar va ular orasida yukni taqsimlash", "Foydalanuvchilarni navbatga qo'yish"]
+  },
+  "metrikalar": [
+    { "id": "foydalanuvchi", "nom": "Foydalanuvchi" },
+    { "id": "rps", "nom": "So'rov/s" },
+    { "id": "kechikish", "nom": "Javob", "birlik": "ms" },
+    { "id": "xato", "nom": "Xatolar" }
+  ],
+  "obyektlar": {
+    "users": { "tur": "telefon", "x": 0, "y": 1.5, "m": [1.6, 0], "yorliq": "Foydalanuvchilar", "izoh": "brauzer va ilova" },
+    "balanser": { "tur": "balanser", "x": 2, "y": 1.5, "m": [1.6, 1.8], "yorliq": "Yuk taqsimlagich", "izoh": "load balancer" },
+    "s1": { "tur": "server", "x": 4, "y": 0, "m": [-0.1, 3.6], "yorliq": "Server A" },
+    "srv": { "tur": "server", "x": 4, "y": 1.5, "m": [1.6, 3.6], "yorliq": "Server", "izoh": "veb-ilova" },
+    "s3": { "tur": "server", "x": 4, "y": 3, "m": [3.3, 3.6], "yorliq": "Server C" },
+    "kesh": { "tur": "kesh", "x": 6.5, "y": 0, "m": [-0.2, 5.6], "yorliq": "Kesh", "izoh": "tezkor xotira" },
+    "baza": { "tur": "baza", "x": 6.5, "y": 1.5, "m": [1.6, 5.6], "yorliq": "Asosiy baza", "izoh": "yozish va o'qish" },
+    "replika": { "tur": "baza", "x": 6.5, "y": 3, "m": [3.4, 5.6], "yorliq": "Baza nusxasi", "izoh": "faqat o'qish" }
+  },
+  "aloqalar": {
+    "togri": { "dan": "users", "ga": "srv", "tur": "kabel", "yorliq": "so'rovlar" },
+    "srv-baza": { "dan": "srv", "ga": "baza", "tur": "kabel" },
+    "users-bal": { "dan": "users", "ga": "balanser", "tur": "kabel", "yorliq": "so'rovlar" },
+    "bal-s1": { "dan": "balanser", "ga": "s1", "tur": "kabel" },
+    "bal-srv": { "dan": "balanser", "ga": "srv", "tur": "kabel" },
+    "bal-s3": { "dan": "balanser", "ga": "s3", "tur": "kabel" },
+    "s1-baza": { "dan": "s1", "ga": "baza", "tur": "kabel" },
+    "s3-baza": { "dan": "s3", "ga": "baza", "tur": "kabel" },
+    "srv-kesh": { "dan": "srv", "ga": "kesh", "tur": "kabel" },
+    "s1-kesh": { "dan": "s1", "ga": "kesh", "tur": "kabel" },
+    "baza-replika": { "dan": "baza", "ga": "replika", "tur": "kabel", "yorliq": "nusxa" },
+    "s3-replika": { "dan": "s3", "ga": "replika", "tur": "kabel" }
+  },
+  "qadamlar": [
+    {
+      "bob": "texnika",
+      "sarlavha": "Boshlanish: bitta server",
+      "matn": [
+        "Foydalanuvchi sahifani ochadi — so'rov serverga boradi, server ma'lumotlar bazasidan kerakli narsani olib, javob qaytaradi.",
+        "100 ta foydalanuvchi uchun bitta server bemalol yetadi."
+      ],
+      "metrika": { "foydalanuvchi": 100, "rps": 10, "kechikish": 80, "xato": "0%" },
+      "sahna": {
+        "obyektlar": ["users", "srv", "baza"],
+        "aloqalar": ["togri", "srv-baza"],
+        "oqimlar": [{ "yol": ["togri", "srv-baza"], "tezlik": 1 }, { "yol": ["togri", "srv-baza"], "tezlik": 0.8, "tur": "tasdiq", "teskari": true }]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Sayt mashhur bo'lib ketdi!",
+      "matn": [
+        "Bir kunda foydalanuvchilar ming baravar ko'paydi. Server soniyasiga minglab so'rovga ulgurmayapti.",
+        "Javoblar kechikadi, ba'zi so'rovlar umuman javobsiz qoladi — sayt «qotdi»."
+      ],
+      "eslatma": { "tur": "warn", "matn": "Server protsessori 100% band. Har bir yangi so'rov navbatda kutadi, ko'pi vaqt tugab yo'qoladi." },
+      "metrika": { "foydalanuvchi": 100000, "rps": 5000, "kechikish": 4000, "xato": "30%" },
+      "sahna": {
+        "obyektlar": ["users", "srv", "baza"],
+        "aloqalar": ["togri", "srv-baza"],
+        "oqimlar": [{ "yol": ["togri", "srv-baza"], "tezlik": 4 }, { "yol": ["togri"], "tezlik": 1.2, "tur": "xato", "yoqolish": 0.85 }],
+        "urgu": ["srv"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Kuchliroq server? (vertikal masshtab)",
+      "matn": [
+        "Birinchi fikr: kuchliroq server olish — ko'proq protsessor va xotira. Bu biroz yordam beradi.",
+        "Lekin eng kuchli serverning ham chegarasi bor va u juda qimmat. Eng yomoni: bu server buzilsa, butun sayt to'xtaydi."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Vertikal masshtab — serverni kattalashtirish. Gorizontal masshtab — serverlar sonini ko'paytirish. Katta tizimlar ikkinchisini tanlaydi."
+      },
+      "metrika": { "kechikish": 600, "xato": "5%" },
+      "sahna": {
+        "obyektlar": ["users", "srv", "baza"],
+        "aloqalar": ["togri", "srv-baza"],
+        "oqimlar": [{ "yol": ["togri", "srv-baza"], "tezlik": 2.5 }, { "yol": ["togri"], "tezlik": 0.3, "tur": "xato", "yoqolish": 0.85 }],
+        "urgu": ["srv"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Ko'p server va yuk taqsimlagich",
+      "matn": [
+        "Bitta katta server o'rniga — bir nechta oddiy server. Ularning oldida yuk taqsimlagich (load balancer) turadi.",
+        "U har bir so'rovni eng bo'sh serverga yuboradi. Kerak bo'lsa, yana server qo'shiladi."
+      ],
+      "metrika": { "kechikish": 150, "xato": "0%" },
+      "sahna": {
+        "obyektlar": ["users", "balanser", "s1", "srv", "s3", "baza"],
+        "aloqalar": ["users-bal", "bal-s1", "bal-srv", "bal-s3", "s1-baza", "srv-baza", "s3-baza"],
+        "oqimlar": [
+          { "yol": ["users-bal", "bal-s1", "s1-baza"], "tezlik": 1.2 },
+          { "yol": ["users-bal", "bal-srv", "srv-baza"], "tezlik": 1.2 },
+          { "yol": ["users-bal", "bal-s3", "s3-baza"], "tezlik": 1.2 }
+        ],
+        "urgu": ["balanser"]
+      }
+    },
+    {
+      "bob": "muammo",
+      "sarlavha": "Endi baza tiqildi",
+      "matn": [
+        "Foydalanuvchilar million bo'ldi. Serverlar ko'p, lekin hammasi bitta bazaga murojaat qiladi.",
+        "Endi baza — «tor bo'g'iz»: u ham hammaga ulgurmayapti."
+      ],
+      "metrika": { "foydalanuvchi": 1000000, "rps": 50000, "kechikish": 900 },
+      "sahna": {
+        "obyektlar": ["users", "balanser", "s1", "srv", "s3", "baza"],
+        "aloqalar": ["users-bal", "bal-s1", "bal-srv", "bal-s3", "s1-baza", "srv-baza", "s3-baza"],
+        "oqimlar": [
+          { "yol": ["users-bal", "bal-s1", "s1-baza"], "tezlik": 2.5 },
+          { "yol": ["users-bal", "bal-srv", "srv-baza"], "tezlik": 2.5 },
+          { "yol": ["users-bal", "bal-s3", "s3-baza"], "tezlik": 2.5 }
+        ],
+        "urgu": ["baza"]
+      }
+    },
+    {
+      "bob": "yechim",
+      "sarlavha": "Kesh: tez-tez so'raladigani — qo'l ostida",
+      "matn": [
+        "Ko'p foydalanuvchi bir xil narsani so'raydi: bosh sahifa, mashhur mahsulot. Bazadan har safar olish shart emas.",
+        "Kesh — tezkor xotira: javob bir marta bazadan olinadi, keyin keshdan millisekundlarda beriladi."
+      ],
+      "eslatma": { "tur": "insight", "matn": "Yaxshi sozlangan keshda so'rovlarning 90% dan ortig'i bazaga umuman yetib bormaydi." },
+      "metrika": { "kechikish": 60 },
+      "sahna": {
+        "obyektlar": ["users", "balanser", "s1", "srv", "s3", "baza", "kesh"],
+        "aloqalar": ["users-bal", "bal-s1", "bal-srv", "bal-s3", "s1-baza", "srv-baza", "s3-baza", "srv-kesh", "s1-kesh"],
+        "oqimlar": [
+          { "yol": ["users-bal", "bal-srv", "srv-kesh"], "tezlik": 2.2 },
+          { "yol": ["users-bal", "bal-s1", "s1-kesh"], "tezlik": 2 },
+          { "yol": ["users-bal", "bal-s3", "s3-baza"], "tezlik": 0.6 }
+        ],
+        "urgu": ["kesh"]
+      }
+    },
+    {
+      "bob": "texnika",
+      "sarlavha": "Server ishdan chiqdi — sayt ishlayveradi",
+      "matn": [
+        "Server C to'satdan buzildi. Yuk taqsimlagich buni darhol sezadi (har necha soniyada «tirikmisan?» deb tekshiradi).",
+        "Yangi so'rovlar faqat sog' serverlarga boradi — foydalanuvchi hech narsani sezmaydi."
+      ],
+      "eslatma": {
+        "tur": "tip",
+        "matn": "Bunday tekshiruv «health check» deyiladi. Bitta qism buzilsa, butun tizim to'xtamasligi — ishonchlilikning asosi."
+      },
+      "metrika": { "xato": "0%" },
+      "sahna": {
+        "obyektlar": ["users", "balanser", "s1", "srv", "s3", "baza", "kesh"],
+        "aloqalar": ["users-bal", "bal-s1", "bal-srv", "bal-s3", "s1-baza", "srv-baza", "s3-baza", "srv-kesh", "s1-kesh"],
+        "oqimlar": [
+          { "yol": ["users-bal", "bal-srv", "srv-kesh"], "tezlik": 2.2 },
+          { "yol": ["users-bal", "bal-s1", "s1-kesh"], "tezlik": 2.2 },
+          { "yol": ["users-bal", "bal-s3"], "tezlik": 0.5, "tur": "xato", "yoqolish": 0.75 }
+        ],
+        "urgu": ["s3"]
+      }
+    },
+    {
+      "bob": "insight",
+      "sarlavha": "Baza nusxasi: o'qish uchun yordamchi",
+      "matn": [
+        "Baza o'zgarishlarini doimiy nusxaga (replikaga) yozib boradi. O'qish so'rovlarini nusxa ham bajaradi.",
+        "Asosiy baza yangilanishlar bilan band bo'lsa, nusxa yukning bir qismini oladi. Asosiy baza buzilsa, nusxa uning o'rnini egallaydi."
+      ],
+      "sahna": {
+        "obyektlar": ["users", "balanser", "s1", "srv", "s3", "baza", "replika"],
+        "aloqalar": ["users-bal", "bal-s1", "bal-srv", "bal-s3", "s1-baza", "srv-baza", "s3-baza", "baza-replika", "s3-replika"],
+        "oqimlar": [
+          { "yol": ["baza-replika"], "tezlik": 1, "tur": "tasdiq" },
+          { "yol": ["users-bal", "bal-s3", "s3-replika"], "tezlik": 1.5 },
+          { "yol": ["users-bal", "bal-srv", "srv-baza"], "tezlik": 1.2 }
+        ],
+        "urgu": ["replika"]
+      }
+    },
+    {
+      "bob": "xulosa",
+      "sarlavha": "Million foydalanuvchi uchun arxitektura",
+      "matn": [
+        "Yuk taqsimlagich → ko'p server → kesh → baza va uning nusxasi. Har qism kerak bo'lsa ko'paytiriladi, bittasi buzilsa ham tizim ishlayveradi.",
+        "Katta onlayn xizmatlarning hammasi shu g'oyalarning turli kombinatsiyasi."
+      ],
+      "metrika": { "kechikish": 60, "xato": "0%" },
+      "sahna": {
+        "obyektlar": ["users", "balanser", "s1", "srv", "s3", "baza", "kesh", "replika"],
+        "aloqalar": ["users-bal", "bal-s1", "bal-srv", "bal-s3", "s1-baza", "srv-baza", "s3-baza", "srv-kesh", "s1-kesh", "baza-replika", "s3-replika"],
+        "oqimlar": [
+          { "yol": ["users-bal", "bal-srv", "srv-kesh"], "tezlik": 1.8 },
+          { "yol": ["users-bal", "bal-s1", "s1-kesh"], "tezlik": 1.5 },
+          { "yol": ["users-bal", "bal-s3", "s3-replika"], "tezlik": 1.2 },
+          { "yol": ["baza-replika"], "tezlik": 0.6, "tur": "tasdiq" }
+        ]
+      }
+    }
+  ],
+  "topshiriqlar": [
+    {
+      "id": "eng-zaif",
+      "matn": "Yakuniy sxemada qaysi qism hali ham «yagona nuqta» (buzilsa hammasi to'xtaydi)? Uni qanday himoyalash mumkin?"
+    },
+    {
+      "id": "kesh-xavf",
+      "matn": "Kesh eskirgan ma'lumot berishi mumkin (masalan, eski narx). Qachon bu xavfli, qachon zararsiz? Misollar keltiring."
+    },
+    {
+      "id": "hisob",
+      "matn": "Bitta server soniyasiga 500 so'rovga ulguradi. Soniyasiga 20 000 so'rov uchun nechta server kerak? Zaxira bilan-chi?"
+    }
+  ],
+  "test": [
+    {
+      "id": "q1",
+      "savol": "Yuk taqsimlagich (load balancer) nima qiladi?",
+      "variantlar": ["Ma'lumotni shifrlaydi", "So'rovlarni serverlar orasida taqsimlaydi", "Bazani nusxalaydi"],
+      "togri": 1
+    },
+    {
+      "id": "q2",
+      "savol": "Kesh nima uchun kerak?",
+      "variantlar": ["Tez-tez so'raladigan javobni bazaga bormay tez berish uchun", "Parollarni saqlash uchun", "Serverni o'chirish uchun"],
+      "togri": 0
+    },
+    {
+      "id": "q3",
+      "savol": "Gorizontal masshtab nima?",
+      "variantlar": ["Bitta serverni kuchliroq qilish", "Ekranni kengaytirish", "Serverlar sonini ko'paytirish"],
+      "togri": 2
+    }
+  ],
+  "faktlar": [
+    "Katta qidiruv tizimlari va ijtimoiy tarmoqlar dunyo bo'ylab yuz minglab serverlarda ishlaydi.",
+    "«Yagona nosozlik nuqtasi» (single point of failure) — katta tizim loyihalashda birinchi qidiriladigan zaif joy.",
+    "Ko'p saytlar bosh sahifasini butunlay keshdan beradi: baza unga umuman qatnashmaydi."
+  ],
+  "ai": {
+    "javob": "Sayt sekinlashsa, eng yaxshi yechim — har doim kuchliroq server sotib olish.",
+    "savol": "Bu to'g'rimi? Darsdagi qaysi muammolar bu yo'lni cheklaydi?"
+  }
+}

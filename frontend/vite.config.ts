@@ -29,12 +29,11 @@ function darslarniTekshir(): Plugin {
   };
 }
 
-/** /api so'rovlari Python backendga (backend/, uvicorn :8000) uzatiladi: sayt va API bitta manzilda, cookie ishlaydi. */
-const BACKEND = 'http://127.0.0.1:8000';
-const proxy = { '/api': { target: BACKEND, changeOrigin: false } };
+// Hozircha sayt backendsiz ishlaydi (src/ui/qobiq.ts dagi izohga qarang).
+// Backend (Telegram kirish) qayta yoqilganda /api ni Python serverga uzatish:
+//   const proxy = { '/api': { target: 'http://127.0.0.1:8000', changeOrigin: false } };
+//   server: { proxy }, preview: { proxy },
 
 export default defineConfig({
   plugins: [darslarniTekshir()],
-  server: { proxy },
-  preview: { proxy },
 });

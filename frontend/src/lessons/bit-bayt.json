@@ -1,0 +1,59 @@
+{
+  "id": "bit-bayt",
+  "tur": "lab",
+  "modul": "kompyuter-ichida",
+  "daraja": "m56",
+  "daqiqa": 10,
+  "sarlavha": "Bit va bayt: chiroqlar bilan sanash",
+  "vaziyat": "Kompyuter ichida millionlab mitti «chiroq» bor: har biri yo yoniq, yo o'chiq. Shu chiroqlar bilan qanday qilib son, rasm va xabarni saqlash mumkin? Keling, o'zimiz sinab ko'ramiz!",
+  "goya": "Bit — eng kichik ma'lumot: 0 yoki 1, xuddi chiroq kabi o'chiq yoki yoniq. 8 bit = 1 bayt. Har bir chiroq qo'shilganda, yozish mumkin bo'lgan sonlar soni ikki baravar ko'payadi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Bu — bitta chiroq. Uni yoqing! Yoniq chiroq = 1, o'chiq chiroq = 0.",
+      "izoh": "Bitta chiroq ikki holatdan birida bo'ladi: 0 yoki 1. Bu — bit, kompyuterdagi eng kichik ma'lumot bo'lagi.",
+      "vidjet": { "tur": "chiroqlar", "soni": 1, "maqsad": 1 }
+    },
+    {
+      "id": "2",
+      "matn": "Endi ikkita chiroq. Ular bilan 3 sonini yasang. Har chiroq tagida uning qiymati yozilgan.",
+      "izoh": "Chap chiroq — 2, o'ng chiroq — 1. Ikkalasi yoniq: 2 + 1 = 3. Ikkita bit bilan 4 xil holat bor: 00, 01, 10, 11 — ya'ni 0 dan 3 gacha.",
+      "vidjet": { "tur": "chiroqlar", "soni": 2, "maqsad": 3 }
+    },
+    {
+      "id": "3",
+      "matn": "To'rtta chiroq: 8, 4, 2, 1. 5 sonini yasang!",
+      "izoh": "5 = 4 + 1. Demak, 4 va 1 chiroqlari yoniq, qolganlari o'chiq: 0101. Kompyuter 5 ni aynan shunday saqlaydi.",
+      "vidjet": { "tur": "chiroqlar", "soni": 4, "maqsad": 5 }
+    },
+    {
+      "id": "4",
+      "matn": "4 ta chiroq bilan eng katta sonni yasang. U nechaga teng?",
+      "izoh": "Hammasi yoniq: 8 + 4 + 2 + 1 = 15. 4 bit bilan 16 xil son yoziladi: 0 dan 15 gacha.",
+      "vidjet": { "tur": "chiroqlar", "soni": 4, "maqsad": 15 }
+    },
+    {
+      "id": "5",
+      "matn": "Savol: kompyuterda 8 ta bit birga nima deb ataladi?",
+      "izoh": "8 bit = 1 bayt. Fayl o'lchamlari baytda o'lchanadi: kilobayt (~ming bayt), megabayt (~million bayt), gigabayt (~milliard bayt).",
+      "vidjet": { "tur": "tanlov", "savol": "8 ta bit birga nima deyiladi?", "variantlar": ["Piksel", "Bayt", "Kilobayt"], "togri": 1 }
+    },
+    {
+      "id": "6",
+      "matn": "Mana bitta bayt — 8 ta chiroq. 200 sonini yasang!",
+      "izoh": "200 = 128 + 64 + 8. Ikkilikda: 11001000. Bir bayt 0 dan 255 gacha bo'lgan istalgan sonni saqlaydi.",
+      "vidjet": { "tur": "chiroqlar", "soni": 8, "maqsad": 200 }
+    },
+    {
+      "id": "7",
+      "matn": "Oxirgi sinov: bir baytga sig'adigan eng katta sonni yasang.",
+      "izoh": "Hamma 8 ta chiroq yoniq: 11111111 = 255. Shuning uchun bir bayt 256 xil qiymatni saqlaydi (0 ham hisob).",
+      "vidjet": { "tur": "chiroqlar", "soni": 8, "maqsad": 255 }
+    }
+  ],
+  "faktlar": [
+    "«Bit» so'zi inglizcha «binary digit» — «ikkilik raqam» so'zlaridan qisqartirib yasalgan.",
+    "Telefoningizdagi 128 GB xotira — taxminan bir trillion bitta mitti «chiroq».",
+    "Birinchi kompyuterlarda bitlar haqiqiy lampalar bo'lgan: ENIAC kompyuterida 17 mingdan ortiq lampa bor edi."
+  ]
+}

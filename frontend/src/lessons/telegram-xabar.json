@@ -255,12 +255,14 @@
     {
       "id": "q1",
       "savol": "Bitta paket yo'qolsa nima bo'ladi?",
-      "variantlar": ["Butun xabar yo'qoladi", "Faqat shu paket qayta yuboriladi", "Xabar buzilib keladi"]
+      "variantlar": ["Butun xabar yo'qoladi", "Faqat shu paket qayta yuboriladi", "Xabar buzilib keladi"],
+      "togri": 1
     },
     {
       "id": "q2",
       "savol": "DNS nima qiladi?",
-      "variantlar": ["Xabarni shifrlaydi", "Paketlarni qayta yuboradi", "Sayt nomini IP manzilga aylantiradi"]
+      "variantlar": ["Xabarni shifrlaydi", "Paketlarni qayta yuboradi", "Sayt nomini IP manzilga aylantiradi"],
+      "togri": 2
     },
     {
       "id": "q3",
@@ -269,12 +271,14 @@
         "Kosmosda yorug'lik sekinroq yuradi",
         "Yo'ldosh juda baland: signal 36 000 km borib-kelishi kerak",
         "Yo'ldoshlar faqat kechasi ishlaydi"
-      ]
+      ],
+      "togri": 1
     },
     {
       "id": "q4",
       "savol": "Okean tubidagi kabelda bitlar qanday ko'rinishda yuguradi?",
-      "variantlar": ["Yorug'lik impulslari", "Tovush to'lqinlari", "Suv bosimi"]
+      "variantlar": ["Yorug'lik impulslari", "Tovush to'lqinlari", "Suv bosimi"],
+      "togri": 0
     }
   ],
   "faktlar": [

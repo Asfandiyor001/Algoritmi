@@ -1,0 +1,89 @@
+{
+  "id": "css",
+  "tur": "lab",
+  "modul": "web",
+  "daraja": "m1011",
+  "daqiqa": 12,
+  "sarlavha": "CSS: dizayn",
+  "vaziyat": "HTML sahifa skeleti bo'lsa, CSS — uning kiyimi: ranglar, shriftlar, o'lchamlar, joylashuv. Bitta sahifani CSS bilan butunlay boshqacha ko'rinishga keltirish mumkin. Sinab ko'ring!",
+  "goya": "CSS qoidasi: selektor { xossa: qiymat; } — masalan h1 { color: teal; }. Selektor «qaysi elementga», xossa «nimani o'zgartirish», qiymat «qanday qilib». Bitta CSS fayl butun saytning ko'rinishini boshqaradi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Sarlavhaga rang bering: h1 { } ichiga color: teal; yozing (yoki o'zingiz yoqtirgan rang: red, blue, purple…).",
+      "izoh": "color — matn rangi. Ranglarni nomi (teal), HEX kodi (#0e9c97) yoki RGB (rgb(14, 156, 151)) bilan berish mumkin — 02-moduldagi RGB darsini eslang!",
+      "vidjet": {
+        "tur": "html",
+        "boshlangich": "<style>\n  h1 { }\n</style>\n<h1>Algoritmi</h1>\n",
+        "talablar": [
+          {
+            "tur": "css",
+            "xossa": "color",
+            "nom": "h1 ga rang (color) berilgan"
+          }
+        ],
+        "yechim": "<style>\n  h1 { color: teal; }\n</style>\n<h1>Algoritmi</h1>\n"
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Sahifa foniga rang bering: body { } ichiga background-color: lightyellow; yozing.",
+      "izoh": "background-color — fon rangi. body — butun sahifa. Shunday qilib bitta qator butun sahifa ko'rinishini o'zgartiradi.",
+      "vidjet": {
+        "tur": "html",
+        "boshlangich": "<style>\n  body { }\n</style>\n<h1>Salom!</h1>\n<p>Fon rangini o'zgartiring.</p>\n",
+        "talablar": [
+          {
+            "tur": "css",
+            "xossa": "background-color",
+            "nom": "Sahifa foni (background-color) berilgan"
+          }
+        ],
+        "yechim": "<style>\n  body { background-color: lightyellow; }\n</style>\n<h1>Salom!</h1>\n<p>Fon rangini o'zgartiring.</p>\n"
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Sarlavhani kattalashtiring va o'rtaga qo'ying: font-size: 48px; va text-align: center;",
+      "izoh": "font-size — shrift o'lchami, text-align — tekislash. Bir qoidada bir nechta xossa bo'lishi mumkin, har biri «;» bilan tugaydi.",
+      "vidjet": {
+        "tur": "html",
+        "boshlangich": "<style>\n  h1 { }\n</style>\n<h1>Mening saytim</h1>\n",
+        "talablar": [
+          {
+            "tur": "css",
+            "xossa": "font-size",
+            "nom": "Shrift o'lchami (font-size) berilgan"
+          },
+          {
+            "tur": "css",
+            "xossa": "text-align",
+            "qiymat": "center",
+            "nom": "Matn o'rtada (text-align: center)"
+          }
+        ],
+        "yechim": "<style>\n  h1 { font-size: 48px; text-align: center; }\n</style>\n<h1>Mening saytim</h1>\n"
+      }
+    },
+    {
+      "id": "4",
+      "matn": "HTML va CSS farqi nima?",
+      "izoh": "HTML — tuzilish (nima bor), CSS — ko'rinish (qanday ko'rinadi). Ularni ajratish tufayli dizaynni o'zgartirish uchun matnga tegish shart emas.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "HTML va CSS farqi?",
+        "variantlar": [
+          "HTML — tuzilish, CSS — ko'rinish (rang, o'lcham)",
+          "Farqi yo'q",
+          "CSS — tuzilish, HTML — rang"
+        ],
+        "togri": 0
+      }
+    }
+  ],
+  "faktlar": [
+    "CSS 1996-yilda paydo bo'lgan — undan oldin dizayn HTML ichida, ancha noqulay yozilardi.",
+    "Bu sayt (Algoritmi) dizayni ham bitta CSS faylda: ranglar, shriftlar va qorong'i tema.",
+    "«CSS Zen Garden» loyihasida bitta HTML sahifa yuzlab xil CSS bilan butunlay boshqacha ko'rinadi."
+  ]
+}

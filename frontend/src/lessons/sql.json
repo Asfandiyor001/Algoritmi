@@ -1,0 +1,324 @@
+{
+  "id": "sql",
+  "tur": "lab",
+  "modul": "malumotlar",
+  "daraja": "m1011",
+  "daqiqa": 12,
+  "sarlavha": "Jadval va SQL: brauzerda haqiqiy so'rov",
+  "vaziyat": "Har bir ilovaning orqasida ma'lumotlar bazasi bor: o'quvchilar, xaridlar, xabarlar. Ulardan kerakli qatorlarni SQL tilida so'raymiz. Quyida maktab jadvali — so'rov tuzib ko'ring!",
+  "goya": "Ma'lumotlar bazasi — jadvallar. SQL — ulardan so'rash tili: SELECT (nimani), FROM (qaysi jadvaldan), WHERE (qaysi shart bilan), ORDER BY (qaysi tartibda). Bitta so'rov millionlab qatordan keraklisini bir zumda topadi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Bali 80 dan yuqori bo'lgan o'quvchilarni toping. WHERE qismini to'ldiring.",
+      "izoh": "WHERE ball > 80 — shartni bajaradigan qatorlarni qoldiradi. Natija: 4 ta o'quvchi. SQL tilida yozilgan so'rovni deyarli har qanday baza tushunadi.",
+      "vidjet": {
+        "tur": "sorov",
+        "jadval": {
+          "nom": "oquvchilar",
+          "ustunlar": [
+            "ism",
+            "sinf",
+            "ball",
+            "shahar"
+          ],
+          "qatorlar": [
+            [
+              "Aziz",
+              9,
+              87,
+              "Toshkent"
+            ],
+            [
+              "Malika",
+              10,
+              95,
+              "Samarqand"
+            ],
+            [
+              "Jasur",
+              9,
+              72,
+              "Buxoro"
+            ],
+            [
+              "Nilufar",
+              10,
+              64,
+              "Toshkent"
+            ],
+            [
+              "Sardor",
+              9,
+              91,
+              "Samarqand"
+            ],
+            [
+              "Dilnoza",
+              10,
+              78,
+              "Buxoro"
+            ],
+            [
+              "Bobur",
+              9,
+              55,
+              "Toshkent"
+            ],
+            [
+              "Zarina",
+              10,
+              88,
+              "Andijon"
+            ]
+          ]
+        },
+        "vazifa": "Bali 80 dan yuqori o'quvchilar",
+        "yechim": {
+          "ustun": "ball",
+          "amal": ">",
+          "qiymat": 80
+        }
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Endi faqat Samarqanddagi o'quvchilarni toping.",
+      "izoh": "Matnli qiymat qo'shtirnoqda yoziladi: WHERE shahar = 'Samarqand'. SQL so'rovni o'qish oson — u deyarli oddiy ingliz gapiga o'xshaydi.",
+      "vidjet": {
+        "tur": "sorov",
+        "jadval": {
+          "nom": "oquvchilar",
+          "ustunlar": [
+            "ism",
+            "sinf",
+            "ball",
+            "shahar"
+          ],
+          "qatorlar": [
+            [
+              "Aziz",
+              9,
+              87,
+              "Toshkent"
+            ],
+            [
+              "Malika",
+              10,
+              95,
+              "Samarqand"
+            ],
+            [
+              "Jasur",
+              9,
+              72,
+              "Buxoro"
+            ],
+            [
+              "Nilufar",
+              10,
+              64,
+              "Toshkent"
+            ],
+            [
+              "Sardor",
+              9,
+              91,
+              "Samarqand"
+            ],
+            [
+              "Dilnoza",
+              10,
+              78,
+              "Buxoro"
+            ],
+            [
+              "Bobur",
+              9,
+              55,
+              "Toshkent"
+            ],
+            [
+              "Zarina",
+              10,
+              88,
+              "Andijon"
+            ]
+          ]
+        },
+        "vazifa": "Samarqanddagi o'quvchilar",
+        "yechim": {
+          "ustun": "shahar",
+          "amal": "=",
+          "qiymat": "Samarqand"
+        }
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Reyting tuzamiz: hamma o'quvchilarni bali bo'yicha kattadan kichikka saralang (ORDER BY … DESC).",
+      "izoh": "ORDER BY ball DESC — kamayish tartibida. DESC bo'lmasa, o'sish tartibida bo'ladi. Platformalardagi reytinglar aynan shunday hisoblanadi.",
+      "vidjet": {
+        "tur": "sorov",
+        "jadval": {
+          "nom": "oquvchilar",
+          "ustunlar": [
+            "ism",
+            "sinf",
+            "ball",
+            "shahar"
+          ],
+          "qatorlar": [
+            [
+              "Aziz",
+              9,
+              87,
+              "Toshkent"
+            ],
+            [
+              "Malika",
+              10,
+              95,
+              "Samarqand"
+            ],
+            [
+              "Jasur",
+              9,
+              72,
+              "Buxoro"
+            ],
+            [
+              "Nilufar",
+              10,
+              64,
+              "Toshkent"
+            ],
+            [
+              "Sardor",
+              9,
+              91,
+              "Samarqand"
+            ],
+            [
+              "Dilnoza",
+              10,
+              78,
+              "Buxoro"
+            ],
+            [
+              "Bobur",
+              9,
+              55,
+              "Toshkent"
+            ],
+            [
+              "Zarina",
+              10,
+              88,
+              "Andijon"
+            ]
+          ]
+        },
+        "vazifa": "Hamma o'quvchilar — bali bo'yicha kattadan kichikka",
+        "yechim": {
+          "tartib": "ball",
+          "kamayish": true
+        }
+      }
+    },
+    {
+      "id": "4",
+      "matn": "Murakkabroq: faqat 10-sinf o'quvchilari, ism bo'yicha alifbo tartibida.",
+      "izoh": "WHERE va ORDER BY birga ishlaydi: avval filtr, keyin saralash. Haqiqiy so'rovlar ko'pincha shunday — bir nechta qismdan iborat.",
+      "vidjet": {
+        "tur": "sorov",
+        "jadval": {
+          "nom": "oquvchilar",
+          "ustunlar": [
+            "ism",
+            "sinf",
+            "ball",
+            "shahar"
+          ],
+          "qatorlar": [
+            [
+              "Aziz",
+              9,
+              87,
+              "Toshkent"
+            ],
+            [
+              "Malika",
+              10,
+              95,
+              "Samarqand"
+            ],
+            [
+              "Jasur",
+              9,
+              72,
+              "Buxoro"
+            ],
+            [
+              "Nilufar",
+              10,
+              64,
+              "Toshkent"
+            ],
+            [
+              "Sardor",
+              9,
+              91,
+              "Samarqand"
+            ],
+            [
+              "Dilnoza",
+              10,
+              78,
+              "Buxoro"
+            ],
+            [
+              "Bobur",
+              9,
+              55,
+              "Toshkent"
+            ],
+            [
+              "Zarina",
+              10,
+              88,
+              "Andijon"
+            ]
+          ]
+        },
+        "vazifa": "10-sinf o'quvchilari, ism bo'yicha alifbo tartibida",
+        "yechim": {
+          "ustun": "sinf",
+          "amal": "=",
+          "qiymat": 10,
+          "tartib": "ism"
+        }
+      }
+    },
+    {
+      "id": "5",
+      "matn": "SQL nima uchun kerak?",
+      "izoh": "SQL 1970-yillarda yaratilgan va hali ham eng mashhur ma'lumot tili: bank, do'kon, maktab tizimlari uning yordamida ishlaydi.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "SQL nima uchun kerak?",
+        "variantlar": [
+          "Ma'lumotlar bazasidan kerakli qatorlarni so'rash",
+          "Rasm chizish",
+          "Internetni tezlashtirish"
+        ],
+        "togri": 0
+      }
+    }
+  ],
+  "faktlar": [
+    "SQL 1974-yilda IBM'da yaratilgan, dastlab nomi SEQUEL bo'lgan.",
+    "Messenjerlar, bank ilovalari va onlayn do'konlar — hammasining orqasida ma'lumotlar bazasi bor.",
+    "Yaxshi sozlangan bazada milliardlab qatordan kerakli bittasini topish millisekundlar oladi."
+  ]
+}

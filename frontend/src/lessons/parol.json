@@ -1,0 +1,47 @@
+{
+  "id": "parol",
+  "tur": "lab",
+  "modul": "xavfsizlik",
+  "daraja": "m56",
+  "daqiqa": 10,
+  "sarlavha": "Kuchli parol: buzish vaqtini hisobla",
+  "vaziyat": "Xakerlar parolni «taxmin qilmaydi» — kompyuter soniyasiga milliardlab variantni sinaydi. Sizning parolingizni qancha vaqtda topadi? Keling, hisoblab ko'ramiz!",
+  "goya": "Parol kuchi — variantlar soni: (belgilar to'plami)^(uzunlik). Har qo'shimcha belgi variantlarni o'nlab baravar oshiradi, shuning uchun uzunlik eng muhim. Mashhur so'zlar va bir xil parol hamma joyda — eng katta xavf.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Kamida 1 yilda buziladigan parol o'ylab toping. Ekranda kompyuter uni qancha vaqtda buzishini ko'rasiz.",
+      "izoh": "Har yangi belgi turi (katta harf, raqam, belgi) to'plamni kengaytiradi: 26 → 52 → 62 → 95. Har qo'shimcha uzunlik esa variantlarni shu songa ko'paytiradi.",
+      "vidjet": { "tur": "parol", "maqsad_yil": 1 }
+    },
+    {
+      "id": "2",
+      "matn": "Qaysi parol eng kuchli?",
+      "izoh": "Uzun ibora (bir necha so'z + belgi) — ham kuchli, ham eslab qolish oson. «qwerty» va «Aziz2010» kabi parollar lug'atlar va shaxsiy ma'lumot bo'yicha birinchi sinaladi.",
+      "vidjet": { "tur": "tanlov", "savol": "Qaysi parol eng kuchli?", "variantlar": ["qwerty123", "Aziz2010", "Kok-Olma-7-Daryo!"], "togri": 2 }
+    },
+    {
+      "id": "3",
+      "matn": "Endi million yil! Maslahat: bir nechta tasodifiy so'zni belgilar bilan ulang.",
+      "izoh": "Uzunlik — eng kuchli qurol. 18 belgili ibora millionlab yil chidaydi. Shunday parolni eslab qolish ham oson: «Kok-Olma-7-Daryo!» kabi.",
+      "vidjet": { "tur": "parol", "maqsad_yil": 1000000 }
+    },
+    {
+      "id": "4",
+      "matn": "Bitta kuchli parolni hamma saytda ishlatsak-chi?",
+      "izoh": "Bitta sayt buzilsa, xakerlar o'sha parolni boshqa saytlarda ham sinaydi. Har sayt uchun alohida parol kerak — ularni parol menejeri eslab qoladi.",
+      "vidjet": { "tur": "tanlov", "savol": "Bitta parol hamma saytda — nima bo'ladi?", "variantlar": ["Hech narsa, parol kuchli", "Bitta sayt buzilsa, hammasi xavf ostida", "Parol yanada kuchliroq bo'ladi"], "togri": 1 }
+    },
+    {
+      "id": "5",
+      "matn": "Parollarni qayerda saqlash xavfsizroq?",
+      "izoh": "Parol menejeri parollarni shifrlab saqlaydi va har sayt uchun kuchli parol yaratadi. Zametkadagi ochiq matn yoki do'stga aytilgan parol — xavfli.",
+      "vidjet": { "tur": "tanlov", "savol": "Parollar qayerda xavfsizroq?", "variantlar": ["Telefon zametkasida", "Parol menejerida", "Do'stimda"], "togri": 1 }
+    }
+  ],
+  "faktlar": [
+    "Dunyoda eng ko'p ishlatiladigan parol hali ham «123456» — u bir soniyadan kam vaqtda topiladi.",
+    "Hisob-kitob: zamonaviy videokarta soniyasiga ~10 milliard oddiy parol variantini sinay oladi.",
+    "Ikki bosqichli himoya yoqilgan bo'lsa, parol topilgan taqdirda ham hisobga kirish qiyin bo'ladi."
+  ]
+}

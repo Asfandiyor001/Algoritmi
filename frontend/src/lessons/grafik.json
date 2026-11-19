@@ -1,0 +1,102 @@
+{
+  "id": "grafik",
+  "tur": "lab",
+  "modul": "malumotlar",
+  "daraja": "m1011",
+  "daqiqa": 8,
+  "sarlavha": "Grafik yolg'on gapirganda",
+  "vaziyat": "Reklama va yangiliklarda grafiklar ko'p. Ular haqiqatni ko'rsatadimi? Ba'zan grafik raqamlarni to'g'ri ko'rsatib, baribir aldaydi. Qanday qilib — o'zingiz fosh qiling!",
+  "goya": "Grafikka ishonishdan oldin: o'q qayerdan boshlanadi? birliklar qanday? namuna kattami? Ikki narsa birga o'zgarsa, biri ikkinchisiga sabab bo'ladi degani emas (korrelyatsiya ≠ sabab).",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Bu grafikda B do'kon A dan bir necha baravar ko'p sotgandek. Haqiqatmi? O'qni tekshiring!",
+      "izoh": "O'q 100 dan boshlangan — 3 birlik farq ulkan ko'rindi. Haqiqiy farq atigi ~3%. Bu eng ko'p uchraydigan grafik hiylasi.",
+      "vidjet": {
+        "tur": "grafik",
+        "sarlavha": "Do'konlar savdosi (mln so'm)",
+        "qiymatlar": [
+          {
+            "nom": "A do'kon",
+            "qiymat": 102
+          },
+          {
+            "nom": "B do'kon",
+            "qiymat": 105
+          }
+        ],
+        "boshlanish": 100
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Grafikni ko'rganda birinchi nimaga qarash kerak?",
+      "izoh": "O'qlar va birliklar — grafikning «grammatikasi». Ular tekshirilmasa, eng chiroyli grafik ham aldashi mumkin.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Grafikda birinchi nimaga qaraysiz?",
+        "variantlar": [
+          "Ranglariga",
+          "O'qlar qayerdan boshlanishi va birliklarga",
+          "Sarlavha shriftiga"
+        ],
+        "togri": 1
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Reklamadagi grafik: «Bizning tish pastasi boshqalardan ancha yaxshi tozalaydi!» Tekshiring.",
+      "izoh": "78% va 81% — deyarli bir xil. O'q 76 dan boshlangani uchun farq 3 baravar katta ko'rindi. Reklama raqamni emas, taassurotni sotadi.",
+      "vidjet": {
+        "tur": "grafik",
+        "sarlavha": "Tish tozalash samarasi (%)",
+        "qiymatlar": [
+          {
+            "nom": "Boshqa pasta",
+            "qiymat": 78
+          },
+          {
+            "nom": "Bizniki",
+            "qiymat": 81
+          }
+        ],
+        "boshlanish": 76
+      }
+    },
+    {
+      "id": "4",
+      "matn": "«Muzqaymoq ko'p sotilgan kunlari suvda cho'kish holatlari ham ko'p.» Muzqaymoq cho'kishga sabab bo'ladimi?",
+      "izoh": "Yo'q! Ikkalasiga ham issiq havo sabab: odamlar muzqaymoq ham yeydi, cho'milishga ham ko'p boradi. Birga o'zgarish — sabab-oqibat degani emas.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Muzqaymoq cho'kishga sabab bo'ladimi?",
+        "variantlar": [
+          "Ha",
+          "Yo'q — ikkalasiga ham issiq havo sabab",
+          "Faqat bolalarda"
+        ],
+        "togri": 1
+      }
+    },
+    {
+      "id": "5",
+      "matn": "So'rovnomada 5 kishidan 4 tasi «ha» dedi. «Odamlarning 80% i rozi» deyish to'g'rimi?",
+      "izoh": "Hisob to'g'ri, lekin 5 kishi juda kam — boshqa 5 kishi butunlay boshqacha javob berishi mumkin. Ishonchli xulosa uchun katta va tasodifiy namuna kerak.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "«80% rozi» — to'g'rimi?",
+        "variantlar": [
+          "Ha, aniq",
+          "Raqam to'g'ri, lekin 5 kishi juda kam — xulosa ishonchsiz",
+          "Yo'q, 4% bo'ladi"
+        ],
+        "togri": 1
+      }
+    }
+  ],
+  "faktlar": [
+    "«Statistika bilan qanday aldash mumkin» (How to Lie with Statistics) kitobi 1954-yilda chiqqan va hali ham mashhur.",
+    "Yaxshi ustunli grafik balandliklarni doim noldan boshlaydi.",
+    "Ma'lumot tahlilchisi (data analyst) — eng talabgir kasblardan biri."
+  ]
+}

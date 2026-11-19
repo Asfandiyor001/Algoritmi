@@ -1,0 +1,60 @@
+{
+  "id": "robot-takrorlash",
+  "tur": "robot",
+  "modul": "algoritmlar-olami",
+  "daraja": "m14",
+  "daqiqa": 12,
+  "sarlavha": "Takrorlash: 6 marta oldinga",
+  "vaziyat": "Yo'l uzayib ketdi! Bir xil blokni qayta-qayta qo'yish zerikarli. Bitga «6 marta takrorla» deyishni o'rganamiz.",
+  "goya": "Bir xil ishni qayta-qayta yozmasdan, «N marta takrorla» deyish mumkin. Bu — sikl. Dastur qisqa va tushunarli bo'ladi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Faqat 2 ta blok bilan Bitni yulduzga olib boring! 🔁 blokini ishlating.",
+      "xarita": ["#########", "#R.....*#", "#########"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "takrorla"],
+      "eng_kam": 2,
+      "maks": 2,
+      "yechim": [{ "takrorla": 6, "ichi": ["oldinga"] }],
+      "maslahat": "Avval 🔁 ni bosing, keyin uning ichiga ⬆ qo'ying va sonini 6 ga yetkazing."
+    },
+    {
+      "id": "2",
+      "matn": "Uzun yo'l va bitta burilish. Ko'pi bilan 5 ta blok!",
+      "xarita": ["#########", "#R......#", "#######.#", "#######.#", "#######.#", "#######*#", "#########"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "chapga", "ongga", "takrorla"],
+      "eng_kam": 5,
+      "maks": 5,
+      "yechim": [{ "takrorla": 6, "ichi": ["oldinga"] }, "ongga", { "takrorla": 4, "ichi": ["oldinga"] }],
+      "maslahat": "Yo'lni ikki qismga bo'ling: o'ngga yurish va pastga yurish. Har biri — bitta 🔁."
+    },
+    {
+      "id": "3",
+      "matn": "Zinapoyada bir xil harakat takrorlanyapti. Uni toping!",
+      "xarita": ["########", "#R.#####", "##..####", "###..###", "####..*#", "########"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "chapga", "ongga", "takrorla"],
+      "eng_kam": 7,
+      "maks": 9,
+      "yechim": [{ "takrorla": 3, "ichi": ["oldinga", "ongga", "oldinga", "chapga"] }, { "takrorla": 2, "ichi": ["oldinga"] }],
+      "maslahat": "Har bir pog'ona: oldinga, o'ngga, oldinga, chapga. Pog'onalar nechta?"
+    },
+    {
+      "id": "4",
+      "matn": "Qiyin bosqich! Takrorlash ichida takrorlash: 3 ta blok bilan yecha olasizmi?",
+      "xarita": ["#######", "#R...##", "####.##", "####.##", "#*...##", "#######"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "ongga", "takrorla"],
+      "eng_kam": 4,
+      "yechim": [{ "takrorla": 3, "ichi": [{ "takrorla": 3, "ichi": ["oldinga"] }, "ongga"] }],
+      "maslahat": "Har bir tomon: 3 marta oldinga, keyin o'ngga. Bunday tomonlar nechta?"
+    }
+  ],
+  "faktlar": [
+    "Kompyuter bir soniyada milliardlab marta takrorlay oladi va hech qachon charchamaydi.",
+    "Dasturchilar takrorlashni «sikl» deb ataydi. Python tilida bu «for» va «while» so'zlari bilan yoziladi.",
+    "Multfilmdagi harakat ham takrorlanadigan kadrlar: yurish — bir necha kadr qayta-qayta."
+  ]
+}

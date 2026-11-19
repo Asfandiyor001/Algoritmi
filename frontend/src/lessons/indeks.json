@@ -1,0 +1,90 @@
+{
+  "id": "indeks",
+  "tur": "lab",
+  "modul": "malumotlar",
+  "daraja": "m1011",
+  "daqiqa": 8,
+  "sarlavha": "Indeks: kitob mundarijasi",
+  "vaziyat": "Jadvalda million o'quvchi bo'lsa, «Malika»ni qanday tez topamiz? Kitobdagi mavzuni qanday topishingizni eslang — mundarija orqali! Bazada ham xuddi shunday narsa bor: indeks.",
+  "goya": "Indeks — jadval ustuni bo'yicha saralangan «mundarija». U tufayli baza hamma qatorlarni varaqlamasdan, ikkilik qidiruvga o'xshab ~20 qadamda topadi. Narxi: qo'shimcha joy va yozishning biroz sekinlashishi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Kitobda «DNS» so'zi qaysi betdaligini qanday tez topasiz?",
+      "izoh": "Mundarija (indeks) so'zlarni alifbo tartibida bet raqamlari bilan beradi. Butun kitobni varaqlash shart emas.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Kitobda kerakli mavzuni qanday tez topasiz?",
+        "variantlar": [
+          "Hamma betlarni varaqlab",
+          "Oxiridagi mundarija (indeks) bo'yicha",
+          "Tasodifiy betni ochib"
+        ],
+        "togri": 1
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Bu so'rovni bajarish uchun indekssiz baza nechta qatorni tekshiradi? Jadvalda 1 000 000 o'quvchi bor.",
+      "izoh": "Indeks bo'lmasa — hammasini: 1 000 000 qator («to'liq skanerlash»). Kichik jadvalda sezilmaydi, kattasida esa soniyalar ketadi.",
+      "vidjet": {
+        "tur": "kod",
+        "til": "sql",
+        "kod": [
+          "SELECT * FROM oquvchilar",
+          "WHERE ism = 'Malika';"
+        ],
+        "savol": "Indekssiz, 1 million qatorda — nechta tekshiruv?",
+        "variantlar": [
+          "1 ta",
+          "~20 ta",
+          "1 000 000 ta"
+        ],
+        "togri": 2
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Endi ism ustuniga indeks qo'shdik. Qidiruv taxminan necha qadam?",
+      "izoh": "~20 qadam: indeks saralangan daraxt, unda ikkilik qidiruvga o'xshab yarmini tashlab boriladi (log₂ 1 000 000 ≈ 20).",
+      "vidjet": {
+        "tur": "kod",
+        "til": "sql",
+        "kod": [
+          "CREATE INDEX ism_indeksi",
+          "ON oquvchilar (ism);",
+          "",
+          "SELECT * FROM oquvchilar",
+          "WHERE ism = 'Malika';"
+        ],
+        "savol": "Indeks bilan — taxminan necha qadam?",
+        "variantlar": [
+          "~20",
+          "1 000 000",
+          "500 000"
+        ],
+        "togri": 0
+      }
+    },
+    {
+      "id": "4",
+      "matn": "Unda hamma ustunga indeks qo'yaversak-chi? Indeksning kamchiligi bormi?",
+      "izoh": "Har indeks qo'shimcha joy egallaydi va har yangi yozuvda yangilanishi kerak — yozish sekinlashadi. Shuning uchun indeks faqat ko'p qidiriladigan ustunlarga qo'yiladi.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Indeksning kamchiligi?",
+        "variantlar": [
+          "Qo'shimcha joy egallaydi va yozishni sekinlashtiradi",
+          "Qidiruvni sekinlashtiradi",
+          "Kamchiligi yo'q"
+        ],
+        "togri": 0
+      }
+    }
+  ],
+  "faktlar": [
+    "Telefon kitobchangiz ham indeks: kontaktlar ism bo'yicha saralangan.",
+    "Katta bazalarda indekslar ko'pincha «B-daraxt» tuzilmasida saqlanadi.",
+    "Bitta noto'g'ri yozilgan so'rov indeksni ishlatmay qolishi va butun saytni sekinlashtirishi mumkin."
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": "neyron",
+  "tur": "lab",
+  "modul": "ai",
+  "daraja": "m1011",
+  "daqiqa": 12,
+  "sarlavha": "Bitta neyron: og'irliklarni qo'lda sozla",
+  "vaziyat": "AI qanday «o'rganadi»? Uning asosida mitti hisoblagich — neyron turadi. U belgilarni og'irliklarga ko'paytirib qo'shadi va qaror qiladi. Bugun neyronni o'zingiz «o'qitasiz»!",
+  "goya": "Neyron: natija = w₁·x + w₂·y + b; natija > 0 bo'lsa — bir sinf, aks holda — boshqasi. Og'irliklar (w) har belgining muhimligi, b — siljish. Mashinali o'qitish — shu sonlarni misollar asosida avtomatik topish. Katta AI'da bunday sonlar milliardlab.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Neyron ikki belgiga qaraydi: qizillik va cho'ziqlik. Slayderlarni surib, olma va noklarni ajrating! (Maqsad: 90%)",
+      "izoh": "Siz neyronni «o'qitdingiz»: w₁ manfiy (qizil — olma tomonga), w₂ musbat (cho'ziq — nok tomonga). Chiziq ikki sinfni ajratdi. Kompyuter shu slayderlarni o'zi, minglab misollar bo'yicha suradi.",
+      "vidjet": {
+        "tur": "neyron",
+        "x_nom": "qizillik",
+        "y_nom": "cho'ziqlik",
+        "sinflar": [
+          "Olma",
+          "Nok"
+        ],
+        "maqsad": 0.9,
+        "yechim": {
+          "w1": -1,
+          "w2": 1,
+          "b": 0
+        },
+        "nuqtalar": [
+          {
+            "x": 8,
+            "y": 2,
+            "sinf": 0
+          },
+          {
+            "x": 7,
+            "y": 3,
+            "sinf": 0
+          },
+          {
+            "x": 9,
+            "y": 3,
+            "sinf": 0
+          },
+          {
+            "x": 6,
+            "y": 2,
+            "sinf": 0
+          },
+          {
+            "x": 8,
+            "y": 4,
+            "sinf": 0
+          },
+          {
+            "x": 2,
+            "y": 7,
+            "sinf": 1
+          },
+          {
+            "x": 3,
+            "y": 8,
+            "sinf": 1
+          },
+          {
+            "x": 1,
+            "y": 6,
+            "sinf": 1
+          },
+          {
+            "x": 4,
+            "y": 7,
+            "sinf": 1
+          },
+          {
+            "x": 2,
+            "y": 9,
+            "sinf": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Endi o'ylang: mashinali o'qitish nima?",
+      "izoh": "Qoidalarni qo'lda yozish o'rniga, kompyuterga misollar ko'rsatamiz — u og'irliklarni o'zi topadi. Siz hozir shu ishni qo'lda qildingiz.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "Mashinali o'qitish nima?",
+        "variantlar": [
+          "Kompyuterga har bir qoidani qo'lda yozish",
+          "Kompyuter misollardan qonuniyatni o'zi topishi",
+          "Kompyuterni tezlashtirish"
+        ],
+        "togri": 1
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Spam xatlarni ajrating: havolalar soni va undov belgilari soni. Bu safar siljish (b) ham kerak bo'ladi!",
+      "izoh": "Ikkala og'irlik musbat, b esa manfiy: «havola va undov birga ko'p bo'lsa — spam». b chegarani suradi. Pochta xizmatlaridagi spam filtrlari ham shunday ishlaydi — faqat yuzlab belgilar bilan.",
+      "vidjet": {
+        "tur": "neyron",
+        "x_nom": "havolalar",
+        "y_nom": "undovlar",
+        "sinflar": [
+          "Oddiy xat",
+          "Spam"
+        ],
+        "maqsad": 0.9,
+        "yechim": {
+          "w1": 0.5,
+          "w2": 0.5,
+          "b": -4
+        },
+        "nuqtalar": [
+          {
+            "x": 1,
+            "y": 1,
+            "sinf": 0
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "sinf": 0
+          },
+          {
+            "x": 0,
+            "y": 3,
+            "sinf": 0
+          },
+          {
+            "x": 3,
+            "y": 2,
+            "sinf": 0
+          },
+          {
+            "x": 2,
+            "y": 4,
+            "sinf": 0
+          },
+          {
+            "x": 4,
+            "y": 1,
+            "sinf": 0
+          },
+          {
+            "x": 7,
+            "y": 5,
+            "sinf": 1
+          },
+          {
+            "x": 8,
+            "y": 8,
+            "sinf": 1
+          },
+          {
+            "x": 6,
+            "y": 6,
+            "sinf": 1
+          },
+          {
+            "x": 9,
+            "y": 3,
+            "sinf": 1
+          },
+          {
+            "x": 5,
+            "y": 9,
+            "sinf": 1
+          },
+          {
+            "x": 8,
+            "y": 6,
+            "sinf": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "matn": "AI rasmdagi odamni noto'g'ri tanidi. Eng ehtimolli sabab nima?",
+      "izoh": "AI faqat o'zi ko'rgan misollardan o'rganadi. Misollar kam yoki bir tomonlama bo'lsa (masalan, faqat bir xil odamlar rasmi), u boshqalarda adashadi. Bu — «bias» (bir tomonlamalik).",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "AI nega adashdi?",
+        "variantlar": [
+          "O'rgatish misollari kam yoki bir tomonlama bo'lgan",
+          "AI charchagan",
+          "Rasm juda chiroyli"
+        ],
+        "togri": 0
+      }
+    }
+  ],
+  "faktlar": [
+    "Birinchi sun'iy neyron — «perseptron» 1958-yilda Frenk Rozenblatt tomonidan yaratilgan.",
+    "Katta til modellarida yuzlab milliard og'irlik bor — siz bugun ulardan ikkitasini qo'lda sozladingiz.",
+    "Neyron tarmoqlar miyadagi neyronlardan ilhomlangan, lekin ular ancha soddaroq."
+  ]
+}

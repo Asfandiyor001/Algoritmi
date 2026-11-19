@@ -1,0 +1,64 @@
+{
+  "id": "fishing",
+  "tur": "lab",
+  "modul": "xavfsizlik",
+  "daraja": "m56",
+  "daqiqa": 10,
+  "sarlavha": "Fishing: soxta xabarni aniqla",
+  "vaziyat": "Firibgarlar parol va karta ma'lumotlarini o'g'irlash uchun ishonchli ko'rinadigan xabarlar yuboradi. Bu «fishing» — baliq ovlash deyiladi: qarmoqqa ilinmaslik uchun belgilarni bilish kerak.",
+  "goya": "Fishing belgilari: kutilmagan yutuq yoki qo'rqitish, shoshiltirish, g'alati manzil (domen), parol va SMS kodni so'rash. Bank va Telegram hech qachon kodni so'ramaydi. Shubha bo'lsa — havolani bosmang, rasmiy ilova orqali tekshiring.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Telefoningizga shu SMS keldi. Undagi barcha xavfli belgilarni toping!",
+      "izoh": "Klassik fishing: yutuq + shoshiltirish + begona sayt + SMS kod. Bank hech qachon SMS kodni so'ramaydi — kodni bergan odam kartangizni boshqara oladi.",
+      "vidjet": {
+        "tur": "fishing", "korinish": "sms",
+        "qismlar": [
+          { "matn": "TABRIKLAYMIZ!!!", "shubhali": "Haddan tashqari hayajon va katta harflar — firibgarlar sizni hayajonga solib, o'ylashga qo'ymaydi" },
+          { "matn": "Siz 5 000 000 so'm yutdingiz.", "shubhali": "Hech qanday o'yinda qatnashmagansiz — kutilmagan yutuq deyarli doim aldov" },
+          { "matn": "Pulni olish uchun" },
+          { "matn": "24 soat ichida", "shubhali": "Shoshiltirish — tekshirishga vaqt qolmasin degan hiyla" },
+          { "matn": "bank-yutuq-uz.top", "shubhali": "Begona, g'alati manzil: rasmiy bank saytiga o'xshamaydi" },
+          { "matn": "saytiga kirib," },
+          { "matn": "karta raqami va SMS kodni kiriting.", "shubhali": "Bank hech qachon SMS kodni so'ramaydi!" }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Endi elektron xat. Diqqat: manzilni harfma-harf o'qing!",
+      "izoh": "«telegrarn» — «m» o'rniga «r» va «n»! Ko'z bir qarashda farqini sezmaydi. Har doim yuboruvchi manzilini diqqat bilan tekshiring.",
+      "vidjet": {
+        "tur": "fishing", "korinish": "email",
+        "qismlar": [
+          { "matn": "Kimdan: support@telegrarn-yordam.top", "shubhali": "«telegrarn» — «m» o'rniga «rn»: rasmiy manzilga o'xshatilgan soxta domen" },
+          { "matn": "Mavzu: Hisobingiz 1 soatda o'chiriladi!", "shubhali": "Qo'rqitish va shoshiltirish", "yangi_qator": true },
+          { "matn": "Hurmatli foydalanuvchi,", "yangi_qator": true },
+          { "matn": "hisobingizda shubhali faollik aniqlandi." },
+          { "matn": "Hisobni saqlab qolish uchun", "yangi_qator": true },
+          { "matn": "telefon raqamingiz va Telegram kodini", "shubhali": "Telegram kodini hech kimga — hatto «Telegram xodimi»ga ham — aytmang" },
+          { "matn": "javob xatida yuboring." },
+          { "matn": "Hurmat bilan, Telegram jamoasi", "yangi_qator": true }
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Tanishingiz yozdi: «Senga adashib kod yubordim, uni menga aytib yubor». Nima qilasiz?",
+      "izoh": "Bu — eng ko'p uchraydigan hiyla: tanishning hisobi allaqachon buzilgan, endi sizniki navbatda. Kodni hech kimga aytmang, tanishingizga boshqa yo'l bilan (qo'ng'iroq) xabar bering.",
+      "vidjet": { "tur": "tanlov", "savol": "«Kodni menga aytib yubor» — nima qilasiz?", "variantlar": ["Do'stim-ku, aytaman", "Hech kimga aytmayman, tanishga qo'ng'iroq qilib ogohlantiraman", "Kodning yarmini aytaman"], "togri": 1 }
+    },
+    {
+      "id": "4",
+      "matn": "Ikki bosqichli himoya (2FA) nima beradi?",
+      "izoh": "Parol bilib qolinsa ham, kirish uchun telefoningizdagi kod yoki qo'shimcha parol kerak bo'ladi. Telegram'da: Sozlamalar → Maxfiylik → Ikki bosqichli tasdiqlash.",
+      "vidjet": { "tur": "tanlov", "savol": "2FA nima beradi?", "variantlar": ["Parol topilsa ham, kirish uchun yana bir kalit kerak bo'ladi", "Internet tezlashadi", "Parol umuman kerak bo'lmaydi"], "togri": 0 }
+    }
+  ],
+  "faktlar": [
+    "«Phishing» so'zi inglizcha «fishing» (baliq ovlash) dan olingan — firibgarlar «qarmoq» tashlaydi.",
+    "Ko'p fishing saytlarida ham qulfcha (HTTPS) belgisi bor: u saytning halol ekanini emas, faqat ulanish shifrlanganini bildiradi.",
+    "Shubhali xabarni olsangiz, havolani bosmang — rasmiy ilova yoki saytni o'zingiz ochib tekshiring."
+  ]
+}

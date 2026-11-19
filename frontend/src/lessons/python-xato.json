@@ -1,0 +1,63 @@
+{
+  "id": "python-xato",
+  "tur": "lab",
+  "modul": "python",
+  "daraja": "m89",
+  "daqiqa": 12,
+  "sarlavha": "Xatoni top: AI yozgan kod",
+  "vaziyat": "Bugun ko'p kodni AI yozadi. Lekin AI ham xato qiladi — ba'zan kod ishlaydi, lekin natija noto'g'ri chiqadi! Haqiqiy dasturchi kodni o'qiy oladi va xatoni topadi. Sinab ko'ramiz.",
+  "goya": "AI yozgan kodni ko'r-ko'rona ishlatmang: o'qing, ishga tushiring va natijani tekshiring. Eng xavfli xatolar — kod ishlaydigan, lekin natija biroz noto'g'ri chiqadigan xatolar.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "AI'dan «1 dan 10 gacha sonlarni chiqar» deb so'rashdi. Lekin ekranda 11 ham chiqyapti. Xato qatorni bosing!",
+      "izoh": "range(1, 12) → 1…11. To'g'risi: range(1, 11). Oxirgi son kirmasligini AI ham ba'zan unutadi — bu «bittaga xato» (off-by-one) deyiladi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["# 1 dan 10 gacha sonlar", "for i in range(1, 12):", "    print(i)"],
+        "xato_qator": 2
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Bu kod umuman ishga tushmayapti. Qaysi qatorda xato?",
+      "izoh": "Solishtirish uchun «==» kerak. Bitta «=» — qiymat berish. To'g'risi: if yosh == 18:",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["yosh = 18", "if yosh = 18:", "    print(\"Voyaga yetdingiz!\")"],
+        "xato_qator": 2
+      }
+    },
+    {
+      "id": "3",
+      "matn": "kvadrat(5) 25 qaytarishi kerak, lekin 10 chiqyapti. Xatoni toping!",
+      "izoh": "n * 2 — ikkiga ko'paytirish. Kvadrat — o'ziga ko'paytirish: n * n. Funksiya nomi to'g'ri, ichi esa noto'g'ri — bunday xatoni faqat tekshirib topasiz.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["def kvadrat(n):", "    return n * 2", "", "print(kvadrat(5))   # 25 kutilgan"],
+        "xato_qator": 2
+      }
+    },
+    {
+      "id": "4",
+      "matn": "O'rtacha ball hisoblanmoqda: (4 + 8 + 6) / 3 = 6 bo'lishi kerak. Lekin 9 chiqyapti. Qaysi qator xato?",
+      "izoh": "Yig'indi 3 ta songa bo'linishi kerak, kodda esa 2 ga bo'lingan. To'g'risi: ortacha = jami / len(sonlar). Bunday xato hech qanday xabar bermaydi — kod jim ishlaydi va noto'g'ri javob beradi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["sonlar = [4, 8, 6]", "jami = 0", "for s in sonlar:", "    jami = jami + s", "ortacha = jami / 2", "print(ortacha)"],
+        "xato_qator": 5
+      }
+    },
+    {
+      "id": "5",
+      "matn": "Xulosa: AI yozgan kod bilan nima qilish kerak?",
+      "izoh": "To'g'ri! AI — kuchli yordamchi, lekin javobgarlik sizda. Kodni o'qing, oddiy misollar bilan sinab ko'ring va natijani o'zingiz hisoblagan javob bilan solishtiring.",
+      "vidjet": { "tur": "tanlov", "savol": "AI yozgan kodni nima qilasiz?", "variantlar": ["Darhol ishlataman", "O'qib, ishga tushirib, natijani tekshiraman", "O'chirib tashlayman"], "togri": 1 }
+    }
+  ],
+  "faktlar": [
+    "Dasturdagi xato «bag» (bug — hasharot) deyiladi: 1947-yilda kompyuter ichidan haqiqiy kuya topilgan.",
+    "Tadqiqotlarga ko'ra, AI yozgan kodda ham inson kodidagi kabi xatolar uchraydi — ayniqsa chegaraviy holatlarda.",
+    "Professional dasturchilar kodni yozishdan oldin uni tekshiradigan testlar yozadi."
+  ]
+}

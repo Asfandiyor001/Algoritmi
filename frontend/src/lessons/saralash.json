@@ -1,0 +1,51 @@
+{
+  "id": "saralash",
+  "tur": "lab",
+  "modul": "algoritmlar",
+  "daraja": "m89",
+  "daqiqa": 10,
+  "sarlavha": "Saralash: kartalarni tartibla",
+  "vaziyat": "Kompyuter doim narsalarni tartiblaydi: narx bo'yicha, sana bo'yicha, alifbo bo'yicha. Lekin u bir vaqtda faqat ikkita sonni solishtira oladi. Siz ham shunday cheklov bilan saralab ko'ring!",
+  "goya": "Saralash algoritmi — solishtirish va almashtirish qoidasi. Pufakcha saralash oddiy, lekin sekin: n ta elementga taxminan n² qadam. Tezroq usullar (merge sort, quicksort) n·log n qadamda saralaydi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Kartalarni kichigidan kattasiga tartiblang. Faqat yonma-yon ikkitasini almashtirish mumkin (⇄).",
+      "izoh": "Siz pufakcha saralash (bubble sort) qildingiz: kattaroq son o'ng tomondagidan katta bo'lsa — almashadi. Katta sonlar «pufakcha»dek o'ngga suzib chiqadi.",
+      "vidjet": { "tur": "tartibla", "sonlar": [5, 2, 8, 1, 4] }
+    },
+    {
+      "id": "2",
+      "matn": "Kuzatdingizmi? Har bir «o'tish»dan keyin qaysi son o'z joyiga tushadi?",
+      "izoh": "Har o'tishda eng katta son oxiriga yetib boradi. Keyingi o'tishda uni tekshirish shart emas — ish asta-sekin kamayadi.",
+      "vidjet": { "tur": "tanlov", "savol": "Har o'tishdan keyin nima bo'ladi?", "variantlar": ["Eng katta son oxiriga yetadi", "Eng kichik son o'chadi", "Ro'yxat ikkiga bo'linadi"], "togri": 0 }
+    },
+    {
+      "id": "3",
+      "matn": "Eng qiyin holat: kartalar teskari tartibda. Nechta almashtirish kerak bo'lar ekan?",
+      "izoh": "6 ta teskari karta uchun 15 ta almashtirish kerak: 6 · 5 / 2 = 15. Bu — pufakcha saralashning eng yomon holati.",
+      "vidjet": { "tur": "tartibla", "sonlar": [9, 7, 6, 4, 3, 1] }
+    },
+    {
+      "id": "4",
+      "matn": "1000 ta sonni pufakcha usulida saralash taxminan necha solishtirish oladi?",
+      "izoh": "~500 000 (n²/2). Tez usullar — merge sort yoki quicksort — atigi ~10 000 qadam (n·log n). Katta ma'lumotda farq soatlar va soniyalar orasidagi farqqa teng!",
+      "vidjet": { "tur": "tanlov", "savol": "1000 ta son, pufakcha saralash — taxminan?", "variantlar": ["1 000", "~500 000", "10"], "togri": 1 }
+    },
+    {
+      "id": "5",
+      "matn": "Python'da saralash bitta buyruq bilan. Nima chiqadi?",
+      "izoh": "sort() ro'yxatni joyida, o'sish tartibida saralaydi. Ichida Timsort degan tez algoritm ishlaydi — siz o'rgangan g'oyalarning aqlli aralashmasi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["sonlar = [5, 2, 8, 1, 4]", "sonlar.sort()", "print(sonlar)"],
+        "savol": "Ekranga nima chiqadi?", "variantlar": ["[1, 2, 4, 5, 8]", "[8, 5, 4, 2, 1]", "[5, 2, 8, 1, 4]"], "togri": 0
+      }
+    }
+  ],
+  "faktlar": [
+    "Quicksort algoritmini 1959-yilda Toni Xoar o'ylab topgan — u o'shanda Moskvada tarjimonlik qilayotgan edi.",
+    "Python'dagi Timsort 2002-yilda Tim Piters tomonidan yozilgan va hozir Android'da ham ishlatiladi.",
+    "Kutubxonachilar kitoblarni ham saralash algoritmlari bilan tartiblaydi."
+  ]
+}

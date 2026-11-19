@@ -1,0 +1,74 @@
+{
+  "id": "python-ozgaruvchi",
+  "tur": "lab",
+  "modul": "python",
+  "daraja": "m89",
+  "daqiqa": 12,
+  "sarlavha": "O'zgaruvchi: nomlangan quti",
+  "vaziyat": "Dastur ma'lumotni eslab qolishi kerak: ismingiz, yoshingiz, o'yindagi ochkolar. Buning uchun «o'zgaruvchi» degan nomlangan qutilar bor. Keling, Python kodini qatorma-qator bajarib ko'ramiz!",
+  "goya": "O'zgaruvchi — nomi bor quti: «=» belgisi o'ng tomondagi qiymatni chapdagi qutiga yozadi. Python kodni yuqoridan pastga, qatorma-qator bajaradi. Matn (\"3\") va son (3) — har xil narsalar.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "«Qadam ▶» ni bosib kodni bajaring va o'zgaruvchilar qutisini kuzating.",
+      "izoh": "O'zgaruvchi — nomlangan quti. «yosh = yosh + 1» qatorida avval o'ng tomon hisoblanadi (12 + 1 = 13), keyin natija o'sha qutiga yoziladi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["ism = \"Aziz\"", "yosh = 12", "yosh = yosh + 1", "print(ism, yosh)"],
+        "izlar": [
+          { "qator": 1, "ozgaruvchilar": { "ism": "\"Aziz\"" } },
+          { "qator": 2, "ozgaruvchilar": { "ism": "\"Aziz\"", "yosh": "12" } },
+          { "qator": 3, "ozgaruvchilar": { "ism": "\"Aziz\"", "yosh": "13" } },
+          { "qator": 4, "ozgaruvchilar": { "ism": "\"Aziz\"", "yosh": "13" }, "chiqish": "Aziz 13" }
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Diqqat bilan o'ylang: ekranga nima chiqadi?",
+      "izoh": "«b = a» — a ning o'sha paytdagi qiymati (5) b ga nusxalanadi. Keyin a o'zgarsa ham, b o'zgarmaydi: ular ikki xil quti.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["a = 5", "b = a", "a = 10", "print(b)"],
+        "savol": "Ekranga nima chiqadi?", "variantlar": ["10", "5", "a"], "togri": 1
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Bu yerda hiyla bor. Qo'shtirnoqlarga e'tibor bering!",
+      "izoh": "Qo'shtirnoq ichidagi — matn (str), son emas. Matnlarni «qo'shish» ularni yopishtiradi: \"3\" + \"4\" = \"34\". Son bo'lishi uchun int(x) qilish kerak.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["x = \"3\"", "y = \"4\"", "print(x + y)"],
+        "savol": "Ekranga nima chiqadi?", "variantlar": ["7", "34", "x + y"], "togri": 1
+      }
+    },
+    {
+      "id": "4",
+      "matn": "Do'kon dasturi. Kodni bajaring, keyin savolga javob bering.",
+      "izoh": "«*» — ko'paytirish. jami = 5000 · 3 = 15000. Haqiqiy kassa dasturlari ham xuddi shunday o'zgaruvchilar bilan ishlaydi.",
+      "vidjet": {
+        "tur": "kod", "til": "python",
+        "kod": ["narx = 5000", "soni = 3", "jami = narx * soni", "print(\"Jami:\", jami)"],
+        "izlar": [
+          { "qator": 1, "ozgaruvchilar": { "narx": "5000" } },
+          { "qator": 2, "ozgaruvchilar": { "narx": "5000", "soni": "3" } },
+          { "qator": 3, "ozgaruvchilar": { "narx": "5000", "soni": "3", "jami": "15000" } },
+          { "qator": 4, "ozgaruvchilar": { "narx": "5000", "soni": "3", "jami": "15000" }, "chiqish": "Jami: 15000" }
+        ],
+        "savol": "jami o'zgaruvchisi nechaga teng?", "variantlar": ["8000", "15000", "50003"], "togri": 1
+      }
+    },
+    {
+      "id": "5",
+      "matn": "O'zgaruvchiga nom berishning qoidalari bor. Qaysi nom to'g'ri?",
+      "izoh": "Nom raqam bilan boshlanmaydi va unda bo'sh joy bo'lmaydi. So'zlar «_» bilan ulanadi: mening_ismim. Nomni ma'noli qo'yish — yaxshi dasturchining odati.",
+      "vidjet": { "tur": "tanlov", "savol": "Qaysi biri to'g'ri o'zgaruvchi nomi?", "variantlar": ["2ism", "mening ismim", "mening_ismim"], "togri": 2 }
+    }
+  ],
+  "faktlar": [
+    "Python tili 1991-yilda chiqqan, nomi ilon emas, «Monty Python» komediya guruhidan olingan.",
+    "Instagram, YouTube va NASA dasturlarining bir qismi Python'da yozilgan.",
+    "Dasturchilar vaqtining katta qismi kod yozishga emas, uni o'qishga ketadi."
+  ]
+}

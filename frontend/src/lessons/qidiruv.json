@@ -1,0 +1,47 @@
+{
+  "id": "qidiruv",
+  "tur": "lab",
+  "modul": "algoritmlar",
+  "daraja": "m89",
+  "daqiqa": 10,
+  "sarlavha": "Qidiruv: millionlab mahsulot ichidan bir zumda",
+  "vaziyat": "Onlayn do'konda millionlab mahsulot bor, lekin qidiruv bir zumda javob beradi. Qanday qilib? Keling, o'yin o'ynaymiz: men son o'ylayman, siz topasiz!",
+  "goya": "Chiziqli qidiruv — birma-bir tekshirish: n ta elementga n ta qadam. Ikkilik qidiruv — har safar o'rtasini tekshirib, yarmini tashlash: n ta elementga atigi log₂ n qadam. Lekin buning uchun ro'yxat saralangan bo'lishi shart.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Men 1 dan 100 gacha son o'yladim. 7 ta urinishda toping! Har safar «kattaroq» yoki «kichikroq» deyman.",
+      "izoh": "Har safar o'rtasini aytsangiz, mumkin sonlar ikki baravar kamayadi: 100 → 50 → 25 → 13 → 7 → 4 → 2 → 1. Bu — ikkilik qidiruv.",
+      "vidjet": { "tur": "qidiruv", "min": 1, "maks": 100, "urinish": 7 }
+    },
+    {
+      "id": "2",
+      "matn": "Agar 1, 2, 3, … deb birma-bir sinasak-chi? Eng yomon holatda necha urinish kerak?",
+      "izoh": "100 ta! Bu — chiziqli qidiruv. Son 100 bo'lsa, oxirigacha borishga to'g'ri keladi. Ikkilik qidiruv esa 7 ta urinishda topadi.",
+      "vidjet": { "tur": "tanlov", "savol": "Birma-bir sinash: eng yomon holatda necha urinish?", "variantlar": ["7", "50", "100"], "togri": 2 }
+    },
+    {
+      "id": "3",
+      "matn": "Endi 1 dan 1000 gacha! Atigi 10 ta urinish beraman.",
+      "izoh": "1000 ta son uchun 10 urinish yetdi, chunki 2¹⁰ = 1024. Sonlar 10 baravar ko'paydi, urinishlar esa bor-yo'g'i 3 taga oshdi!",
+      "vidjet": { "tur": "qidiruv", "min": 1, "maks": 1000, "urinish": 10 }
+    },
+    {
+      "id": "4",
+      "matn": "1 000 000 ta mahsulot orasida ikkilik qidiruv necha qadamda topadi?",
+      "izoh": "Atigi ~20 qadam: 2²⁰ ≈ 1 048 576. Milliard element uchun ham ~30 qadam yetadi. Shuning uchun katta saytlardagi qidiruv tez ishlaydi.",
+      "vidjet": { "tur": "tanlov", "savol": "1 000 000 element — ikkilik qidiruv necha qadam?", "variantlar": ["~20", "1 000", "500 000"], "togri": 0 }
+    },
+    {
+      "id": "5",
+      "matn": "Lekin bitta muhim shart bor. Ikkilik qidiruv ishlashi uchun nima kerak?",
+      "izoh": "Ro'yxat saralangan bo'lishi shart — aks holda «kattaroq/kichikroq» degan ma'lumot hech narsa bermaydi. Lug'atdagi so'zlar ham alifbo tartibida — shuning uchun so'zni tez topasiz.",
+      "vidjet": { "tur": "tanlov", "savol": "Ikkilik qidiruv uchun nima shart?", "variantlar": ["Ro'yxat saralangan bo'lishi", "Internet tez bo'lishi", "Ro'yxat qisqa bo'lishi"], "togri": 0 }
+    }
+  ],
+  "faktlar": [
+    "Ikkilik qidiruv g'oyasi 1946-yilda e'lon qilingan, lekin birinchi xatosiz dasturi faqat 1962-yilda yozilgan.",
+    "Telefon kitobchasidan ism qidirganda siz beixtiyor ikkilik qidiruvdan foydalanasiz.",
+    "log₂ — «necha marta ikkiga bo'lish mumkin» degani: log₂ 1024 = 10."
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "id": "til-modeli",
+  "tur": "lab",
+  "modul": "ai",
+  "daraja": "m1011",
+  "daqiqa": 10,
+  "sarlavha": "Til modeli: keyingi so'zni taxmin qilish",
+  "vaziyat": "Chat-botlar qanday javob yozadi? Siri oddiy: ular har safar faqat bitta keyingi so'zni taxmin qiladi — eng ehtimolli variantlardan. Bugun til modeli rolini o'zingiz o'ynaysiz!",
+  "goya": "Til modeli matnni tokenlarga bo'ladi va keyingi tokenning ehtimolini hisoblaydi — so'zma-so'z. U «bilmaydi», balki «ehtimolli davomni» yozadi. Shuning uchun kam ma'lumotli savollarda ishonch bilan noto'g'ri gapirishi mumkin — bu gallyutsinatsiya.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Siz — til modelisiz! Har qadamda keyingi so'zni tanlang. Foizlar — model shu so'zga qanchalik ishonishi.",
+      "izoh": "Til modellari aynan shunday ishlaydi: matnni bo'laklarga (tokenlarga) bo'ladi va keyingi tokenni ehtimollik bo'yicha tanlaydi. Uzun javob — minglab shunday qadamlar.",
+      "vidjet": {
+        "tur": "token",
+        "boshlanish": "Bugun havo juda",
+        "qadamlar": [
+          [
+            {
+              "soz": "issiq",
+              "ehtimol": 0.45
+            },
+            {
+              "soz": "sovuq",
+              "ehtimol": 0.3
+            },
+            {
+              "soz": "yaxshi",
+              "ehtimol": 0.2
+            },
+            {
+              "soz": "binafsha",
+              "ehtimol": 0.05
+            }
+          ],
+          [
+            {
+              "soz": "bo'ldi",
+              "ehtimol": 0.5
+            },
+            {
+              "soz": "edi",
+              "ehtimol": 0.3
+            },
+            {
+              "soz": "ekan",
+              "ehtimol": 0.2
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Bu savolga model qanchalik ishonchli?",
+      "izoh": "Ko'p uchraydigan bilimda model ishonchli: «Toshkent» — 92%. Internetda bu gap juda ko'p yozilgan.",
+      "vidjet": {
+        "tur": "token",
+        "boshlanish": "O'zbekistonning poytaxti —",
+        "qadamlar": [
+          [
+            {
+              "soz": "Toshkent",
+              "ehtimol": 0.92
+            },
+            {
+              "soz": "Samarqand",
+              "ehtimol": 0.05
+            },
+            {
+              "soz": "Parij",
+              "ehtimol": 0.03
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Endi qiyin savol. Ehtimollarga qarang!",
+      "izoh": "Model ishonchsiz: variantlar deyarli teng! Shunda u bittasini tanlab, baribir ishonch bilan aytadi. Aslida al-Xorazmiyning aniq tug'ilgan yili noma'lum (taxminan 780-yil). Shunday paytda faktni manbadan tekshirish shart.",
+      "vidjet": {
+        "tur": "token",
+        "boshlanish": "Al-Xorazmiy tug'ilgan yil:",
+        "qadamlar": [
+          [
+            {
+              "soz": "783",
+              "ehtimol": 0.34
+            },
+            {
+              "soz": "780",
+              "ehtimol": 0.33
+            },
+            {
+              "soz": "850",
+              "ehtimol": 0.33
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": "4",
+      "matn": "AI ishonch bilan noto'g'ri fakt aytsa, bu nima deyiladi?",
+      "izoh": "Gallyutsinatsiya — AI «bilmayman» demay, ehtimolli ko'ringan, lekin xato matn yozishi. Shuning uchun muhim faktlarni doim tekshiring.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "AI ishonch bilan xato gapirsa — bu…",
+        "variantlar": [
+          "Gallyutsinatsiya",
+          "Virus",
+          "Shifrlash"
+        ],
+        "togri": 0
+      }
+    },
+    {
+      "id": "5",
+      "matn": "AI javobini qanday tekshirasiz?",
+      "izoh": "AI'dan «ishonchingiz komilmi?» deb so'rash yetmaydi — u yana ehtimolli javob yozadi. Ishonchli manba (darslik, ensiklopediya, rasmiy sayt) bilan solishtiring.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "AI javobini qanday tekshirasiz?",
+        "variantlar": [
+          "Ishonchli manbalar bilan solishtirib",
+          "AI'dan «ishonchingiz komilmi?» deb so'rab",
+          "Tekshirish shart emas"
+        ],
+        "togri": 0
+      }
+    }
+  ],
+  "faktlar": [
+    "«Token» — so'z yoki so'z bo'lagi: o'zbekcha uzun so'zlar ko'pincha bir nechta tokenga bo'linadi.",
+    "Katta til modellari internetdagi trillionlab so'zdan o'rgangan.",
+    "«Temperatura» sozlamasi modelning kam ehtimolli so'zlarni qanchalik tez-tez tanlashini boshqaradi."
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "id": "html",
+  "tur": "lab",
+  "modul": "web",
+  "daraja": "m1011",
+  "daqiqa": 12,
+  "sarlavha": "HTML: sahifa skeleti",
+  "vaziyat": "Har bir veb-sahifa — oddiy matnli fayl. Brauzer uni o'qib, sarlavha, matn va rasmlarga aylantiradi. Bugun o'z sahifangizni yozasiz: chapda kod, o'ngda natija — jonli!",
+  "goya": "HTML — sahifa tuzilishi: teglar (<h1>, <p>, <ul>, <a>) brauzerga «bu sarlavha», «bu xatboshi», «bu havola» deydi. Teg ochiladi va yopiladi: <p>…</p>. Brauzer xatoni kechirimli, lekin to'g'ri yozilgan HTML hamma joyda bir xil ko'rinadi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Kodga <h1>Salom!</h1> qatorini qo'shing va o'ng tomonda nima o'zgarishini ko'ring.",
+      "izoh": "<h1> — eng katta sarlavha (h1…h6 gacha bor). Teg ochiladi <h1> va yopiladi </h1> — orasidagi matn sarlavha bo'ladi.",
+      "vidjet": {
+        "tur": "html",
+        "boshlangich": "<p>Bu mening birinchi sahifam.</p>\n",
+        "talablar": [
+          {
+            "tur": "teg",
+            "teg": "h1",
+            "nom": "Sahifada <h1> sarlavha bor"
+          }
+        ],
+        "yechim": "<h1>Salom!</h1>\n<p>Bu mening birinchi sahifam.</p>\n"
+      }
+    },
+    {
+      "id": "2",
+      "matn": "Sevimli mevalaringiz ro'yxatini tuzing: <ul> ichida bir nechta <li>. Ro'yxatda «olma» bo'lsin.",
+      "izoh": "<ul> — tartibsiz ro'yxat (nuqtali), <li> — uning bandi. Raqamli ro'yxat uchun <ol> ishlatiladi.",
+      "vidjet": {
+        "tur": "html",
+        "boshlangich": "<h1>Sevimli mevalarim</h1>\n",
+        "talablar": [
+          {
+            "tur": "teg",
+            "teg": "ul",
+            "nom": "<ul> ro'yxat bor"
+          },
+          {
+            "tur": "teg",
+            "teg": "li",
+            "matn": "olma",
+            "nom": "Ro'yxatda «olma» bor"
+          }
+        ],
+        "yechim": "<h1>Sevimli mevalarim</h1>\n<ul>\n  <li>olma</li>\n  <li>anor</li>\n</ul>\n"
+      }
+    },
+    {
+      "id": "3",
+      "matn": "Havola qo'shing: <a href=\"https://uz.wikipedia.org\">Vikipediya</a>",
+      "izoh": "<a> — havola, href — qayerga olib borishi. Internet aynan shu havolalar tufayli «to'r» (web): sahifalar bir-biriga bog'langan.",
+      "vidjet": {
+        "tur": "html",
+        "boshlangich": "<h1>Foydali saytlar</h1>\n<p>Bu yerga havola qo'shing:</p>\n",
+        "talablar": [
+          {
+            "tur": "teg",
+            "teg": "a",
+            "nom": "<a> havola bor"
+          }
+        ],
+        "yechim": "<h1>Foydali saytlar</h1>\n<p><a href=\"https://uz.wikipedia.org\">Vikipediya</a></p>\n"
+      }
+    },
+    {
+      "id": "4",
+      "matn": "HTML nima?",
+      "izoh": "HTML — dasturlash tili emas, belgilash tili: u hisoblamaydi, faqat «nima qayerda» ekanini aytadi. Ko'rinish — CSS, harakat — JavaScript ishi.",
+      "vidjet": {
+        "tur": "tanlov",
+        "savol": "HTML nima?",
+        "variantlar": [
+          "Dasturlash tili",
+          "Sahifa tuzilishini belgilovchi til (teglar)",
+          "Rasm formati"
+        ],
+        "togri": 1
+      }
+    }
+  ],
+  "faktlar": [
+    "Birinchi veb-sahifa 1991-yilda yaratilgan va hali ham ochiladi: info.cern.ch.",
+    "Istalgan saytda Ctrl+U bosib, uning HTML kodini ko'rishingiz mumkin.",
+    "HTML — «HyperText Markup Language», ya'ni gipermatnni belgilash tili."
+  ]
+}

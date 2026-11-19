@@ -77,9 +77,18 @@ export function konfetti(manba?: { x: number; y: number }): void {
     ),
   ];
 
+  // Boshqa sahifaga o'tilsa, konfetti o'sha zahoti yo'qoladi (yangi sahifaga "oqib" o'tmasin).
+  let toxtadi = false;
+  const toxtat = () => {
+    toxtadi = true;
+    canvas.remove();
+  };
+  window.addEventListener('hashchange', toxtat, { once: true });
+
   const boshi = performance.now();
   let oldingi = boshi;
   const kadr = (vaqt: number) => {
+    if (toxtadi) return;
     // Kadr tezligidan qat'i nazar bir xil tezlik (60 fps ga nisbatan).
     const k = Math.min(3, (vaqt - oldingi) / 16.7);
     oldingi = vaqt;
@@ -110,7 +119,10 @@ export function konfetti(manba?: { x: number; y: number }): void {
       ctx.restore();
     }
     if (t < 1) requestAnimationFrame(kadr);
-    else canvas.remove();
+    else {
+      window.removeEventListener('hashchange', toxtat);
+      canvas.remove();
+    }
   };
   requestAnimationFrame(kadr);
 }

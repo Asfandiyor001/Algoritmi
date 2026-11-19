@@ -1,0 +1,59 @@
+{
+  "id": "piksel-rang",
+  "tur": "lab",
+  "modul": "kompyuter-ichida",
+  "daraja": "m56",
+  "daqiqa": 12,
+  "sarlavha": "Rasm piksellardan iborat: rangni kodla",
+  "vaziyat": "Telefoningizdagi rasmni juda katta qilib kattalashtirsangiz, u mayda kvadratchalarga bo'linib ketadi. Bu kvadratchalar — piksellar. Keling, o'zimiz piksellardan rasm chizamiz!",
+  "goya": "Rasm — piksellar to'ri. Oq-qora rasmda har piksel 1 bit. Rangli rasmda har piksel 3 ta son: qizil, yashil, ko'k (RGB), har biri 1 bayt. Shuning uchun rasm fayllari katta bo'ladi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Kataklarni bosib, namunadagi yurakni chizing. Bo'yalgan katak = 1, bo'sh = 0.",
+      "izoh": "Har bir katak — piksel. Oq-qora rasmda piksel faqat 1 bit: bo'yalgan (1) yoki bo'sh (0). O'ngdagi qatorlar — kompyuter shu rasmni xotirada qanday saqlashi.",
+      "vidjet": { "tur": "piksel", "maqsad": [".#.#.", "#####", "#####", ".###.", "..#.."] }
+    },
+    {
+      "id": "2",
+      "matn": "Savol: 5×5 o'lchamli oq-qora rasm necha bit egallaydi?",
+      "izoh": "5 × 5 = 25 piksel, har biri 1 bit → 25 bit. Rasm qancha katta bo'lsa, shuncha ko'p bit kerak.",
+      "vidjet": { "tur": "tanlov", "savol": "5×5 oq-qora rasm = ? bit", "variantlar": ["5", "10", "25"], "togri": 2 }
+    },
+    {
+      "id": "3",
+      "matn": "Endi kattaroq rasm: uycha chizing!",
+      "izoh": "6 × 6 = 36 bit. Haqiqiy fotosuratda esa millionlab piksel bo'ladi: «12 megapiksel» kamera — 12 million piksel degani.",
+      "vidjet": { "tur": "piksel", "maqsad": ["..##..", ".####.", "######", ".#..#.", ".#..#.", ".####."] }
+    },
+    {
+      "id": "4",
+      "matn": "Ekrandagi har piksel ichida 3 ta mitti chiroq bor: qizil, yashil, ko'k. Slayderlar bilan QIZIL rang yasang.",
+      "izoh": "Qizil = R 255, G 0, B 0. Har bir rang 0 dan 255 gacha — ya'ni har biri bitta bayt! RGB — inglizcha Red, Green, Blue.",
+      "vidjet": { "tur": "rang", "nom": "Qizil", "maqsad": [255, 0, 0], "aniqlik": 40 }
+    },
+    {
+      "id": "5",
+      "matn": "Endi SARIQ yasang. Maslahat: bo'yoqlar kabi emas — yorug'lik boshqacha aralashadi!",
+      "izoh": "Kutilmagan natija: qizil + yashil yorug'lik = sariq! Bo'yoqlarda bunday bo'lmaydi, lekin ekran yorug'lik chiqaradi va yorug'lik ranglari boshqacha qo'shiladi.",
+      "vidjet": { "tur": "rang", "nom": "Sariq", "maqsad": [255, 255, 0], "aniqlik": 40 }
+    },
+    {
+      "id": "6",
+      "matn": "Binafsha rang yasang. Qaysi ikkita chiroq kerak?",
+      "izoh": "Binafsha = qizil + ko'k, ikkalasi o'rtacha yorqinlikda. Uchala chiroqni turli kuchda yoqib, ekran 16 milliondan ortiq rang yasaydi: 256 × 256 × 256.",
+      "vidjet": { "tur": "rang", "nom": "Binafsha", "maqsad": [128, 0, 128], "aniqlik": 45 }
+    },
+    {
+      "id": "7",
+      "matn": "Savol: bitta rangli piksel necha bayt? (R, G, B — har biri bir bayt)",
+      "izoh": "3 bayt. Full HD rasm ~2 million piksel × 3 bayt ≈ 6 megabayt. Fayllarni kichraytirish uchun JPEG va PNG kabi siqish usullari ishlatiladi.",
+      "vidjet": { "tur": "tanlov", "savol": "1 ta rangli piksel = ? bayt", "variantlar": ["1", "3", "8"], "togri": 1 }
+    }
+  ],
+  "faktlar": [
+    "«Piksel» — inglizcha «picture element» (rasm bo'lagi) so'zlaridan yasalgan.",
+    "Ekranga lupa bilan qarasangiz, har pikseldagi qizil, yashil va ko'k chiroqchalarni ko'rasiz.",
+    "Eski o'yinlardagi «pikselli» qahramonlar bor-yo'g'i 16×16 yoki 32×32 pikseldan iborat bo'lgan."
+  ]
+}

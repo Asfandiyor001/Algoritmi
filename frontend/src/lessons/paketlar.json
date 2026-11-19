@@ -217,22 +217,26 @@
     {
       "id": "q1",
       "savol": "Nega katta fayl paketlarga bo'linadi?",
-      "variantlar": ["Xato bo'lsa faqat kichik bo'lak qayta yuboriladi", "Fayl chiroyliroq ko'rinadi", "Paketlar bepul yuboriladi"]
+      "variantlar": ["Xato bo'lsa faqat kichik bo'lak qayta yuboriladi", "Fayl chiroyliroq ko'rinadi", "Paketlar bepul yuboriladi"],
+      "togri": 0
     },
     {
       "id": "q2",
       "savol": "Paketlar aralash tartibda kelsa nima bo'ladi?",
-      "variantlar": ["Rasm butunlay buziladi", "Tartib raqami bo'yicha qayta yig'iladi", "Hammasi boshidan yuboriladi"]
+      "variantlar": ["Rasm butunlay buziladi", "Tartib raqami bo'yicha qayta yig'iladi", "Hammasi boshidan yuboriladi"],
+      "togri": 1
     },
     {
       "id": "q3",
       "savol": "Paket sarlavhasida nima bo'lmaydi?",
-      "variantlar": ["Qabul qiluvchining IP manzili", "Tartib raqami", "Yuboruvchining paroli"]
+      "variantlar": ["Qabul qiluvchining IP manzili", "Tartib raqami", "Yuboruvchining paroli"],
+      "togri": 2
     },
     {
       "id": "q4",
       "savol": "Jonli videoqo'ng'iroqda yo'qolgan paket ko'pincha qayta yuborilmaydi. Nega?",
-      "variantlar": ["Kechikkan kadr endi kerak emas", "Video paketlari hech qachon yo'qolmaydi", "Qayta yuborish taqiqlangan"]
+      "variantlar": ["Kechikkan kadr endi kerak emas", "Video paketlari hech qachon yo'qolmaydi", "Qayta yuborish taqiqlangan"],
+      "togri": 0
     }
   ],
   "faktlar": [

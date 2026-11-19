@@ -29,16 +29,25 @@ Har bir mavzu jonli diagramma yoki tajriba ko'rinishida beriladi: o'quvchi avval
 
 ## Holat
 
-🚧 **1-bosqich (dvigatel) tayyor, birinchi dars to'liq, Telegram orqali kirish ishlaydi.**
+🚧 **Hozir sayt faqat frontend bilan ishlaydi:** ro'yxatsiz, hammasi ochiq va bepul. Natijalar brauzerda (localStorage) saqlanadi.
+
+> **Backend vaqtincha uzilgan.** `backend/` kodi (FastAPI, Telegram orqali kirish) o'chirilmagan va testlari o'tadi, lekin sayt unga murojaat qilmaydi.
+> Qayta yoqish uchun [qobiq.ts](frontend/src/ui/qobiq.ts) dagi izohga qarang: `profilJoyi()` va `profilniUla()` ni qaytarish va [vite.config.ts](frontend/vite.config.ts) dagi `/api` proxy'ni tiklash kifoya.
 
 - **SVG sahna dvigateli** ([frontend/src/engine/scene.ts](frontend/src/engine/scene.ts)): obyektlar, aloqalar, paketlar, silliq o'tish va kamera
 - **Ekranlar**: landing (jonli dars namunasi bilan) → vaziyat va taxmin → qadamlar → yakun (AI-bo'lim, topshiriqlar, test, faktlar)
 - **Dizayn tizimi**: Samarqand koshinlari palitrasi, girih naqshi, Unbounded + Manrope (CDN'siz), yorug'/qorong'i tema
 - **Dars**: [telegram-xabar.json](frontend/src/lessons/telegram-xabar.json), 11 qadam
-- **Dars tekshiruvchisi**: xato JSON yoki testga yozilgan to'g'ri javob build'ni to'xtatadi
-- **Telegram orqali kirish** (ixtiyoriy): parolsiz, telefon raqamsiz. Bot tasdiqlaydi, sessiya HttpOnly cookie'da
+- **Dars tekshiruvchisi**: xato JSON yoki mavjud bo'lmagan variantga ishora qilgan test javobi (`togri`) build'ni to'xtatadi
+- **Test** darhol brauzerda tekshiriladi: xato bo'lsa qayta urinish, hammasi to'g'ri bo'lsa konfetti
+- **Telegram orqali kirish**: kodi `backend/` da tayyor, hozircha o'chirilgan
+- **11 ta modul, 37 ta dars** — uchta dars turi:
+  - **Sahna** (`frontend/src/engine/scene.ts`): 3D tarmoq sahnasi — Internet, Katta tizimlar
+  - **Robot o'yini** (`ui/robot.ts`): bloklardan dastur tuzish — Algoritmlar olami
+  - **Laboratoriya** (`ui/lab.ts`, `ui/vidjetlar.ts`): 17 ta interaktiv vidjet — bitlar, piksel, RGB, kod bajarish, son topish, saralash, parol, fishing, Sezar, SQL, neyron, til modeli, HTML/CSS, xesh-jadval…
+- Har bir dars build paytida tekshiriladi: robot yechimi, neyron og'irliklari, SQL va HTML yechimlari haqiqatan ishlashi isbotlanadi
 
-Hali yo'q: javoblarni serverda tekshirish, ball va reyting, generatorlar, qolgan 6 ta dars.
+Hali yo'q: hisob va qurilmalar orasida sinxronlash, ball va reyting, kunlik challenge, ovozli AI ustoz (`docs/ai-ustoz-arxitektura.md`).
 
 ---
 
@@ -72,7 +81,7 @@ Algoritmi/
 └── docs/                      # Konsepsiya va hisobotlar
 ```
 
-Ishlab chiqishda sayt `http://localhost:5173` da ochiladi. Vite `/api` so'rovlarini backendga (`127.0.0.1:8000`) uzatadi, shuning uchun cookie bitta manzilda ishlaydi.
+Ishlab chiqishda sayt `http://localhost:5173` da ochiladi. Hozir backend kerak emas: `npm run dev` yetarli. Backend qayta yoqilganda Vite `/api` so'rovlarini `127.0.0.1:8000` ga uzatadi (cookie bitta manzilda ishlashi uchun).
 
 **Manzillar:** `#/` bosh sahifa · `#/<dars>` taxmin · `#/<dars>/<n>` n-qadam · `#/<dars>/yakun` yakun.
 
@@ -92,7 +101,17 @@ Ishlab chiqishda API hujjati: http://127.0.0.1:8000/api/docs
 
 ## Tez boshlash
 
-Ikkita terminal kerak.
+Hozircha faqat frontend kerak:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Brauzerda oching: **http://localhost:5173**
+
+**Backend (hozircha o'chirilgan, kelajak uchun).** Uni yoqqaningizda ikkita terminal kerak bo'ladi.
 
 **1-terminal — backend:**
 
@@ -115,7 +134,7 @@ npm run dev
 
 Brauzerda oching: **http://localhost:5173**
 
-> Backend ishlamasa ham sayt va darslar ochiladi. Faqat "Kirish" tugmasi "server ishlamayapti" deb aytadi.
+> Kirish yoqilgan holatda ham backend ishlamasa sayt va darslar ochiladi. Faqat "Kirish" tugmasi "server ishlamayapti" deb aytadi.
 
 ---
 

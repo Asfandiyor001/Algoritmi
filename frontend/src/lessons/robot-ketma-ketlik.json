@@ -1,0 +1,67 @@
+{
+  "id": "robot-ketma-ketlik",
+  "tur": "robot",
+  "modul": "algoritmlar-olami",
+  "daraja": "m14",
+  "daqiqa": 10,
+  "sarlavha": "Robot yo'l topadi: ketma-ketlik",
+  "vaziyat": "Bu — robot Bit. U juda aqlli, lekin o'zi hech narsa qilmaydi: faqat siz bergan buyruqlarni bajaradi. Bitni yulduzga olib boring!",
+  "goya": "Algoritm — aniq buyruqlar ketma-ketligi. Tartib muhim: buyruqlar o'rni almashsa, robot boshqa joyga borib qoladi.",
+  "bosqichlar": [
+    {
+      "id": "1",
+      "matn": "Yulduz juda yaqin! Bitni 2 qadam oldinga yuring.",
+      "xarita": ["#####", "#R.*#", "#####"],
+      "yon": "ong",
+      "bloklar": ["oldinga"],
+      "eng_kam": 2,
+      "yechim": ["oldinga", "oldinga"],
+      "maslahat": "Har bir ⬆ bloki — bitta qadam. Yulduzgacha nechta katak bor?"
+    },
+    {
+      "id": "2",
+      "matn": "Bu safar yo'l uzunroq. Kataklarni sanang!",
+      "xarita": ["#######", "#R...*#", "#######"],
+      "yon": "ong",
+      "bloklar": ["oldinga"],
+      "eng_kam": 4,
+      "yechim": ["oldinga", "oldinga", "oldinga", "oldinga"],
+      "maslahat": "Robotdan yulduzgacha barmog'ingiz bilan sanang: 1, 2, 3, 4."
+    },
+    {
+      "id": "3",
+      "matn": "Yo'l burilyapti! Kerakli joyda Bitni o'ngga buring.",
+      "xarita": ["#####", "#R..#", "###.#", "###*#", "#####"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "chapga", "ongga"],
+      "eng_kam": 5,
+      "yechim": ["oldinga", "oldinga", "ongga", "oldinga", "oldinga"],
+      "maslahat": "Burilish joyida turmaydi — avval burilish joyigacha yuring, keyin buring."
+    },
+    {
+      "id": "4",
+      "matn": "Zinapoya! Bit goh o'ngga, goh chapga burilishi kerak.",
+      "xarita": ["#######", "#R.####", "##..###", "###..*#", "#######"],
+      "yon": "ong",
+      "bloklar": ["oldinga", "chapga", "ongga"],
+      "eng_kam": 10,
+      "yechim": ["oldinga", "ongga", "oldinga", "chapga", "oldinga", "ongga", "oldinga", "chapga", "oldinga", "oldinga"],
+      "maslahat": "Bit qayoqqa qarab turganini kuzating: «chapga» va «o'ngga» robotning o'ziga nisbatan."
+    },
+    {
+      "id": "5",
+      "matn": "Oldinda devor bor. Bitni devorni aylanib o'tishga o'rgating!",
+      "xarita": ["#######", "#.....#", "#.###.#", "#R###*#", "#######"],
+      "yon": "yuqori",
+      "bloklar": ["oldinga", "chapga", "ongga"],
+      "eng_kam": 10,
+      "yechim": ["oldinga", "oldinga", "ongga", "oldinga", "oldinga", "oldinga", "oldinga", "ongga", "oldinga", "oldinga"],
+      "maslahat": "Avval tepaga chiqing, keyin o'ngga, oxirida pastga tushing."
+    }
+  ],
+  "faktlar": [
+    "«Algoritm» so'zi IX asrda yashagan xorazmlik olim Muhammad al-Xorazmiy ismidan kelib chiqqan.",
+    "Kompyuter ham xuddi Bit kabi: faqat dastur yozilgan buyruqlarni, aynan yozilgan tartibda bajaradi.",
+    "Choy damlash, tish yuvish, maktabga borish yo'li — bularning hammasi algoritm."
+  ]
+}
